@@ -24,7 +24,8 @@
 		<tbody>
 			@foreach (var v in bp.GetVehicles())
 			{
-				<tr>					
+				<tr>				
+									
 					<td><strong>@v.RegNo</strong> </td>
 					<td>@v.Make</td>
 					<td>@v.Odometer</td>
@@ -71,7 +72,7 @@
 		<tbody>
 			@foreach (var b in bp.GetBookings())
 			{
-				<tr>
+				<tr>				
 					<td><strong>@b.RegNo</strong> </td>
 					<td>@b.Customer.LastName @b.Customer.FirstName (@b.Customer.SSN)</td>
 					<td>@b.KmReneted</td>
@@ -129,7 +130,7 @@
 		<tbody>
 			@foreach (var p in bp.GetPersons())
 			{
-				<tr>
+				<tr>												
 					<td><strong>@p.SSN</strong></td>
 					<td>@p.LastName</td>
 					<td>@p.FirstName</td>

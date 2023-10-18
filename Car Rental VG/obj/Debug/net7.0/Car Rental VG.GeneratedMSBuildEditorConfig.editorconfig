@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Car_Rental_VG
 build_property.RootNamespace = Car_Rental_VG
-build_property.ProjectDir = C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental VG\
+build_property.ProjectDir = C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental VG
+build_property.MSBuildProjectDirectory = C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/App.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/Pages/Counter.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/Pages/FetchData.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/Shared/SurveyPrompt.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/_Imports.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/Pages/Index.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-62d6wr0rml
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/Shared/MainLayout.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-qu7e0xbz5t
 
-[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment VG/Car Rental VG/Shared/NavMenu.razor]
+[C:/Users/Tomas/Documents/GitHub/Car Rental Assignment-VG/Car Rental VG/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-mhidv8x0il

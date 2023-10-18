@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Business\\Car Rental.Business.csproj",
+      "projectUniqueName": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
       "projectName": "Car Rental.Business",
-      "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Business\\Car Rental.Business.csproj",
+      "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
       "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Business\\obj\\",
+      "outputPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -72,11 +72,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Common\\Car Rental.Common.csproj": {
-              "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Common\\Car Rental.Common.csproj"
+            "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj": {
+              "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj"
             },
-            "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Data\\Car Rental.Data.csproj": {
-              "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental.Data\\Car Rental.Data.csproj"
+            "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj": {
+              "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jfYrGM18gsnNQ5WDnso8z8siadYgbhrdtvHPfVAOu5Q7P+dMQhSwL/PVnvopfVbeS1/j/p4YUvu+tl0gsqobcQ==",
+  "dgSpecHash": "nMtVKMfJzkNYBk+Sk5dOGTxP5DRCbj/ZlEXqgxwIMhqMwgleD4C/qyqtJea2aVOjz+578b7qnkuJcfEFC1hzOQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment VG\\Car Rental VG\\Car Rental VG.csproj",
+  "projectFilePath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Car Rental VG.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tomas\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.12\\microsoft.aspnetcore.authorization.7.0.12.nupkg.sha512",
     "C:\\Users\\Tomas\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.12\\microsoft.aspnetcore.components.7.0.12.nupkg.sha512",
