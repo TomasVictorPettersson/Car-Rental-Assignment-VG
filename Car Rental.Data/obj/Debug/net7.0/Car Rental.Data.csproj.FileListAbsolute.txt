@@ -1,0 +1,15 @@
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\bin\Debug\net7.0\Car Rental.Data.deps.json
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\bin\Debug\net7.0\Car Rental.Data.dll
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\bin\Debug\net7.0\Car Rental.Data.pdb
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\bin\Debug\net7.0\Car Rental.Common.dll
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\bin\Debug\net7.0\Car Rental.Common.pdb
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.csproj.AssemblyReference.cache
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.AssemblyInfoInputs.cache
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.AssemblyInfo.cs
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.csproj.CoreCompileInputs.cache
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.csproj.CopyComplete
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.dll
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\refint\Car Rental.Data.dll
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\Car Rental.Data.pdb
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment VG\Car Rental.Data\obj\Debug\net7.0\ref\Car Rental.Data.dll
