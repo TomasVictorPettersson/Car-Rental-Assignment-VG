@@ -1,14 +1,15 @@
 /* /Pages/Index.razor.rz.scp.css */
-.row table[b-62d6wr0rml]{  
-    border: 1px black solid;
-    margin-left: 1% ;
-    width : 70%    
-}
-.row table thead[b-62d6wr0rml]
+.row table[b-62d6wr0rml] 
 {
-    width : 85% !important;
-    color : gray;
-    background-color : black;    
+    border: 1px black solid;
+    margin-left: 1%;
+    width: 70%
+}
+.row table thead[b-62d6wr0rml] 
+{
+    color: gray;
+    background-color: black;
+
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-qu7e0xbz5t] {
