@@ -10,7 +10,7 @@
 	<h6>Vehicles</h6>
 	<table class="table table-borderless table-hover">
 		<thead>
-			<tr>			
+			<tr>
 				<th>RegNo</th>
 				<th>Make</th>
 				<th>Odometer</th>
@@ -24,8 +24,7 @@
 		<tbody>
 			@foreach (var v in bp.GetVehicles())
 			{
-				<tr>				
-									
+				<tr>
 					<td><strong>@v.RegNo</strong> </td>
 					<td>@v.Make</td>
 					<td>@v.Odometer</td>
@@ -72,7 +71,7 @@
 		<tbody>
 			@foreach (var b in bp.GetBookings())
 			{
-				<tr>				
+				<tr>
 					<td><strong>@b.RegNo</strong> </td>
 					<td>@b.Customer.LastName @b.Customer.FirstName (@b.Customer.SSN)</td>
 					<td>@b.KmReneted</td>
@@ -119,7 +118,7 @@
 @*Tabell för kunder*@
 <div class="row">
 	<h6>Customers</h6>
-	<table class="table table-hover" style="width : 30%">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>SSN</th>
@@ -128,9 +127,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td><input @bind="bp.SSNInput" placeholder="SSN" /></td>
+				<td><input @bind="bp.LastNameInput" placeholder="Last Name" /></td>
+				<td><input @bind="bp.FirstNameInput" placeholder="First Name" /></td>
+				<td><button @onclick="(() => bp.AddPerson())">Add</button> </td>
+			</tr>
 			@foreach (var p in bp.GetPersons())
 			{
-				<tr>												
+				<tr>
 					<td><strong>@p.SSN</strong></td>
 					<td>@p.LastName</td>
 					<td>@p.FirstName</td>

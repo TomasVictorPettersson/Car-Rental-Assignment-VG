@@ -1,4 +1,5 @@
-﻿using Car_Rental.Common.Enums;
+﻿using Car_Rental.Common.Classes;
+using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 namespace Car_Rental.Business.Classes;
@@ -12,10 +13,40 @@ public class BookingProcessor
 	public BookingProcessor(IData db) => _db = db;
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
-	public IEnumerable<IPerson> GetPersons() => _db.GetPersons().OrderBy(p => p.SSN);
+	public IEnumerable<IPerson> GetPersons() => _db.GetPersons();
 	public IEnumerable<IBooking> GetBookings() => _db.GetBookings().OrderBy(x => x.RegNo);
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.GetVehicles(status).OrderBy(v => v.RegNo);
+	public string[] VehicleStatusNames => _db.VehicleStatusNames;
+	public string[] VehicleTypeNames => _db.VehicleTypeNames;
+	public int SSNInput
+	{
+		get => _db.SSNInput;
+		set
+		{
+			_db.SSNInput = value;
+		}
+	}	
+	public string? FirstNameInput
+	{
+		get => _db.FirstNameInput;
+		set
+		{
+			_db.FirstNameInput = value;
+		}
+	}
+	public string? LastNameInput
+	{
+		get => _db.LastNameInput;
+		set
+		{
+			_db.LastNameInput = value;
+		}
+	}
+	public void AddPerson() => _db.AddPerson(SSNInput,LastNameInput,FirstNameInput);
+	
+
+	
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int

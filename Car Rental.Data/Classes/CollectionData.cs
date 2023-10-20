@@ -3,7 +3,6 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 using System.Linq.Expressions;
-
 namespace Car_Rental.Data.Classes;
 public class CollectionData : IData
 {
@@ -16,7 +15,9 @@ public class CollectionData : IData
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
 	public int NextVehicleId => _vehicles.Count.Equals(0) ? 1 : _vehicles.Max(x => x.Id) + 1;
 	public int NextBookingId => _bookings.Count.Equals(0) ? 1 : _bookings.Max(x => x.Id) + 1;
-
+	public int SSNInput { get; set; }
+	public string? FirstNameInput { get; set; } = null;
+	public string? LastNameInput { get; set; } = null;	
 	public CollectionData() => SeedData();
 	/* Metoden SeedData lägger till data till 
 	 tidigare nämnda listor. */
@@ -64,27 +65,28 @@ public class CollectionData : IData
 	public IEnumerable<IPerson> GetPersons() => _persons;
 	public IEnumerable<IBooking> GetBookings() => _bookings;
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default) => _vehicles;
-
+	public void AddPerson(int sSN,string lastName, string firstName)
+	{		
+		var customerId = NextPersonId;
+		var customer = new Customer(customerId, sSN , lastName, firstName);
+		_persons.Add(customer);
+	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
 	{
 		throw new NotImplementedException();
 	}
-
 	public T? Single<T>(Expression<Func<T, bool>>? expression)
 	{
 		throw new NotImplementedException();
 	}
-
 	public void Add<T>(T item)
 	{
 		throw new NotImplementedException();
 	}
-
 	public IBooking RentVehicle(int vehicleId, int customerId)
 	{
 		throw new NotImplementedException();
 	}
-
 	public IBooking ReturnVehicle(int vehicleId)
 	{
 		throw new NotImplementedException();

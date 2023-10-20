@@ -1,4 +1,5 @@
-﻿using Car_Rental.Common.Enums;
+﻿using Car_Rental.Common.Classes;
+using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using System.Linq.Expressions;
 namespace Car_Rental.Data.Interfaces;
@@ -10,6 +11,10 @@ public interface IData
 	int NextVehicleId { get; }
 	int NextPersonId { get; }
 	int NextBookingId { get; }
+	int SSNInput { get; set; }
+	string? FirstNameInput { get; set; }
+	string? LastNameInput { get; set; }
+	void AddPerson(int sSN, string lasttName, string firstName);
 	IBooking RentVehicle(int vehicleId, int customerId);
 	IBooking ReturnVehicle(int vehicleId);
 	// Default Interface Methods
