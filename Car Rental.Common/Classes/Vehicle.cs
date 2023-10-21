@@ -25,7 +25,7 @@ public class Vehicle : IVehicle
 		{
 			VehicleStatus = VehicleStatuses.Unknown;
 		}
-	}
+	}	
 	public Vehicle(int id, string regNo, string make, int odometer, double costPerKm,
 		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, Odometer, CostPerKm, VehicleType, CostPerDay) =

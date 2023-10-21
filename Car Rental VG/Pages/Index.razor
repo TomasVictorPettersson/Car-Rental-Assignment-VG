@@ -22,6 +22,24 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td><input @bind=bp.RegNoInput placeholder="RegNo" /> </td>
+				<td><input @bind=bp.MakeInput placeholder="Make" /> </td>
+				<td><input @bind=bp.OdoMeterInput /></td>
+				<td><input @bind=bp.CostPerKmInput /></td>
+				<td>
+					@*	<InputSelect @bind-Value="bp.VehicleTypeNames">
+					@foreach (var gender in Enum.GetValues(typeof(VehicleTypes)))
+					{
+					<option value="@gender">@gender</option>
+					}
+					</InputSelect>*@
+
+				</td>
+
+				<td></td>
+				<td><button>Add</button> </td>
+			</tr>
 			@foreach (var v in bp.GetVehicles())
 			{
 				<tr>
