@@ -19,6 +19,7 @@
 				<th>$ Day</th>
 				<th>Action</th>
 				<th>Status</th>
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -28,15 +29,13 @@
 				<td><input @bind=bp.OdoMeterInput /></td>
 				<td><input @bind=bp.CostPerKmInput /></td>
 				<td>
-					@*	<InputSelect @bind-Value="bp.VehicleTypeNames">
-					@foreach (var gender in Enum.GetValues(typeof(VehicleTypes)))
+					<select @bind="bp.VehicleType">					
+					@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
 					{
-					<option value="@gender">@gender</option>
+					<option> @vt</option>
 					}
-					</InputSelect>*@
-
+					</select>
 				</td>
-
 				<td></td>
 				<td><button>Add</button> </td>
 			</tr>
@@ -45,7 +44,7 @@
 				<tr>
 					<td><strong>@v.RegNo</strong> </td>
 					<td>@v.Make</td>
-					<td>@v.Odometer</td>
+					<td>@v.OdoMeter</td>
 					<td>@v.CostPerKm</td>
 					<td>@v.VehicleType</td>
 					<td>@v.CostPerDay</td>
@@ -150,7 +149,7 @@
 				<td><input @bind="bp.SSNInput" placeholder="SSN" /></td>
 				<td><input @bind="bp.LastNameInput" placeholder="Last Name" /></td>
 				<td><input @bind="bp.FirstNameInput" placeholder="First Name" /></td>
-				<td><button @onclick="(() => bp.AddPerson())">Add</button> </td>
+				<td><button @onclick="(() => bp.AddCustomer())">Add</button> </td>
 			</tr>
 			@foreach (var p in bp.GetPersons())
 			{

@@ -1,4 +1,5 @@
-﻿using Car_Rental.Common.Enums;
+﻿using Car_Rental.Common.Classes;
+using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 namespace Car_Rental.Business.Classes;
@@ -12,10 +13,6 @@ public class BookingProcessor
 	public BookingProcessor(IData db) => _db = db;
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
-	public IEnumerable<IPerson> GetPersons() => _db.GetPersons();
-	public IEnumerable<IBooking> GetBookings() => _db.GetBookings().OrderBy(x => x.RegNo);
-	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
-		=> _db.GetVehicles(status).OrderBy(v => v.RegNo);		
 	public string[] VehicleStatusNames => _db.VehicleStatusNames;
 	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public string? RegNoInput
@@ -38,6 +35,11 @@ public class BookingProcessor
 		get => _db.CostPerKmInput;
 		set => _db.CostPerKmInput = value;
 	}
+	public VehicleTypes VehicleType
+	{
+		get => _db.VehicleType;
+		set => _db.VehicleType = value;
+	}
 	public int? SSNInput
 	{
 		get => _db.SSNInput;
@@ -53,8 +55,18 @@ public class BookingProcessor
 		get => _db.FirstNameInput;
 		set => _db.FirstNameInput = value;
 	}
-
-	public void AddPerson() => _db.AddPerson(SSNInput, LastNameInput, FirstNameInput);
+	public void AddCustomer(int sSN, string lastName, string firstName)
+	{
+		var customerId = _db.NextPersonId;
+		var customer = new Customer(customerId, sSN, lastName, firstName);
+		_db.Add(customer);
+	}
+	public void AddVehicle(string regNo, string make, int odoMeter, double costPerKm, VehicleTypes vehicleType)
+	{
+		var vehicleId = _db.NextVehicleId;
+		var vehicle = new Vehicle(vehicleId, regNo, make, odoMeter, costPerKm, vehicleType);
+		_db.Add(vehicle);
+	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int
@@ -63,11 +75,7 @@ public class BookingProcessor
 	// Använd Task.Delay för att simulera tiden det tar
 	// att hämta data från ett API.
 	}
-	public IBooking ReturnVehicle(int vehicleId, double ditance) { }
-	public void AddVehicle(string make, string registrationNumber, double
-	odometer, double costKm, VehicleStatuses status, VehicleTypes type) { }
-	public void AddCustomer(string socialSecurityNumber, string firstName, string
-	lastName) { }
+	public IBooking ReturnVehicle(int vehicleId, double ditance) { }	
 	// Calling Default Interface Methods
 	public string[] VehicleStatusNames => _db.VehicleStatusNames;
 	public string[] VehicleTypeNames => _db.VehicleTypeNames;

@@ -9,7 +9,7 @@ public class CollectionData : IData
 	// Listor som sparar data av de olika interfacen.
 	readonly List<IPerson> _persons = new();
 	readonly List<IVehicle> _vehicles = new();
-	readonly List<IBooking> _bookings = new();
+	readonly List<IBooking> _bookings = new();		
 	/* Skapar man en instans av CollectionData
 	 anropas metoden SeedData. */
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
@@ -19,9 +19,10 @@ public class CollectionData : IData
 	public string? MakeInput { get; set; } = null;
 	public int OdoMeterInput { get; set; }
 	public double CostPerKmInput { get; set; }
+	public VehicleTypes VehicleType { get; set; }
 	public int? SSNInput { get; set; } = null;
 	public string? FirstNameInput { get; set; } = null;
-	public string? LastNameInput { get; set; } = null;
+	public string? LastNameInput { get; set; } = null;	
 	public CollectionData() => SeedData();
 	/* Metoden SeedData lägger till data till 
 	 tidigare nämnda listor. */
@@ -54,26 +55,15 @@ public class CollectionData : IData
 			30000, 0.5, VehicleTypes.Motorcycle, 50);
 		_vehicles.Add(vehicleFive);
 		var bookingOneId = NextBookingId;
-		var bookingOne = new Booking(bookingOneId, vehicleThree.RegNo, customerOne, vehicleThree.Odometer,
+		var bookingOne = new Booking(bookingOneId, vehicleThree.RegNo, customerOne, vehicleThree.OdoMeter,
 			new DateTime(2023, 9, 20));
 		bookingOne.ReturnVehicle(vehicleThree);
 		_bookings.Add(bookingOne);
 		var bookingTwoId = NextBookingId;
-		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.Odometer,
+		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
 			new DateTime(2023, 9, 20), new DateTime(2023, 9, 20), 5000);
 		bookingTwo.ReturnVehicle(vehicleFour);
 		_bookings.Add(bookingTwo);
-	}
-	/*  Metoder vars syfte är att hämta data från listorna
-	    och sedan returnera alla bokningar, fordon och kunder. */
-	public IEnumerable<IPerson> GetPersons() => _persons;
-	public IEnumerable<IBooking> GetBookings() => _bookings;
-	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default) => _vehicles;
-	public void AddPerson(int? sSN, string? lastName, string? firstName)
-	{
-		var customerId = NextPersonId;
-		var customer = new Customer(customerId, (int)sSN, lastName, firstName);
-		_persons.Add(customer);
 	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
 	{
@@ -85,7 +75,7 @@ public class CollectionData : IData
 	}
 	public void Add<T>(T item)
 	{
-		throw new NotImplementedException();
+		throw new NotImplementedException();	
 	}
 	public IBooking RentVehicle(int vehicleId, int customerId)
 	{
