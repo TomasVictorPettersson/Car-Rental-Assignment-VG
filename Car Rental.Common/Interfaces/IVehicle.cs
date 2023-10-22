@@ -2,13 +2,13 @@
 namespace Car_Rental.Common.Interfaces;
 public interface IVehicle
 {
-	int Id { get; init; }
-	string RegNo { get; init;}
-	string Make { get; init; }
-	double OdoMeter { get; init; }
-	double CostPerKm { get; init; }
-	VehicleTypes VehicleType { get; init; }
-	double? CostPerDay { get; init; }
+	int Id { get; }
+	public string RegNo { get;}
+	public string Make { get;}
+	public double OdoMeter { get; }
+	public double CostPerKm { get; }
+	VehicleTypes VehicleType { get;}
+	double? CostPerDay { get; }
 	VehicleStatuses VehicleStatus { get; }
 	void ReturnVehicleStatus(BookingStatuses bookingStatus);
 }

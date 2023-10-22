@@ -1,10 +1,28 @@
 ﻿@page "/"
+@using Car_Rental.Common.Classes;
 @using Car_Rental.Common.Enums;
 @using Car_Rental.Common.Interfaces;
 @using Car_Rental.Business.Classes;
 @inject BookingProcessor bp;
 <PageTitle>Car Rental Assignment - VG</PageTitle>
 <h1>Car Rental Assignment - VG</h1>
+@*OM b.Message INTE är tomt så visas ett felmeddelande i gränsnittet
+  som är bundet till en specifik bokning. *@
+@foreach (var b in bp.GetBookings())
+{
+	@if (b.Message != string.Empty)
+	{
+		<div class="alert alert-danger" role="alert">
+			<strong>Error!</strong> @b.Message
+		</div>
+	}
+}
+@if (bp.Message != string.Empty)
+{
+	<div class="alert alert-danger" role="alert">
+		<strong>Error!</strong> @bp.Message
+	</div>
+}
 <div class="row">
 	@*Tabell för fordon*@
 	<h6>Vehicles</h6>
@@ -18,7 +36,7 @@
 				<th>Vehicle Type</th>
 				<th>$ Day</th>
 				<th>Action</th>
-				<th>Status</th>			
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,7 +46,7 @@
 				<td><input @bind=bp.OdoMeterInput /></td>
 				<td><input @bind=bp.CostPerKmInput /></td>
 				<td>
-					<select @bind="bp.VehicleType">
+					<select @bind="bp.VehicleTypeInput">
 						@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
 						{
 							<option> @vt</option>
@@ -38,7 +56,7 @@
 				<td></td>
 				<td>
 					<button @onclick="(() => bp.AddVehicle(bp.RegNoInput,bp.MakeInput,
-			    bp.OdoMeterInput,bp.CostPerKmInput,bp.VehicleType))">
+			    bp.OdoMeterInput,bp.CostPerKmInput,bp.VehicleTypeInput))">
 						Add
 					</button>
 				</td>
@@ -54,7 +72,6 @@
 					<td>@v.CostPerDay</td>
 					<td></td>
 					<td>
-						
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
 						{
 							<span class="badge bg-dark">Available</span>
@@ -125,18 +142,6 @@
 		</tbody>
 	</table>
 </div>
-@*OM b.Message INTE är tomt så visas ett felmeddelande i gränsnittet
-  som är bundet till en specifik bokning. *@
-@foreach (var b in bp.GetBookings())
-{
-	@if (b.Message != string.Empty)
-	{
-		<div class="alert alert-danger" role="alert">
-			<strong>Error!</strong> @b.Message
-		</div>
-	}
-}
-
 <br />
 @*Tabell för kunder*@
 <div class="row">
@@ -155,7 +160,12 @@
 				<td><input @bind="bp.SSNInput" placeholder="SSN" /></td>
 				<td><input @bind="bp.LastNameInput" placeholder="Last Name" /></td>
 				<td><input @bind="bp.FirstNameInput" placeholder="First Name" /></td>
-				<td><button @onclick="(() => bp.AddCustomer(bp.SSNInput,bp.LastNameInput,bp.FirstNameInput))">Add</button> </td>
+				<td>
+					<button @onclick="(() => bp.AddCustomer(bp.SSNInput,
+				 bp.LastNameInput,bp.FirstNameInput))">
+						Add
+					</button>
+				</td>
 			</tr>
 			@foreach (var p in bp.GetPersons())
 			{

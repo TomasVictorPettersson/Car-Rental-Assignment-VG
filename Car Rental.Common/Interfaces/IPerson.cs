@@ -1,8 +1,8 @@
 ﻿namespace Car_Rental.Common.Interfaces;
 public interface IPerson
 {
-	int Id { get; init; }
-	public int SSN { get; init; }
-	string LastName { get; init; }
-	string FirstName { get; init; }
+	int Id { get; }
+	public int SSN { get; }
+	public string LastName { get; }
+	public string FirstName { get; }
 }

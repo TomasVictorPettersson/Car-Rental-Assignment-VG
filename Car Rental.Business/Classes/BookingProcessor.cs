@@ -2,8 +2,6 @@
 using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
-using System.Linq.Expressions;
-
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -15,8 +13,6 @@ public class BookingProcessor
 	public BookingProcessor(IData db) => _db = db;
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
-	public string[] VehicleStatusNames => _db.VehicleStatusNames;
-	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public string? RegNoInput
 	{
 		get => _db.RegNoInput;
@@ -27,7 +23,7 @@ public class BookingProcessor
 		get => _db.MakeInput;
 		set => _db.MakeInput = value;
 	}
-	public int OdoMeterInput
+	public double OdoMeterInput
 	{
 		get => _db.OdoMeterInput;
 		set => _db.OdoMeterInput = value;
@@ -37,11 +33,13 @@ public class BookingProcessor
 		get => _db.CostPerKmInput;
 		set => _db.CostPerKmInput = value;
 	}
-	public VehicleTypes VehicleType
+	public VehicleTypes VehicleTypeInput
 	{
-		get => _db.VehicleType;
-		set => _db.VehicleType = value;
+		get => _db.VehicleTypeInput;
+		set => _db.VehicleTypeInput = value;
 	}
+	public string[] VehicleStatusNames => _db.VehicleStatusNames;
+	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public int? SSNInput
 	{
 		get => _db.SSNInput;
@@ -57,19 +55,56 @@ public class BookingProcessor
 		get => _db.FirstNameInput;
 		set => _db.FirstNameInput = value;
 	}
+	public string? Message
+	{
+		get => _db.Message;
+		set => _db.Message = value;
+	}
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
-		var customerId = _db.NextPersonId;
-		var customer = new Customer(customerId, (int)sSN, lastName, firstName);
-		_db.Add(customer);
+		Message = string.Empty;
+		try
+		{
+			if (sSN is null || lastName is null || firstName is null)
+			{
+				throw new ArgumentException("Could not add customer.");
+			}
+			var customerId = _db.NextPersonId;
+			var customer = new Customer(customerId, (int)sSN, lastName, firstName);
+			_db.Add(customer);
+		}
+		catch (ArgumentException ex)
+		{
+			Message = ex.Message;
+		}
+		SSNInput = null;
+		LastNameInput = null;
+		FirstNameInput = null;
 	}
-	public void AddVehicle(string regNo, string make, int odoMeter, double costPerKm, VehicleTypes vehicleType)
+	public void AddVehicle(string regNo, string make, double odoMeter, double costPerKm, VehicleTypes vehicleType)
 	{
-		var vehicleId = _db.NextVehicleId;
-		var vehicle = new Vehicle(vehicleId, regNo, make, odoMeter, costPerKm, vehicleType);
-		_db.Add(vehicle);
+		Message = string.Empty;
+		try
+		{
+			if (regNo is null || make is null)
+			{
+				throw new ArgumentException("Could not add vehicle.");
+			}
+			var vehicleId = _db.NextVehicleId;
+			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make, odoMeter, costPerKm, vehicleType);
+			_db.Add(vehicle);
+		}
+		catch (ArgumentException ex)
+		{
+			Message = ex.Message;
+		}
+		RegNoInput = null;
+		MakeInput = null;
+		OdoMeterInput = default;
+		CostPerKmInput = default;
+		VehicleTypeInput = default;
 	}
-	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(a));
+	public IEnumerable<IPerson> GetPersons() => _db.GetPersons();
 	public IEnumerable<IBooking> GetBookings() => _db.GetBookings();
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.GetVehicles(status);

@@ -3,8 +3,6 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 using System.Linq.Expressions;
-using System.Reflection;
-
 namespace Car_Rental.Data.Classes;
 public class CollectionData : IData
 {
@@ -19,12 +17,13 @@ public class CollectionData : IData
 	public int NextBookingId => _bookings.Count.Equals(0) ? 1 : _bookings.Max(x => x.Id) + 1;
 	public string? RegNoInput { get; set; } = null;
 	public string? MakeInput { get; set; } = null;
-	public int OdoMeterInput { get; set; }
+	public double OdoMeterInput { get; set; }
 	public double CostPerKmInput { get; set; }
-	public VehicleTypes VehicleType { get; set; }
+	public VehicleTypes VehicleTypeInput { get; set; }
 	public int? SSNInput { get; set; } = null;
-	public string? FirstNameInput { get; set; } = null;
 	public string? LastNameInput { get; set; } = null;
+	public string? FirstNameInput { get; set; } = null;
+	public string? Message { get; set; } = string.Empty;
 	public CollectionData() => SeedData();
 	/* Metoden SeedData lägger till data till 
 	 tidigare nämnda listor. */
@@ -67,6 +66,7 @@ public class CollectionData : IData
 		bookingTwo.ReturnVehicle(vehicleFour);
 		_bookings.Add(bookingTwo);
 	}
+	/*
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression) 
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
@@ -77,6 +77,7 @@ public class CollectionData : IData
 		if (expression is null) return collection.ToList();
 		return collection.Where(expression).ToList();
 	}
+	*/
 	public T? Single<T>(Expression<Func<T, bool>>? expression)
 	{
 		throw new NotImplementedException();

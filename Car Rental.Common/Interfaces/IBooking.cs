@@ -3,13 +3,13 @@ using Car_Rental.Common.Enums;
 namespace Car_Rental.Common.Interfaces;
 public interface IBooking
 {
-	int Id { get; init; }
-	string RegNo { get; init; }
-	Customer Customer { get; init; }
-	double KmReneted { get; init; }
-	double? KmReturned { get; init; }
-	DateTime Reneted { get; init; }
-	DateTime Returned { get; init; }
+	int Id { get; }
+	string RegNo { get; }
+	Customer Customer { get; }
+	double KmReneted { get; }
+	double? KmReturned { get; }
+	DateTime Reneted { get; }
+	DateTime Returned { get; }
 	double? Cost { get; }
 	BookingStatuses BookingStatus { get; }
 	string Message { get; }
