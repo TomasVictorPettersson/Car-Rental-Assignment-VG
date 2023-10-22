@@ -2,6 +2,8 @@
 using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
+using System.Linq.Expressions;
+
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -23,7 +25,7 @@ public class BookingProcessor
 	public string? MakeInput
 	{
 		get => _db.MakeInput;
-		set => _db.RegNoInput = value;
+		set => _db.MakeInput = value;
 	}
 	public int OdoMeterInput
 	{
@@ -55,10 +57,10 @@ public class BookingProcessor
 		get => _db.FirstNameInput;
 		set => _db.FirstNameInput = value;
 	}
-	public void AddCustomer(int sSN, string lastName, string firstName)
+	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
 		var customerId = _db.NextPersonId;
-		var customer = new Customer(customerId, sSN, lastName, firstName);
+		var customer = new Customer(customerId, (int)sSN, lastName, firstName);
 		_db.Add(customer);
 	}
 	public void AddVehicle(string regNo, string make, int odoMeter, double costPerKm, VehicleTypes vehicleType)
@@ -67,6 +69,10 @@ public class BookingProcessor
 		var vehicle = new Vehicle(vehicleId, regNo, make, odoMeter, costPerKm, vehicleType);
 		_db.Add(vehicle);
 	}
+	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(a));
+	public IEnumerable<IBooking> GetBookings() => _db.GetBookings();
+	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
+		=> _db.GetVehicles(status);
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int

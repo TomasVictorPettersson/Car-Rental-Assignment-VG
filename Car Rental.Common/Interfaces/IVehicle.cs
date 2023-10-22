@@ -8,7 +8,7 @@ public interface IVehicle
 	double OdoMeter { get; init; }
 	double CostPerKm { get; init; }
 	VehicleTypes VehicleType { get; init; }
-	double CostPerDay { get; init; }
+	double? CostPerDay { get; init; }
 	VehicleStatuses VehicleStatus { get; }
 	void ReturnVehicleStatus(BookingStatuses bookingStatus);
 }

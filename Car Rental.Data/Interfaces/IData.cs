@@ -23,8 +23,11 @@ public interface IData
 	IBooking ReturnVehicle(int vehicleId);
 	// Default Interface Methods
 	string[] VehicleStatusNames => (string[])Enum.GetValues(typeof(VehicleStatuses));
-	
+
 	/*
 	public VehicleTypes GetVehicleType(string name) => 
 	*/
+	public IEnumerable<IPerson> GetPersons();
+	public IEnumerable<IBooking> GetBookings();
+	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default);
 }
