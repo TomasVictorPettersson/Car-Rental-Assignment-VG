@@ -54,8 +54,9 @@
 					</select>
 				</td>
 				<td></td>
+
 				<td>
-					<button @onclick="(() => bp.AddVehicle(bp.RegNoInput,bp.MakeInput,
+					<button type="button" class="btn btn-light" @onclick="(() => bp.AddVehicle(bp.RegNoInput,bp.MakeInput,
 			    bp.OdoMeterInput,bp.CostPerKmInput,bp.VehicleTypeInput))">
 						Add
 					</button>
@@ -161,7 +162,7 @@
 				<td><input @bind="bp.LastNameInput" placeholder="Last Name" /></td>
 				<td><input @bind="bp.FirstNameInput" placeholder="First Name" /></td>
 				<td>
-					<button @onclick="(() => bp.AddCustomer(bp.SSNInput,
+					<button type="button" class="btn btn-light" @onclick="(() => bp.AddCustomer(bp.SSNInput,
 				 bp.LastNameInput,bp.FirstNameInput))">
 						Add
 					</button>

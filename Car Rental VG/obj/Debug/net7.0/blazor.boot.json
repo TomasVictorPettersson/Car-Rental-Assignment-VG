@@ -201,7 +201,7 @@
       "Car Rental.Business.dll": "sha256-JvSpr6QlEI61wbyp5P\/mjmViDIA\/1DuX4GhRlrRX\/JA=",
       "Car Rental.Common.dll": "sha256-9SDSrInz3ZG\/CIIqjyfeVE8wxRF\/M4Yxe5aWjQHsCis=",
       "Car Rental.Data.dll": "sha256-YysQn62G\/V9kpfaOpJE4q\/OzTvnJfV0tUZq\/XOAJmR0=",
-      "Car Rental VG.dll": "sha256-nzB2bVCddV2wRTxmsFaiUPwTsjUJZSKqNGfE05nn+wM="
+      "Car Rental VG.dll": "sha256-X1TnNFZphLpDFJoYncl1rH\/95yqGEOkwagoJfJZXKpI="
     },
     "extensions": null,
     "lazyAssembly": null,
@@ -210,7 +210,7 @@
       "Car Rental.Business.pdb": "sha256-mHlC4u643BpwlY3b2EFts9Z9IaaCDP7zh7BXL+hOiTk=",
       "Car Rental.Common.pdb": "sha256-\/VZjBMREcFx7e3\/Da2QJd+fK88D0nHKwCVw5kQnOug8=",
       "Car Rental.Data.pdb": "sha256-2IZt\/IstDe0+E+Zk3Mj\/DpQr4DezEfjgDJ9CMVzZ\/pk=",
-      "Car Rental VG.pdb": "sha256-sZV77PgIXoLhUHdlfQVgVuK7P0AikBgzyReNJnNefjY="
+      "Car Rental VG.pdb": "sha256-E7qyxTv\/l7lJXbg\/dZg3bJ1+fCooQhFSyoDEQbzhxRA="
     },
     "runtime": {
       "dotnet.7.0.12.n3oq5wz3pi.js": "sha256-cPJgWy8SjMaYFeimGkYy23ls+rDZVmoC\/eMoHpqRc+4=",

@@ -1,11 +1,14 @@
-﻿.row table 
-{
+﻿.row table {
     border: 1px black solid;
     margin-left: 1%;
     width: 70%
 }
-.row table thead 
-{
-    color: gray;
-    background-color: black;
+
+    .row table thead {
+        color: gray;
+        background-color: black;
+    }
+
+.btn btn-light {
+    background-color: lightgreen;
 }

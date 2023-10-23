@@ -1,11 +1,14 @@
-.row table[b-62d6wr0rml] 
-{
+.row table[b-62d6wr0rml] {
     border: 1px black solid;
     margin-left: 1%;
     width: 70%
 }
-.row table thead[b-62d6wr0rml] 
-{
-    color: gray;
-    background-color: black;
+
+    .row table thead[b-62d6wr0rml] {
+        color: gray;
+        background-color: black;
+    }
+
+.btn btn-light[b-62d6wr0rml] {
+    background-color: lightgreen;
 }
