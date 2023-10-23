@@ -1,14 +1,17 @@
-﻿.row table {
+﻿.row table 
+{
     border: 1px black solid;
     margin-left: 1%;
     width: 70%
 }
-
-    .row table thead {
-        color: gray;
-        background-color: black;
-    }
-
-.btn btn-light {
-    background-color: lightgreen;
+.row table thead 
+{
+    color: gray;
+    background-color: black;
+}
+.btn-light 
+{
+    color: green;
+    border: 1px green solid;
+    font-size: 85%
 }

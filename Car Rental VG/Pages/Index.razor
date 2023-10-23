@@ -41,12 +41,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input @bind=bp.RegNoInput placeholder="RegNo" /> </td>
-				<td><input @bind=bp.MakeInput placeholder="Make" /> </td>
-				<td><input @bind=bp.OdoMeterInput /></td>
-				<td><input @bind=bp.CostPerKmInput /></td>
+				<td><input class="form-control-sm" @bind=bp.RegNoInput placeholder="RegNo" /> </td>
+				<td><input class="form-control-sm" @bind=bp.MakeInput placeholder="Make" /> </td>
+				<td><input class="form-control-sm" @bind=bp.OdoMeterInput /></td>
+				<td><input class="form-control-sm" @bind=bp.CostPerKmInput /></td>
 				<td>
-					<select @bind="bp.VehicleTypeInput">
+					<select class="form-control-sm" @bind="bp.VehicleTypeInput">
 						@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
 						{
 							<option> @vt</option>
@@ -61,6 +61,7 @@
 						Add
 					</button>
 				</td>
+				<td><span class="badge bg-warning">Processing</span></td>>
 			</tr>
 			@foreach (var v in bp.GetVehicles())
 			{
@@ -158,9 +159,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input @bind="bp.SSNInput" placeholder="SSN" /></td>
-				<td><input @bind="bp.LastNameInput" placeholder="Last Name" /></td>
-				<td><input @bind="bp.FirstNameInput" placeholder="First Name" /></td>
+				<td><input class="form-control-sm" @bind="bp.SSNInput" placeholder="SSN" /></td>
+				<td><input class="form-control-sm" @bind="bp.LastNameInput" placeholder="Last Name" /></td>
+				<td><input class="form-control-sm" @bind="bp.FirstNameInput" placeholder="First Name" /></td>
 				<td>
 					<button type="button" class="btn btn-light" @onclick="(() => bp.AddCustomer(bp.SSNInput,
 				 bp.LastNameInput,bp.FirstNameInput))">
