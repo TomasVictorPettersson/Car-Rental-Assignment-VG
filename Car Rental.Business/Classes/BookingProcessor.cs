@@ -55,7 +55,7 @@ public class BookingProcessor
 		get => _db.FirstNameInput;
 		set => _db.FirstNameInput = value;
 	}
-	public string? Message
+	public string Message
 	{
 		get => _db.Message;
 		set => _db.Message = value;
@@ -68,9 +68,9 @@ public class BookingProcessor
 			if (sSN is null || lastName is null || firstName is null)
 			{
 				throw new ArgumentException("Could not add customer.");
-			}
+			}			
 			var customerId = _db.NextPersonId;
-			var customer = new Customer(customerId, (int)sSN, lastName, firstName);
+			var customer = new Customer(customerId, (int)sSN, lastName, firstName);							
 			_db.Add(customer);
 		}
 		catch (ArgumentException ex)

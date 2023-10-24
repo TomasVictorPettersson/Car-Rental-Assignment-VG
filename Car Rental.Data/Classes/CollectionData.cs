@@ -23,7 +23,7 @@ public class CollectionData : IData
 	public int? SSNInput { get; set; } = null;
 	public string? LastNameInput { get; set; } = null;
 	public string? FirstNameInput { get; set; } = null;
-	public string? Message { get; set; } = string.Empty;
+	public string Message { get; set; } = string.Empty;
 	public CollectionData() => SeedData();
 	/* Metoden SeedData lägger till data till 
 	 tidigare nämnda listor. */
@@ -84,14 +84,10 @@ public class CollectionData : IData
 	}
 	public void Add<T>(T item)
 	{
-		if (item is Customer)
+		List<T> _collection = new()
 		{
-			_persons.Add((IPerson)item);
-		}
-		else if (item is Vehicle)
-		{
-			_vehicles.Add((IVehicle)item);
-		}
+			item
+		};
 	}
 	public IBooking RentVehicle(int vehicleId, int customerId)
 	{

@@ -10,14 +10,14 @@
   som är bundet till en specifik bokning. *@
 @foreach (var b in bp.GetBookings())
 {
-	@if (b.Message != string.Empty)
+	@if (b.Message.Length > 0)
 	{
 		<div class="alert alert-danger" role="alert">
 			<strong>Error!</strong> @b.Message
 		</div>
 	}
 }
-@if (bp.Message != string.Empty)
+@if (bp.Message.Length > 0)
 {
 	<div class="alert alert-danger" role="alert">
 		<strong>Error!</strong> @bp.Message
