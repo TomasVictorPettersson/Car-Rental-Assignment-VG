@@ -3,6 +3,8 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 using System.Linq.Expressions;
+using System.Reflection;
+
 namespace Car_Rental.Data.Classes;
 public class CollectionData : IData
 {
@@ -66,28 +68,27 @@ public class CollectionData : IData
 		bookingTwo.ReturnVehicle(vehicleFour);
 		_bookings.Add(bookingTwo);
 	}
-	/*
-	public List<T> Get<T>(Expression<Func<T, bool>>? expression) 
+	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
-			   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
-			   ?? throw new InvalidOperationException("Unsupported type");
+	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
+		?? throw new InvalidOperationException("Unsupported type");
 		var value = collections.GetValue(this) ?? throw new InvalidDataException();
 		var collection = ((List<T>)value).AsQueryable();
 		if (expression is null) return collection.ToList();
 		return collection.Where(expression).ToList();
 	}
-	*/
 	public T? Single<T>(Expression<Func<T, bool>>? expression)
 	{
 		throw new NotImplementedException();
 	}
 	public void Add<T>(T item)
 	{
-		List<T> _collection = new()
-		{
-			item
-		};
+		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
+	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
+		?? throw new InvalidOperationException("Unsupported type");
+		var value = collections.GetValue(this) ?? throw new InvalidDataException();
+		var collection = ((List<T>)value).AsQueryable();
 	}
 	public IBooking RentVehicle(int vehicleId, int customerId)
 	{
@@ -97,7 +98,4 @@ public class CollectionData : IData
 	{
 		throw new NotImplementedException();
 	}
-	public IEnumerable<IPerson> GetPersons() => _persons;
-	public IEnumerable<IBooking> GetBookings() => _bookings;
-	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default) => _vehicles;
 }

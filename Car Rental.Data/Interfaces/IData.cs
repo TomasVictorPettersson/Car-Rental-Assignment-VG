@@ -1,13 +1,10 @@
 ﻿using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
-using System.ComponentModel;
 using System.Linq.Expressions;
 namespace Car_Rental.Data.Interfaces;
 public interface IData
-{
-	/*
-	List<T> Get<T>(Expression<Func<T, bool>>? expression);
-	*/
+{	
+	List<T> Get<T>(Expression<Func<T, bool>>? expression);	
 	T? Single<T>(Expression<Func<T, bool>>? expression);
 	void Add<T>(T item);
 	int NextVehicleId { get; }
@@ -30,7 +27,4 @@ public interface IData
 	/*
 	public VehicleTypes GetVehicleType(string name) => 
 	*/
-	public IEnumerable<IPerson> GetPersons();
-	public IEnumerable<IBooking> GetBookings();
-	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default);
 }
