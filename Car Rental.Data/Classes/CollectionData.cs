@@ -97,10 +97,13 @@ public class CollectionData : IData
 		var collection = ((List<T>)value);
 		collection.Add(item);
 	}
-	public IBooking RentVehicle(int vehicleId, int customerId)
-	{
+	/*
+	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
+	{	
+		Task.Delay(5000);	
 		throw new NotImplementedException();
 	}
+	*/
 	public IBooking ReturnVehicle(int vehicleId)
 	{
 		throw new NotImplementedException();

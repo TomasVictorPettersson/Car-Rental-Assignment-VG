@@ -8,4 +8,8 @@ public class Customer : IPerson
 	public string FirstName { get; init; }
 	public Customer(int id, int sSN, string lastName, string firstName)
 		=> (Id, SSN, LastName, FirstName) = (id, sSN, lastName, firstName);
+	public override string ToString()
+	{
+		return $"{LastName} {FirstName} ({SSN})";
+	}
 }

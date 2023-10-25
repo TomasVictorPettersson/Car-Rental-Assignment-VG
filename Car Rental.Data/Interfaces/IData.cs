@@ -20,7 +20,9 @@ public interface IData
 	string? LastNameInput { get; set; }
 	string? FirstNameInput { get; set; }
 	string Message { get; set; }
+	/*
 	IBooking RentVehicle(int vehicleId, int customerId);
+	*/
 	IBooking ReturnVehicle(int vehicleId);
 	// Default Interface Methods
 	string[] VehicleStatusNames => (string[])Enum.GetValues(typeof(VehicleStatuses));

@@ -108,6 +108,12 @@ public class BookingProcessor
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.Get<IVehicle>(v => v.Equals(v));
+	/*
+	public IBooking RentVehicle(int vehicleId, int customerId)
+	{
+		throw new NotImplementedException();
+	}
+	/*
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int
@@ -118,7 +124,5 @@ public class BookingProcessor
 	}
 	public IBooking ReturnVehicle(int vehicleId, double ditance) { }	
 	// Calling Default Interface Methods
-	public string[] VehicleStatusNames => _db.VehicleStatusNames;
-	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name) */
 }

@@ -54,7 +54,6 @@
 					</select>
 				</td>
 				<td></td>
-
 				<td>
 					<button type="button" class="btn btn-light" @onclick="(() => bp.AddVehicle(bp.RegNoInput,bp.MakeInput,
 			    bp.OdoMeterInput,bp.CostPerKmInput,bp.VehicleTypeInput))">
@@ -72,7 +71,24 @@
 					<td>@v.CostPerKm</td>
 					<td>@v.VehicleType</td>
 					<td>@v.CostPerDay</td>
-					<td></td>
+					<td>
+						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
+						{
+							<select class="form-control-sm">
+
+								@foreach (var p in bp.GetPersons())
+								{
+									<option> @p.ToString()</option>
+								}
+							</select>
+							<button class="rent-btn">Rent</button>
+						}
+						@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
+						{
+							<input placeholder="Distance">
+							<button type="button" class="btn btn-light">Return</button>
+						}
+					</td>
 					<td>
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
 						{
@@ -114,7 +130,7 @@
 			{
 				<tr>
 					<td><strong>@b.RegNo</strong> </td>
-					<td>@b.Customer.LastName @b.Customer.FirstName (@b.Customer.SSN)</td>
+					<td>@b.Customer.ToString()</td>
 					<td>@b.KmReneted</td>
 					<td>@b.KmReturned</td>
 					<td>@b.Reneted.ToString("d")</td>
