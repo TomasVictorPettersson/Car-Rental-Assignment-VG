@@ -2,8 +2,6 @@
 using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
-using System.Linq.Expressions;
-
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -95,7 +93,6 @@ public class BookingProcessor
 			var vehicleId = _db.NextVehicleId;
 			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make, odoMeter, costPerKm, vehicleType);
 			_db.Add<IVehicle>(vehicle);
-
 		}
 		catch (ArgumentException ex)
 		{

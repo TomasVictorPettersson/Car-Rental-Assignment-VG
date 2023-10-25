@@ -80,7 +80,13 @@ public class CollectionData : IData
 	}
 	public T? Single<T>(Expression<Func<T, bool>>? expression)
 	{
-		throw new NotImplementedException();
+		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
+	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
+		?? throw new InvalidOperationException("Unsupported type");
+		var value = collections.GetValue(this) ?? throw new InvalidDataException();
+		var collection = ((List<T>)value).AsQueryable();
+		var item = collection.SingleOrDefault(expression);
+		return item ?? throw new InvalidOperationException();
 	}
 	public void Add<T>(T item)
 	{
@@ -88,7 +94,8 @@ public class CollectionData : IData
 	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
 		?? throw new InvalidOperationException("Unsupported type");
 		var value = collections.GetValue(this) ?? throw new InvalidDataException();
-		var collection = ((List<T>)value).AsQueryable();
+		var collection = ((List<T>)value);
+		collection.Add(item);
 	}
 	public IBooking RentVehicle(int vehicleId, int customerId)
 	{
