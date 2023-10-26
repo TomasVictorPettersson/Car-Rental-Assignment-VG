@@ -10,11 +10,10 @@ public class Booking : IBooking
 	public double KmReneted { get; init; }
 	public double? KmReturned { get; init; }
 	public DateTime Reneted { get; init; }
-	public DateTime Returned { get; init; }
-	public double? Cost { get; private set; }
+	public DateTime Returned { get; set; }
+	public double? Cost { get; set; }
 	public BookingStatuses BookingStatus { get; private set; }
 	public string Message { get; private set; } = string.Empty;
-	public void SetCostvalue(double costvalue) => Cost = costvalue;
 	public void ReturnVehicle(IVehicle vehicle)
 	{
 		/* Variablerna days och km nyttjas för beräkna bokningskostnad.

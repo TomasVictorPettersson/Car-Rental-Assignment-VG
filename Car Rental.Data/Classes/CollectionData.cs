@@ -105,13 +105,14 @@ public class CollectionData : IData
 	{
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
 		var booking = _bookings.FirstOrDefault(b => b.Id == bookingId);
-		vehicle.ReturnVehicleStatus(BookingStatuses.Closed);
 		var kmReturned = vehicle.OdoMeter + distance;
 		DateTime returned = DateTime.Now;
 		var duration = booking.Reneted.Duration(returned);
 		var km = kmReturned - booking.KmReneted;
 		double? cost = duration * vehicle.CostPerDay + km * vehicle.CostPerKm;
-		booking.SetCostvalue((double)cost);
-		var bookingone = new Booking(booking.Id, booking.Customer, booking.KmReneted, booking.Reneted);
+		vehicle.ReturnVehicleStatus(BookingStatuses.Closed);
+		booking.Returned = returned;
+		booking.Cost = cost;
+		return booking;
 	}
 }

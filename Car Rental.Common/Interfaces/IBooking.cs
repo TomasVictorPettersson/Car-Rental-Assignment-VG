@@ -9,10 +9,9 @@ public interface IBooking
 	double KmReneted { get; }
 	double? KmReturned { get; }
 	DateTime Reneted { get; }
-	DateTime Returned { get; }
-	double? Cost { get; }
+	DateTime Returned { get; set; }
+	double? Cost { get; set; }
 	BookingStatuses BookingStatus { get; }
 	string Message { get; }
-	void SetCostvalue(double costvalue);
 	void ReturnVehicle(IVehicle vehicle);
 }

@@ -14,25 +14,16 @@ public class BookingProcessor
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
 	public string? RegNo { get; set; }
-
 	public string? Make { get; set; }
-
 	public double OdoMeter { get; set; }
-
 	public double CostPerKm { get; set; }
-
 	public VehicleTypes VehicleType { get; set; }
-
 	public string[] VehicleStatusNames => _db.VehicleStatusNames;
 	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public int? SSN { get; set; }
-
 	public string? LastName { get; set; }
-
 	public string? FirstName { get; set; }
-
 	public string Message { get; set; } = string.Empty;
-
 	public Customer Customer { get; set; }
 	public double Distance { get; set; }
 	public void AddCustomer(int? sSN, string lastName, string firstName)
@@ -84,9 +75,6 @@ public class BookingProcessor
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.Get<IVehicle>(v => v.Equals(v));
-
-
-
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int
