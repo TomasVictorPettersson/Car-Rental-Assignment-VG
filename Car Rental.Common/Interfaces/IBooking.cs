@@ -13,5 +13,6 @@ public interface IBooking
 	double? Cost { get; }
 	BookingStatuses BookingStatus { get; }
 	string Message { get; }
+	void SetCostvalue(double costvalue);
 	void ReturnVehicle(IVehicle vehicle);
 }

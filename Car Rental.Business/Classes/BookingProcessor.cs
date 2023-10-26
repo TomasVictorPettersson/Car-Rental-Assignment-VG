@@ -13,53 +13,28 @@ public class BookingProcessor
 	public BookingProcessor(IData db) => _db = db;
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
-	public string? RegNoInput
-	{
-		get => _db.RegNoInput;
-		set => _db.RegNoInput = value;
-	}
-	public string? MakeInput
-	{
-		get => _db.MakeInput;
-		set => _db.MakeInput = value;
-	}
-	public double OdoMeterInput
-	{
-		get => _db.OdoMeterInput;
-		set => _db.OdoMeterInput = value;
-	}
-	public double CostPerKmInput
-	{
-		get => _db.CostPerKmInput;
-		set => _db.CostPerKmInput = value;
-	}
-	public VehicleTypes VehicleTypeInput
-	{
-		get => _db.VehicleTypeInput;
-		set => _db.VehicleTypeInput = value;
-	}
+	public string? RegNo { get; set; }
+
+	public string? Make { get; set; }
+
+	public double OdoMeter { get; set; }
+
+	public double CostPerKm { get; set; }
+
+	public VehicleTypes VehicleType { get; set; }
+
 	public string[] VehicleStatusNames => _db.VehicleStatusNames;
 	public string[] VehicleTypeNames => _db.VehicleTypeNames;
-	public int? SSNInput
-	{
-		get => _db.SSNInput;
-		set => _db.SSNInput = value;
-	}
-	public string? LastNameInput
-	{
-		get => _db.LastNameInput;
-		set => _db.LastNameInput = value;
-	}
-	public string? FirstNameInput
-	{
-		get => _db.FirstNameInput;
-		set => _db.FirstNameInput = value;
-	}
-	public string Message
-	{
-		get => _db.Message;
-		set => _db.Message = value;
-	}
+	public int? SSN { get; set; }
+
+	public string? LastName { get; set; }
+
+	public string? FirstName { get; set; }
+
+	public string Message { get; set; } = string.Empty;
+
+	public Customer Customer { get; set; }
+	public double Distance { get; set; }
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
 		Message = string.Empty;
@@ -77,9 +52,9 @@ public class BookingProcessor
 		{
 			Message = ex.Message;
 		}
-		SSNInput = null;
-		LastNameInput = null;
-		FirstNameInput = null;
+		SSN = null;
+		LastName = null;
+		FirstName = null;
 	}
 	public void AddVehicle(string regNo, string make, double odoMeter, double costPerKm, VehicleTypes vehicleType)
 	{
@@ -98,22 +73,20 @@ public class BookingProcessor
 		{
 			Message = ex.Message;
 		}
-		RegNoInput = null;
-		MakeInput = null;
-		OdoMeterInput = default;
-		CostPerKmInput = default;
-		VehicleTypeInput = default;
+		RegNo = null;
+		Make = null;
+		OdoMeter = default;
+		CostPerKm = default;
+		VehicleType = default;
 	}
+	public IEnumerable<IBooking> RentVehicle(int vehicleId, int customerId) => (IEnumerable<IBooking>)_db.RentVehicle(vehicleId, customerId);
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p));
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.Get<IVehicle>(v => v.Equals(v));
-	/*
-	public IBooking RentVehicle(int vehicleId, int customerId)
-	{
-		throw new NotImplementedException();
-	}
-	/*
+
+
+
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int

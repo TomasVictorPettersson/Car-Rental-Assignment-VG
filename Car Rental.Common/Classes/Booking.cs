@@ -14,6 +14,7 @@ public class Booking : IBooking
 	public double? Cost { get; private set; }
 	public BookingStatuses BookingStatus { get; private set; }
 	public string Message { get; private set; } = string.Empty;
+	public void SetCostvalue(double costvalue) => Cost = costvalue;
 	public void ReturnVehicle(IVehicle vehicle)
 	{
 		/* Variablerna days och km nyttjas för beräkna bokningskostnad.

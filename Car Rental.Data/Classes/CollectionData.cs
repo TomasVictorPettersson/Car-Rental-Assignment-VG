@@ -1,5 +1,6 @@
 ﻿using Car_Rental.Common.Classes;
 using Car_Rental.Common.Enums;
+using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 using System.Linq.Expressions;
@@ -17,15 +18,6 @@ public class CollectionData : IData
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
 	public int NextVehicleId => _vehicles.Count.Equals(0) ? 1 : _vehicles.Max(x => x.Id) + 1;
 	public int NextBookingId => _bookings.Count.Equals(0) ? 1 : _bookings.Max(x => x.Id) + 1;
-	public string? RegNoInput { get; set; } = null;
-	public string? MakeInput { get; set; } = null;
-	public double OdoMeterInput { get; set; }
-	public double CostPerKmInput { get; set; }
-	public VehicleTypes VehicleTypeInput { get; set; }
-	public int? SSNInput { get; set; } = null;
-	public string? LastNameInput { get; set; } = null;
-	public string? FirstNameInput { get; set; } = null;
-	public string Message { get; set; } = string.Empty;
 	public CollectionData() => SeedData();
 	/* Metoden SeedData lägger till data till 
 	 tidigare nämnda listor. */
@@ -97,15 +89,29 @@ public class CollectionData : IData
 		var collection = ((List<T>)value);
 		collection.Add(item);
 	}
-	/*
 	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
-	{	
-		Task.Delay(5000);	
-		throw new NotImplementedException();
-	}
-	*/
-	public IBooking ReturnVehicle(int vehicleId)
 	{
-		throw new NotImplementedException();
+		var bookingId = NextBookingId;
+		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
+		var customer = _persons.FirstOrDefault(c => c.Id == customerId);
+		DateTime date = DateTime.Now;
+		vehicle.ReturnVehicleStatus(BookingStatuses.Open);
+		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, date);
+		_bookings.Add(booking);
+		await Task.Delay(5000);
+		return _bookings;
+	}
+	public IBooking ReturnVehicle(int vehicleId, int bookingId, double distance)
+	{
+		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
+		var booking = _bookings.FirstOrDefault(b => b.Id == bookingId);
+		vehicle.ReturnVehicleStatus(BookingStatuses.Closed);
+		var kmReturned = vehicle.OdoMeter + distance;
+		DateTime returned = DateTime.Now;
+		var duration = booking.Reneted.Duration(returned);
+		var km = kmReturned - booking.KmReneted;
+		double? cost = duration * vehicle.CostPerDay + km * vehicle.CostPerKm;
+		booking.SetCostvalue((double)cost);
+		var bookingone = new Booking(booking.Id, booking.Customer, booking.KmReneted, booking.Reneted);
 	}
 }

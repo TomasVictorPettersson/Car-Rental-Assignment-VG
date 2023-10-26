@@ -41,12 +41,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input class="form-control-sm" @bind=bp.RegNoInput placeholder="RegNo" /> </td>
-				<td><input class="form-control-sm" @bind=bp.MakeInput placeholder="Make" /> </td>
-				<td><input class="form-control-sm" @bind=bp.OdoMeterInput /></td>
-				<td><input class="form-control-sm" @bind=bp.CostPerKmInput /></td>
+				<td><input class="form-control-sm" @bind=bp.RegNo placeholder="RegNo" /> </td>
+				<td><input class="form-control-sm" @bind=bp.Make placeholder="Make" /> </td>
+				<td><input class="form-control-sm" @bind=bp.OdoMeter /></td>
+				<td><input class="form-control-sm" @bind=bp.CostPerKm /></td>
 				<td>
-					<select class="form-control-sm" @bind="bp.VehicleTypeInput">
+					<select class="form-control-sm" @bind="bp.VehicleType">
 						@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
 						{
 							<option> @vt</option>
@@ -55,8 +55,8 @@
 				</td>
 				<td></td>
 				<td>
-					<button type="button" class="btn btn-light" @onclick="(() => bp.AddVehicle(bp.RegNoInput,bp.MakeInput,
-			    bp.OdoMeterInput,bp.CostPerKmInput,bp.VehicleTypeInput))">
+					<button type="button" class="btn btn-light" @onclick="(() => bp.AddVehicle(bp.RegNo,bp.Make,
+			    bp.OdoMeter,bp.CostPerKm,bp.VehicleType))">
 						Add
 					</button>
 				</td>
@@ -74,18 +74,20 @@
 					<td>
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
 						{
-							<select class="form-control-sm">
-
+							<select class="form-control-sm" @bind="bp.Customer">
 								@foreach (var p in bp.GetPersons())
 								{
-									<option> @p.ToString()</option>
+									{
+										<option> @p.ToString()</option>
+									}
 								}
 							</select>
-							<button class="rent-btn">Rent</button>
+							<button class="rent-btn" @onclick="(() => bp.RentVehicle(v.Id, bp.Customer.Id))">Rent</button>
+
 						}
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 						{
-							<input placeholder="Distance">
+							<input placeholder="Distance" @bind="bp.Distance">
 							<button type="button" class="btn btn-light">Return</button>
 						}
 					</td>
@@ -175,12 +177,12 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input class="form-control-sm" @bind="bp.SSNInput" placeholder="SSN" /></td>
-				<td><input class="form-control-sm" @bind="bp.LastNameInput" placeholder="Last Name" /></td>
-				<td><input class="form-control-sm" @bind="bp.FirstNameInput" placeholder="First Name" /></td>
+				<td><input class="form-control-sm" @bind="bp.SSN" placeholder="SSN" /></td>
+				<td><input class="form-control-sm" @bind="bp.LastName" placeholder="Last Name" /></td>
+				<td><input class="form-control-sm" @bind="bp.FirstName" placeholder="First Name" /></td>
 				<td>
-					<button type="button" class="btn btn-light" @onclick="(() => bp.AddCustomer(bp.SSNInput,
-				 bp.LastNameInput,bp.FirstNameInput))">
+					<button type="button" class="btn btn-light" @onclick="(() => bp.AddCustomer(bp.SSN,
+				 bp.LastName,bp.FirstName))">
 						Add
 					</button>
 				</td>
