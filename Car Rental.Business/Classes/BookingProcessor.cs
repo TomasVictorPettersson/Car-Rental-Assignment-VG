@@ -25,7 +25,7 @@ public class BookingProcessor
 	public string? FirstName { get; set; }
 	public string Message { get; set; } = string.Empty;
 	public Customer Customer { get; set; }
-	public double Distance { get; set; }
+	public double? Distance { get; set; } = null;
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
 		Message = string.Empty;
@@ -70,11 +70,15 @@ public class BookingProcessor
 		CostPerKm = default;
 		VehicleType = default;
 	}
-	public IEnumerable<IBooking> RentVehicle(int vehicleId, int customerId) => (IEnumerable<IBooking>)_db.RentVehicle(vehicleId, customerId);
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p));
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.Get<IVehicle>(v => v.Equals(v));
+	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
+	{
+		return await _db.RentVehicle(vehicleId, customerId);
+	}
+	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance) => _db.ReturnVehicle(vehicleId, vehicleRegNo, (double)distance);
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int

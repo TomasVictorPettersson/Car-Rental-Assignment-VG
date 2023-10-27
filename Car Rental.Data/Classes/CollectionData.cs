@@ -101,10 +101,10 @@ public class CollectionData : IData
 		await Task.Delay(5000);
 		return _bookings;
 	}
-	public IBooking ReturnVehicle(int vehicleId, int bookingId, double distance)
+	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double distance)
 	{
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
-		var booking = _bookings.FirstOrDefault(b => b.Id == bookingId);
+		var booking = _bookings.FirstOrDefault(b => b.RegNo == vehicleRegNo);
 		var kmReturned = vehicle.OdoMeter + distance;
 		DateTime returned = DateTime.Now;
 		var duration = booking.Reneted.Duration(returned);

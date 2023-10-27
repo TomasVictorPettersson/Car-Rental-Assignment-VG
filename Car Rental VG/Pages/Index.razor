@@ -74,21 +74,20 @@
 					<td>
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
 						{
-							<select class="form-control-sm" @bind="bp.Customer">
+							<InputSelect @bind-Value="bp.Customer">
 								@foreach (var p in bp.GetPersons())
 								{
 									{
-										<option> @p.ToString()</option>
+										<option> @p</option>
 									}
 								}
-							</select>
+							</InputSelect>
 							<button class="rent-btn" @onclick="(() => bp.RentVehicle(v.Id, bp.Customer.Id))">Rent</button>
-
 						}
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 						{
 							<input placeholder="Distance" @bind="bp.Distance">
-							<button type="button" class="btn btn-light">Return</button>
+							<button type="button" class="btn btn-light" @onclick="(() => bp.ReturnVehicle(v.Id, v.RegNo ,bp.Distance))">Return</button>
 						}
 					</td>
 					<td>
