@@ -1696,7 +1696,6 @@ C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\scopedcss\bundle\Car Rental VG.styles.css
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\scopedcss\projectbundle\Car Rental VG.bundle.scp.css
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental VG\obj\Debug\net7.0\Car Rental VG.csproj.CopyComplete

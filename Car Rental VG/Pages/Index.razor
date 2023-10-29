@@ -5,7 +5,7 @@
 @using Car_Rental.Business.Classes;
 @inject BookingProcessor bp;
 <PageTitle>Car Rental Assignment - VG</PageTitle>
-<h1>Car Rental Assignment - VG</h1>
+<h1 style="margin-left : -1%">Car Rental Assignment - VG</h1>
 @*OM b.Message INTE är tomt så visas ett felmeddelande i gränsnittet
   som är bundet till en specifik bokning. *@
 @foreach (var b in bp.GetBookings())
@@ -23,9 +23,9 @@
 		<strong>Error!</strong> @bp.Message
 	</div>
 }
-<div class="row">
+<div class="row" style="width : 125%; margin-left : -2%">
 	@*Tabell för fordon*@
-	<h6>Vehicles</h6>
+	<h6 style="margin-left:0.25%">Vehicles</h6>
 	<table class="table table-borderless table-hover">
 		<thead>
 			<tr>
@@ -41,10 +41,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input class="form-control-sm" @bind=bp.RegNo placeholder="RegNo" /> </td>
-				<td><input class="form-control-sm" @bind=bp.Make placeholder="Make" /> </td>
-				<td><input class="form-control-sm" @bind=bp.OdoMeter /></td>
-				<td><input class="form-control-sm" @bind=bp.CostPerKm /></td>
+				<td><input maxlength="6" size="12.5" @bind=bp.RegNo placeholder="RegNo" /> </td>
+				<td><input size="12.5" @bind=bp.Make placeholder="Make" /> </td>
+				<td><input size="12.5" @bind=bp.OdoMeter /></td>
+				<td><input size="12.5" @bind=bp.CostPerKm /></td>
 				<td>
 					<select class="form-control-sm" @bind="bp.VehicleType">
 						@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
@@ -86,7 +86,7 @@
 						}
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 						{
-							<input placeholder="Distance" @bind="bp.Distance">
+							<input size="12.5%" placeholder="Distance" @bind="bp.Distance">
 							<button type="button" class="btn btn-light" @onclick="(() => bp.ReturnVehicle(v.Id, v.RegNo ,bp.Distance))">Return</button>
 						}
 					</td>
@@ -111,8 +111,8 @@
 </div>
 <br />
 @*Tabell för bokningar*@
-<div class="row">
-	<h6>Bookings</h6>
+<div class="row" style="width : 125%; margin-left : -2%">
+	<h6 style="margin-left : 0.25%">Bookings</h6>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -131,7 +131,7 @@
 			{
 				<tr>
 					<td><strong>@b.RegNo</strong> </td>
-					<td>@b.Customer.ToString()</td>
+					<td>@b.Customer</td>
 					<td>@b.KmReneted</td>
 					<td>@b.KmReturned</td>
 					<td>@b.Reneted.ToString("d")</td>
@@ -163,8 +163,8 @@
 </div>
 <br />
 @*Tabell för kunder*@
-<div class="row">
-	<h6>Customers</h6>
+<div class="row" style="width : 70%; margin-left : -1.5%">
+	<h6 style="margin-left : -0.25%">Customers</h6>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -176,9 +176,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input class="form-control-sm" @bind="bp.SSN" placeholder="SSN" /></td>
-				<td><input class="form-control-sm" @bind="bp.LastName" placeholder="Last Name" /></td>
-				<td><input class="form-control-sm" @bind="bp.FirstName" placeholder="First Name" /></td>
+				<td><input maxlength="5" size="25%" @bind="bp.SSN" placeholder="SSN" /></td>
+				<td><input size="25%" @bind="bp.LastName" placeholder="Last Name" /></td>
+				<td><input size="25%" @bind="bp.FirstName" placeholder="First Name" /></td>
 				<td>
 					<button type="button" class="btn btn-light" @onclick="(() => bp.AddCustomer(bp.SSN,
 				 bp.LastName,bp.FirstName))">

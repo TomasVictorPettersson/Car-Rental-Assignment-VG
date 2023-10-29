@@ -75,7 +75,7 @@ public class BookingProcessor
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p));
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
-		=> _db.Get<IVehicle>(v => v.Equals(v));
+		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
 	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
 	{
 		return await _db.RentVehicle(vehicleId, customerId);

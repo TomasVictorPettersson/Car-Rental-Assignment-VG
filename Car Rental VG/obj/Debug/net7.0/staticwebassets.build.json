@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "S+WRl6+csm3eVW0hhXlJBDkWAGQn/EjsnALeg1gd4+A=",
+  "Hash": "1jZ148jCZZhX5Dv5lWBOrRAJByOCAjh9hQGPmKb762E=",
   "Source": "Car Rental VG",
   "BasePath": "/",
   "Mode": "Root",
@@ -7359,23 +7359,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
-    },
-    {
-      "Identity": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\sample-data\\weather.json",
-      "SourceId": "Car Rental VG",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "sample-data/weather.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
     }
   ]
 }

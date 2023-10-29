@@ -1,6 +1,4 @@
 using Car_Rental.Business.Classes;
-using Car_Rental.Common.Classes;
-using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Classes;
 using Car_Rental.Data.Interfaces;
 using Car_Rental_VG;
