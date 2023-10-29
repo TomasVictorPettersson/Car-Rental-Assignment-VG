@@ -2,8 +2,6 @@
 using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
-using System.ComponentModel;
-
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -28,6 +26,14 @@ public class BookingProcessor
 	public string Message { get; set; } = string.Empty;
 	public int CustomerId { get; set; }
 	public double? Distance { get; set; } = null;
+	public string FirstCharSubstring(string input)
+	{
+		if (string.IsNullOrEmpty(input))
+		{
+			return string.Empty;
+		}
+		return $"{input[0].ToString().ToUpper()}{input.Substring(1).ToLower()}";
+	}
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
 		Message = string.Empty;
@@ -38,7 +44,8 @@ public class BookingProcessor
 				throw new ArgumentException("Could not add customer.");
 			}
 			var customerId = _db.NextPersonId;
-			var customer = new Customer(customerId, (int)sSN, lastName, firstName);
+			var customer = new Customer(customerId, (int)sSN, FirstCharSubstring(lastName),
+				FirstCharSubstring(firstName));
 			_db.Add<IPerson>(customer);
 		}
 		catch (ArgumentException ex)
@@ -49,7 +56,8 @@ public class BookingProcessor
 		LastName = null;
 		FirstName = null;
 	}
-	public void AddVehicle(string regNo, string make, double odoMeter, double costPerKm, VehicleTypes vehicleType)
+	public void AddVehicle(string regNo, string make, double odoMeter,
+		double costPerKm, VehicleTypes vehicleType)
 	{
 		Message = string.Empty;
 		try
@@ -59,7 +67,8 @@ public class BookingProcessor
 				throw new ArgumentException("Could not add vehicle.");
 			}
 			var vehicleId = _db.NextVehicleId;
-			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make, odoMeter, costPerKm, vehicleType);
+			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), FirstCharSubstring(make),
+				odoMeter, costPerKm, vehicleType);
 			_db.Add<IVehicle>(vehicle);
 		}
 		catch (ArgumentException ex)
@@ -80,7 +89,12 @@ public class BookingProcessor
 	{
 		return await _db.RentVehicle(vehicleId, customerId);
 	}
-	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance) => _db.ReturnVehicle(vehicleId, vehicleRegNo, (double)distance);
+	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance)
+	{
+		var booking = _db.ReturnVehicle(vehicleId, vehicleRegNo, (double)distance);
+		Distance = null;
+		return booking;
+	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
 	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int

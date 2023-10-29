@@ -7,7 +7,7 @@ public interface IBooking
 	string RegNo { get; }
 	Customer Customer { get; }
 	double KmReneted { get; }
-	double? KmReturned { get; }
+	double? KmReturned { get; set; }
 	DateTime Reneted { get; }
 	DateTime Returned { get; set; }
 	double? Cost { get; set; }

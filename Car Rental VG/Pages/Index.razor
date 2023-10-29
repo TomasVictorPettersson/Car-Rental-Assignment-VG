@@ -23,9 +23,9 @@
 		<strong>Error!</strong> @bp.Message
 	</div>
 }
-<div class="row" style="width : 125%; margin-left : -2%">
+<div class="row" style="width : 100%; margin-left : -1%">
 	@*Tabell för fordon*@
-	<h6 style="margin-left:0.25%">Vehicles</h6>
+	<h6 style="margin-left:-0.75%">Vehicles</h6>
 	<table class="table table-borderless table-hover">
 		<thead>
 			<tr>
@@ -41,10 +41,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input maxlength="6" size="12.5" @bind=bp.RegNo placeholder="RegNo" /> </td>
-				<td><input size="12.5" @bind=bp.Make placeholder="Make" /> </td>
-				<td><input size="12.5" @bind=bp.OdoMeter /></td>
-				<td><input size="12.5" @bind=bp.CostPerKm /></td>
+				<td><input maxlength="6" size="20%" @bind=bp.RegNo placeholder="RegNo" /> </td>
+				<td><input size="20%" @bind=bp.Make placeholder="Make" /> </td>
+				<td><input size="20%" @bind=bp.OdoMeter /></td>
+				<td><input size="20%" @bind=bp.CostPerKm /></td>
 				<td>
 					<select class="form-control-sm" @bind="bp.VehicleType">
 						@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
@@ -111,8 +111,8 @@
 </div>
 <br />
 @*Tabell för bokningar*@
-<div class="row" style="width : 125%; margin-left : -2%">
-	<h6 style="margin-left : 0.25%">Bookings</h6>
+<div class="row" style="width : 75%; margin-left : -1%">
+	<h6 style="margin-left : -1%">Bookings</h6>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -163,8 +163,8 @@
 </div>
 <br />
 @*Tabell för kunder*@
-<div class="row" style="width : 70%; margin-left : -1.5%">
-	<h6 style="margin-left : -0.25%">Customers</h6>
+<div class="row" style="width : 50%; margin-left : -1%">
+	<h6 style="margin-left : -1.5%">Customers</h6>
 	<table class="table table-hover">
 		<thead>
 			<tr>

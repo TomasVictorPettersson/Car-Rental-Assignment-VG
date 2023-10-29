@@ -105,7 +105,7 @@ public class CollectionData : IData
 	{
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
 		var booking = _bookings.FirstOrDefault(b => b.RegNo == vehicleRegNo);
-		var kmReturned = vehicle.OdoMeter + distance;
+		var kmReturned = vehicle.OdoMeter + distance;		
 		DateTime returned = DateTime.Now;
 		var duration = booking.Reneted.Duration(returned);
 		var km = kmReturned - booking.KmReneted;
@@ -113,6 +113,7 @@ public class CollectionData : IData
 		vehicle.ReturnVehicleStatus(BookingStatuses.Closed);
 		booking.Returned = returned;
 		booking.Cost = cost;
+		booking.KmReturned = kmReturned;
 		return booking;
 	}
 }

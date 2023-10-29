@@ -8,7 +8,7 @@ public class Booking : IBooking
 	public string RegNo { get; init; }
 	public Customer Customer { get; init; }
 	public double KmReneted { get; init; }
-	public double? KmReturned { get; init; }
+	public double? KmReturned { get; set; }
 	public DateTime Reneted { get; init; }
 	public DateTime Returned { get; set; }
 	public double? Cost { get; set; }
