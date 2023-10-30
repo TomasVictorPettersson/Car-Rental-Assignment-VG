@@ -95,17 +95,17 @@ public class CollectionData : IData
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
 		var customer = _persons.FirstOrDefault(c => c.Id == customerId);
 		DateTime date = DateTime.Now;
-		vehicle.ReturnVehicleStatus(BookingStatuses.Open);
 		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, date);
-		_bookings.Add(booking);
 		await Task.Delay(5000);
+		vehicle.ReturnVehicleStatus(BookingStatuses.Open);
+		_bookings.Add(booking);
 		return _bookings;
 	}
 	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double distance)
 	{
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
 		var booking = _bookings.FirstOrDefault(b => b.RegNo == vehicleRegNo);
-		var kmReturned = vehicle.OdoMeter + distance;		
+		var kmReturned = vehicle.OdoMeter + distance;
 		DateTime returned = DateTime.Now;
 		var duration = booking.Reneted.Duration(returned);
 		var km = kmReturned - booking.KmReneted;

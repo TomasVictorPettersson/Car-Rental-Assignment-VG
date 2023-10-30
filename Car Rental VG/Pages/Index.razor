@@ -12,14 +12,14 @@
 {
 	@if (b.Message.Length > 0)
 	{
-		<div class="alert alert-danger" role="alert">
+		<div class="alert alert-danger" role="alert" style="width : 70% ;margin-left : -1%">
 			<strong>Error!</strong> @b.Message
 		</div>
 	}
 }
 @if (bp.Message.Length > 0)
 {
-	<div class="alert alert-danger" role="alert">
+	<div class="alert alert-danger" role="alert" style="width : 40% ;margin-left : -1%">
 		<strong>Error!</strong> @bp.Message
 	</div>
 }
@@ -40,28 +40,63 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><input maxlength="6" size="20%" @bind=bp.RegNo placeholder="RegNo" /> </td>
-				<td><input size="20%" @bind=bp.Make placeholder="Make" /> </td>
-				<td><input size="20%" @bind=bp.OdoMeter /></td>
-				<td><input size="20%" @bind=bp.CostPerKm /></td>
-				<td>
-					<select class="form-control-sm" @bind="bp.VehicleType">
-						@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
+			@if (bp.IsProcessing.Equals(false))
+			{
+				<tr>
+					<td><input maxlength="6" size="20%" @bind=bp.RegNo placeholder="RegNo" /> </td>
+					<td><input size="20%" @bind=bp.Make placeholder="Make" /> </td>
+					<td><input size="20%" @bind=bp.OdoMeter /></td>
+					<td><input size="20%" @bind=bp.CostPerKm /></td>
+					<td>
+						<select class="form-control-sm" @bind="bp.VehicleType">
+							@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
+							{
+								<option> @vt</option>
+							}
+						</select>
+					</td>
+					<td></td>
+					<td>
+						<button type="button" class="btn btn-light" @onclick="(()
+						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,bp.CostPerKm,bp.VehicleType))">
+							Add
+						</button>
+					</td>
+					<td>
+					</td>
+				</tr>
+			}
+			@if (bp.IsProcessing.Equals(true))
+			{
+				<tr>
+					<td><input maxlength="6" size="20%" @bind=bp.RegNo disabled placeholder="RegNo" /> </td>
+					<td><input size="20%" @bind=bp.Make disabled placeholder="Make" /> </td>
+					<td><input size="20%" @bind=bp.OdoMeter disabled /></td>
+					<td><input size="20%" @bind=bp.CostPerKm disabled /></td>
+					<td>
+						<select class="form-control-sm" @bind="bp.VehicleType" disabled>
+							@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
+							{
+								<option> @vt</option>
+							}
+						</select>
+					</td>
+					<td></td>
+					<td>
+						<button type="button" class="btn btn-light" disabled @onclick="(()
+						=> bp.AddVehicle(bp.RegNo,bp.Make,
+						bp.OdoMeter,bp.CostPerKm,bp.VehicleType))">
+							Add
+						</button>
+					</td>
+					<td>
+						@if (bp.IsProcessing.Equals(true))
 						{
-							<option> @vt</option>
+							<span class="badge bg-warning"> Processing</span>
 						}
-					</select>
-				</td>
-				<td></td>
-				<td>
-					<button type="button" class="btn btn-light" @onclick="(() => bp.AddVehicle(bp.RegNo,bp.Make,
-			    bp.OdoMeter,bp.CostPerKm,bp.VehicleType))">
-						Add
-					</button>
-				</td>
-				<td><span class="badge bg-warning">Processing</span></td>
-			</tr>
+					</td>
+				</tr>
+			}
 			@foreach (var v in bp.GetVehicles())
 			{
 				<tr>
@@ -71,25 +106,69 @@
 					<td>@v.CostPerKm</td>
 					<td>@v.VehicleType</td>
 					<td>@v.CostPerDay</td>
-					<td>
-						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
-						{
-							<select class="form-control-sm" @bind="bp.CustomerId">
-								@foreach (var p in bp.GetPersons())
-								{
+
+					@if (bp.IsProcessing.Equals(false))
+					{
+						<td>
+							@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
+							{
+								<select class="form-control-sm" @bind="bp.CustomerId">
+									@foreach (var p in bp.GetPersons())
 									{
-										<option value="@p.Id"> @p</option>
+										@if (bp.CustomerId is null)
+										{
+											<option value="none" selected disabled hidden></option>
+											<option value="@p.Id"> @p</option>
+										}
+										@if (bp.CustomerId is not null)
+										{
+											<option value="@p.Id"> @p</option>
+										}
 									}
-								}
-							</select>
-							<button class="rent-btn" @onclick="async () => await bp.RentVehicle(v.Id, bp.CustomerId)">Rent</button>
-						}
-						@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
-						{
-							<input size="12.5%" placeholder="Distance" @bind="bp.Distance">
-							<button type="button" class="btn btn-light" @onclick="(() => bp.ReturnVehicle(v.Id, v.RegNo ,bp.Distance))">Return</button>
-						}
-					</td>
+								</select>
+								<button class="rent-btn" @onclick="async ()
+								=> await bp.RentVehicle(v.Id, bp.CustomerId)">
+									Rent
+								</button>
+							}
+							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
+							{
+								<input size="12.5%" placeholder="Distance" @bind="bp.Distance">
+								<button type="button" class="btn btn-light" @onclick="(()
+								=> bp.ReturnVehicle(v.Id, v.RegNo ,bp.Distance))">
+									Return
+								</button>
+							}
+						</td>
+					}
+					@if (bp.IsProcessing.Equals(true))
+					{
+						<td>
+							@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
+							{
+								<select class="form-control-sm" @bind="bp.CustomerId" disabled>
+									@foreach (var p in bp.GetPersons())
+									{
+										{
+											<option value="@p.Id"> @p</option>
+										}
+									}
+								</select>
+								<button class="rent-btn" disabled @onclick="async ()
+								=> await bp.RentVehicle(v.Id, bp.CustomerId)">
+									Rent
+								</button>
+							}
+							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
+							{
+								<input size="12.5%" placeholder="Distance" @bind="bp.Distance" disabled>
+								<button type="button" class="btn btn-light" disabled @onclick="(()
+								=> bp.ReturnVehicle(v.Id, v.RegNo ,bp.Distance))">
+									Return
+								</button>
+							}
+						</td>
+					}
 					<td>
 						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
 						{

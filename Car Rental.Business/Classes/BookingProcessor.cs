@@ -24,8 +24,9 @@ public class BookingProcessor
 	public string? LastName { get; set; }
 	public string? FirstName { get; set; }
 	public string Message { get; set; } = string.Empty;
-	public int CustomerId { get; set; }
+	public int? CustomerId { get; set; } 
 	public double? Distance { get; set; } = null;
+	public bool IsProcessing { get; set; }
 	public string FirstCharSubstring(string input)
 	{
 		if (string.IsNullOrEmpty(input))
@@ -85,9 +86,30 @@ public class BookingProcessor
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
-	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
+	public async Task<List<IBooking>> RentVehicle(int vehicleId, int? customerId)
 	{
-		return await _db.RentVehicle(vehicleId, customerId);
+		List<IBooking> booking = new();
+		Message = string.Empty;
+		try
+		{
+			if (customerId is null)
+			{
+				throw new ArgumentException("You must select a customer to be able to rent a car.");
+			}
+			else
+			{
+				IsProcessing = true;
+				booking = await _db.RentVehicle(vehicleId, (int)customerId);
+				IsProcessing = false;			
+				return booking.ToList();
+			}
+		}
+		catch (ArgumentException ex)
+		{
+			Message = ex.Message;
+		}
+		customerId = null;
+		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
 	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance)
 	{
