@@ -11,7 +11,7 @@ public interface IBooking
 	DateTime Reneted { get; }
 	DateTime Returned { get; set; }
 	double? Cost { get; set; }
-	BookingStatuses BookingStatus { get; }
+	BookingStatuses BookingStatus { get; set; }
 	string Message { get; }
 	void ReturnVehicle(IVehicle vehicle);
 }

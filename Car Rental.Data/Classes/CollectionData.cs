@@ -97,7 +97,8 @@ public class CollectionData : IData
 		DateTime date = DateTime.Now;
 		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, date);
 		await Task.Delay(5000);
-		vehicle.ReturnVehicleStatus(BookingStatuses.Open);
+		booking.BookingStatus = BookingStatuses.Open;
+		vehicle.ReturnVehicleStatus(booking.BookingStatus);
 		_bookings.Add(booking);
 		return _bookings;
 	}
@@ -110,7 +111,8 @@ public class CollectionData : IData
 		var duration = booking.Reneted.Duration(returned);
 		var km = kmReturned - booking.KmReneted;
 		double? cost = duration * vehicle.CostPerDay + km * vehicle.CostPerKm;
-		vehicle.ReturnVehicleStatus(BookingStatuses.Closed);
+		booking.BookingStatus = BookingStatuses.Closed;
+		vehicle.ReturnVehicleStatus(booking.BookingStatus);
 		booking.Returned = returned;
 		booking.Cost = cost;
 		booking.KmReturned = kmReturned;

@@ -12,7 +12,7 @@ public class Booking : IBooking
 	public DateTime Reneted { get; init; }
 	public DateTime Returned { get; set; }
 	public double? Cost { get; set; }
-	public BookingStatuses BookingStatus { get; private set; }
+	public BookingStatuses BookingStatus { get; set; }
 	public string Message { get; private set; } = string.Empty;
 	public void ReturnVehicle(IVehicle vehicle)
 	{
