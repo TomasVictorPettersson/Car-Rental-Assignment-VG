@@ -4,17 +4,17 @@ namespace Car_Rental.Common.Classes;
 public class Vehicle : IVehicle
 {
 	public int Id { get; init; }
-	public string RegNo { get; init;}
+	public string RegNo { get; init; }
 	public string Make { get; init; }
-	public double OdoMeter { get; init; }
+	public double OdoMeter { get; private set; }
 	public double CostPerKm { get; init; }
 	public VehicleTypes VehicleType { get; init; }
 	public double CostPerDay { get; init; }
-	public VehicleStatuses VehicleStatus { get; private set;}
+	public VehicleStatuses VehicleStatus { get; private set; }
 	public void ReturnVehicleStatus(BookingStatuses bookingStatus)
 	{
 		if (bookingStatus.Equals(BookingStatuses.Closed))
-		{
+		{			
 			VehicleStatus = VehicleStatuses.Available;
 		}
 		else if (bookingStatus.Equals(BookingStatuses.Open))
@@ -25,7 +25,7 @@ public class Vehicle : IVehicle
 		{
 			VehicleStatus = VehicleStatuses.Unknown;
 		}
-	}	
+	}
 	public Vehicle(int id, string regNo, string make, double odoMeter, double costPerKm,
 		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, OdoMeter, CostPerKm, VehicleType, CostPerDay) =

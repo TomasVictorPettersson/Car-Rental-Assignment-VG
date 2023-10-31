@@ -10,5 +10,5 @@ public interface IVehicle
 	VehicleTypes VehicleType { get;}
 	double CostPerDay { get; }
 	VehicleStatuses VehicleStatus { get; }
-	void ReturnVehicleStatus(BookingStatuses bookingStatus);
+	public void ReturnVehicleStatus(BookingStatuses bookingStatus);
 }

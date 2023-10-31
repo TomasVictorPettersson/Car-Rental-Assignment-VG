@@ -65,7 +65,7 @@ public class BookingProcessor
 		Message = string.Empty;
 		try
 		{
-			if (regNo is null || make is null)
+			if (regNo is null || make is null || odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
 			{
 				throw new ArgumentException("Could not add vehicle.");
 			}

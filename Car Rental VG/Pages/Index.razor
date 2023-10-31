@@ -55,7 +55,7 @@
 							}
 						</select>
 					</td>
-					<td><input size="5%" @bind="bp.CostPerDay"> </td>
+					<td><input size="3%" maxlength="6" @bind=bp.CostPerDay> </td>
 					<td>
 						<button type="button" class="btn btn-light" @onclick="(()
 						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,bp.CostPerKm,bp.VehicleType, bp.CostPerDay))">
@@ -69,7 +69,7 @@
 			@if (bp.IsProcessing.Equals(true))
 			{
 				<tr>
-					<td><input maxlength="6" size="20%" @bind=bp.RegNo disabled placeholder="RegNo" /> </td>
+					<td><input size="20%" @bind=bp.RegNo disabled placeholder="RegNo" /> </td>
 					<td><input size="20%" @bind=bp.Make disabled placeholder="Make" /> </td>
 					<td><input size="20%" @bind=bp.OdoMeter disabled /></td>
 					<td><input size="20%" @bind=bp.CostPerKm disabled /></td>
@@ -81,7 +81,7 @@
 							}
 						</select>
 					</td>
-					<td></td>
+					<td><input size="3%" @bind=bp.CostPerDay disabled> </td>
 					<td>
 						<button type="button" class="btn btn-light" disabled @onclick="(()
 						=> bp.AddVehicle(bp.RegNo,bp.Make,
