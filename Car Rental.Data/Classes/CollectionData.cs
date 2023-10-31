@@ -111,11 +111,9 @@ public class CollectionData : IData
 		var duration = booking.Reneted.Duration(returned);
 		var km = kmReturned - booking.KmReneted;
 		double? cost = duration * vehicle.CostPerDay + km * vehicle.CostPerKm;
-		booking.BookingStatus = BookingStatuses.Closed;
+		booking.SetBookingValues(kmReturned, (double)cost, BookingStatuses.Closed);
 		vehicle.ReturnVehicleStatus(booking.BookingStatus);
 		booking.Returned = returned;
-		booking.Cost = cost;
-		booking.KmReturned = kmReturned;
 		return booking;
 	}
 }

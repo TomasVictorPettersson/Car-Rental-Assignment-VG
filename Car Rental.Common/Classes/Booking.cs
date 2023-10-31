@@ -8,12 +8,18 @@ public class Booking : IBooking
 	public string RegNo { get; init; }
 	public Customer Customer { get; init; }
 	public double KmReneted { get; init; }
-	public double? KmReturned { get; set; }
+	public double? KmReturned { get; private set; }
 	public DateTime Reneted { get; init; }
 	public DateTime Returned { get; set; }
-	public double? Cost { get; set; }
+	public double? Cost { get;private  set; }
 	public BookingStatuses BookingStatus { get; set; }
 	public string Message { get; private set; } = string.Empty;
+	public void SetBookingValues(double kmReturned, double cost, BookingStatuses bookingStatuses)
+	{
+		KmReturned = kmReturned;
+		Cost = cost;
+		BookingStatus = bookingStatuses;
+	}
 	public void ReturnVehicle(IVehicle vehicle)
 	{
 		/* Variablerna days och km nyttjas för beräkna bokningskostnad.
