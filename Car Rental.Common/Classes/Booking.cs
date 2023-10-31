@@ -11,14 +11,18 @@ public class Booking : IBooking
 	public double? KmReturned { get; private set; }
 	public DateTime Reneted { get; init; }
 	public DateTime Returned { get; set; }
-	public double? Cost { get;private  set; }
-	public BookingStatuses BookingStatus { get; set; }
+	public double? Cost { get; private set; }
+	public BookingStatuses BookingStatus { get; private set; }
 	public string Message { get; private set; } = string.Empty;
-	public void SetBookingValues(double kmReturned, double cost, BookingStatuses bookingStatuses)
+	public void SetBookingStatus(BookingStatuses bookingStatus)
+	{
+		BookingStatus = bookingStatus;
+	}
+	public void SetBookingValues(double kmReturned, double cost, BookingStatuses bookingStatus)
 	{
 		KmReturned = kmReturned;
 		Cost = cost;
-		BookingStatus = bookingStatuses;
+		BookingStatus = bookingStatus;
 	}
 	public void ReturnVehicle(IVehicle vehicle)
 	{
@@ -93,7 +97,7 @@ public class Booking : IBooking
 			Message = ex.Message;
 		}
 	}
-	public Booking(int id, string regNo, Customer customer, double kmReneted,
+    public Booking(int id, string regNo, Customer customer, double kmReneted,
 		DateTime reneted, DateTime returned = default, double? kmReturned = null) =>
 		(Id, RegNo, Customer, KmReneted, KmReturned, Reneted, Returned) =
 		(id, regNo, customer, kmReneted, kmReturned, reneted, returned);

@@ -18,13 +18,14 @@ public class BookingProcessor
 	public double OdoMeter { get; set; }
 	public double CostPerKm { get; set; }
 	public VehicleTypes VehicleType { get; set; }
+	public double CostPerDay { get; set; }
 	public string[] VehicleStatusNames => _db.VehicleStatusNames;
 	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public int? SSN { get; set; }
 	public string? LastName { get; set; }
 	public string? FirstName { get; set; }
 	public string Message { get; set; } = string.Empty;
-	public int? CustomerId { get; set; } 
+	public int? CustomerId { get; set; }
 	public double? Distance { get; set; } = null;
 	public bool IsProcessing { get; set; }
 	public string FirstCharSubstring(string input)
@@ -58,7 +59,7 @@ public class BookingProcessor
 		FirstName = null;
 	}
 	public void AddVehicle(string regNo, string make, double odoMeter,
-		double costPerKm, VehicleTypes vehicleType)
+		double costPerKm, VehicleTypes vehicleType, double costPerDay)
 	{
 		Message = string.Empty;
 		try
@@ -69,7 +70,7 @@ public class BookingProcessor
 			}
 			var vehicleId = _db.NextVehicleId;
 			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), FirstCharSubstring(make),
-				odoMeter, costPerKm, vehicleType);
+				odoMeter, costPerKm, vehicleType, costPerDay);
 			_db.Add<IVehicle>(vehicle);
 		}
 		catch (ArgumentException ex)
@@ -100,7 +101,7 @@ public class BookingProcessor
 			{
 				IsProcessing = true;
 				booking = await _db.RentVehicle(vehicleId, (int)customerId);
-				IsProcessing = false;			
+				IsProcessing = false;
 				return booking.ToList();
 			}
 		}
@@ -113,8 +114,19 @@ public class BookingProcessor
 	}
 	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance)
 	{
-		var booking = _db.ReturnVehicle(vehicleId, vehicleRegNo, (double)distance);
-		Distance = null;
+		try
+		{
+			if (distance is null)
+			{
+				throw new ArgumentException("Distance inputfield cannot accept a null value.");
+			}
+			var booking = _db.ReturnVehicle(vehicleId, vehicleRegNo, (double)distance);
+			Distance = null;
+		}
+		catch (ArgumentException ex)
+		{
+			Message = ex.Message;
+		}
 		return booking;
 	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }

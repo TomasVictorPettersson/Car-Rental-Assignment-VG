@@ -13,6 +13,7 @@ public interface IBooking
 	double? Cost { get; }
 	BookingStatuses BookingStatus { get;}
 	string Message { get; }
-	void SetBookingValues(double kmReturned, double cost, BookingStatuses bookingStatuses);
+	public void SetBookingStatus(BookingStatuses bookingStatus);
+	void SetBookingValues(double kmReturned, double cost, BookingStatuses bookingStatus);
 	void ReturnVehicle(IVehicle vehicle);
 }

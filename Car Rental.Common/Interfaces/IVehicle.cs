@@ -8,7 +8,7 @@ public interface IVehicle
 	public double OdoMeter { get; }
 	public double CostPerKm { get; }
 	VehicleTypes VehicleType { get;}
-	double? CostPerDay { get; }
+	double CostPerDay { get; }
 	VehicleStatuses VehicleStatus { get; }
 	void ReturnVehicleStatus(BookingStatuses bookingStatus);
 }

@@ -97,7 +97,7 @@ public class CollectionData : IData
 		DateTime date = DateTime.Now;
 		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, date);
 		await Task.Delay(5000);
-		booking.BookingStatus = BookingStatuses.Open;
+		booking.SetBookingStatus(BookingStatuses.Open);
 		vehicle.ReturnVehicleStatus(booking.BookingStatus);
 		_bookings.Add(booking);
 		return _bookings;

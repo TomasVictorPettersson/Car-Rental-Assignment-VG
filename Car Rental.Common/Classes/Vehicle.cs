@@ -9,7 +9,7 @@ public class Vehicle : IVehicle
 	public double OdoMeter { get; init; }
 	public double CostPerKm { get; init; }
 	public VehicleTypes VehicleType { get; init; }
-	public double? CostPerDay { get; init; }
+	public double CostPerDay { get; init; }
 	public VehicleStatuses VehicleStatus { get; private set;}
 	public void ReturnVehicleStatus(BookingStatuses bookingStatus)
 	{
@@ -27,7 +27,7 @@ public class Vehicle : IVehicle
 		}
 	}	
 	public Vehicle(int id, string regNo, string make, double odoMeter, double costPerKm,
-		VehicleTypes vehicleType, double? costPerDay = null) =>
+		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, OdoMeter, CostPerKm, VehicleType, CostPerDay) =
 		(id, regNo, make, odoMeter, costPerKm, vehicleType, costPerDay);
 }

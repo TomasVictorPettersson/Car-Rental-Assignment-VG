@@ -55,10 +55,10 @@
 							}
 						</select>
 					</td>
-					<td></td>
+					<td><input size="5%" @bind="bp.CostPerDay"> </td>
 					<td>
 						<button type="button" class="btn btn-light" @onclick="(()
-						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,bp.CostPerKm,bp.VehicleType))">
+						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,bp.CostPerKm,bp.VehicleType, bp.CostPerDay))">
 							Add
 						</button>
 					</td>
@@ -85,7 +85,7 @@
 					<td>
 						<button type="button" class="btn btn-light" disabled @onclick="(()
 						=> bp.AddVehicle(bp.RegNo,bp.Make,
-						bp.OdoMeter,bp.CostPerKm,bp.VehicleType))">
+						bp.OdoMeter,bp.CostPerKm,bp.VehicleType, bp.CostPerDay))">
 							Add
 						</button>
 					</td>
