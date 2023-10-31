@@ -38,6 +38,7 @@ public class BookingProcessor
 	}
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
+
 		Message = string.Empty;
 		try
 		{
@@ -97,37 +98,38 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("You must select a customer to be able to rent a car.");
 			}
-			else
-			{
-				IsProcessing = true;
-				booking = await _db.RentVehicle(vehicleId, (int)customerId);
-				IsProcessing = false;
-				return booking.ToList();
-			}
+			IsProcessing = true;
+			booking = await _db.RentVehicle(vehicleId, (int)customerId);
+			IsProcessing = false;
 		}
 		catch (ArgumentException ex)
 		{
 			Message = ex.Message;
 		}
-		customerId = null;
 		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
-	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance)
+	public IBooking? ReturnVehicle(int vehicleId, string vehicleRegNo, double? distance)
 	{
+		Message = string.Empty;
 		try
 		{
 			if (distance is null)
 			{
-				throw new ArgumentException("Distance inputfield cannot accept a null value.");
+				throw new ArgumentException("Distance cannot have an empty value.");
+			}
+			else if (distance < 0)
+			{
+				throw new ArgumentException("Distance cannot have a value less than zero.");
 			}
 			var booking = _db.ReturnVehicle(vehicleId, vehicleRegNo, (double)distance);
 			Distance = null;
+			return booking;
 		}
 		catch (ArgumentException ex)
 		{
 			Message = ex.Message;
+			return null;
 		}
-		return booking;
 	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }
