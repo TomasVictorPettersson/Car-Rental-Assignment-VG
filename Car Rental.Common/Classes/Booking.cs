@@ -4,7 +4,7 @@ using Car_Rental.Common.Interfaces;
 namespace Car_Rental.Common.Classes;
 public class Booking : IBooking
 {
-	public int Id { get; init; }
+	public int Id { get; init; }	
 	public string RegNo { get; init; }
 	public Customer Customer { get; init; }
 	public double KmReneted { get; init; }

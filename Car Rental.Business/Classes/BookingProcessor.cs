@@ -26,7 +26,7 @@ public class BookingProcessor
 	public string? FirstName { get; set; }
 	public string Message { get; set; } = string.Empty;
 	public int? CustomerId { get; set; }
-	public double? Distance { get; set; } = null;
+    public double? Distance { get; set; } = null;
 	public bool IsProcessing { get; set; }
 	public string FirstCharSubstring(string input)
 	{
@@ -108,7 +108,7 @@ public class BookingProcessor
 		}
 		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
-	public IBooking? ReturnVehicle(int vehicleId,double? distance)
+	public IBooking? ReturnVehicle(int vehicleId, double? distance)
 	{
 		Message = string.Empty;
 		try
@@ -121,7 +121,7 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("Distance cannot have a value less than zero.");
 			}
-			var booking = _db.ReturnVehicle(vehicleId, (double)distance);
+			var booking = _db.ReturnVehicle(vehicleId,(double)distance);
 			Distance = null;
 			return booking;
 		}

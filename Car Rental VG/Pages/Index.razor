@@ -133,11 +133,12 @@
 							}
 							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 							{
+
 								<input size="12.5%" placeholder="Distance" @bind="bp.Distance">
 								<button type="button" class="btn btn-light" @onclick="(()
-								=>
-								bp.ReturnVehicle(v.Id,
-								bp.Distance))">
+									=>
+									bp.ReturnVehicle(v.Id,
+									bp.Distance))">
 									Return
 								</button>
 							}
@@ -156,9 +157,7 @@
 										}
 									}
 								</select>
-								<button class="rent-btn" disabled @onclick="async ()
-								=> await bp.RentVehicle(v.Id,
-								bp.CustomerId)">
+								<button class="rent-btn" disabled>
 									Rent
 								</button>
 							}
