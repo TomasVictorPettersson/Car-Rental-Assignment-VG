@@ -26,9 +26,11 @@ public class BookingProcessor
 	public string? FirstName { get; set; }
 	public string Message { get; set; } = string.Empty;
 	public int? CustomerId { get; set; }
-    public double? Distance { get; set; } = null;
+	public double? Distance { get; set; } = null;
 	public bool IsProcessing { get; set; }
-	public string FirstCharSubstring(string input)
+	IEnumerable<IVehicle> VehicleList => _db.Get<IVehicle>(v => v.Equals(v));
+	IEnumerable<IPerson> PersonList => _db.Get<IPerson>(p => p.Equals(p));
+	string FirstCharSubstring(string input)
 	{
 		if (string.IsNullOrEmpty(input))
 		{
@@ -45,6 +47,11 @@ public class BookingProcessor
 			if (sSN is null || lastName is null || firstName is null)
 			{
 				throw new ArgumentException("Could not add customer.");
+			}
+			bool isSSNTaken = default;
+			if (isSSNTaken = PersonList.Any(i => i.SSN == sSN))
+			{
+				throw new ArgumentException($"A customer with SSN {sSN} already exists.");
 			}
 			var customerId = _db.NextPersonId;
 			var customer = new Customer(customerId, (int)sSN, FirstCharSubstring(lastName),
@@ -69,6 +76,11 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("Could not add vehicle.");
 			}
+			bool isRegNoTaken = default;
+			if (isRegNoTaken = VehicleList.Any(i => i.RegNo.ToLower() == regNo.ToLower()))
+			{
+				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
+			}
 			var vehicleId = _db.NextVehicleId;
 			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), FirstCharSubstring(make),
 				odoMeter, costPerKm, vehicleType, costPerDay);
@@ -83,6 +95,7 @@ public class BookingProcessor
 		OdoMeter = default;
 		CostPerKm = default;
 		VehicleType = default;
+		CostPerDay = default;
 	}
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p));
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
@@ -121,7 +134,7 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("Distance cannot have a value less than zero.");
 			}
-			var booking = _db.ReturnVehicle(vehicleId,(double)distance);
+			var booking = _db.ReturnVehicle(vehicleId, (double)distance);
 			Distance = null;
 			return booking;
 		}
