@@ -11,10 +11,11 @@ public class Vehicle : IVehicle
 	public VehicleTypes VehicleType { get; init; }
 	public double CostPerDay { get; init; }
 	public VehicleStatuses VehicleStatus { get; private set; }
-	public void ReturnVehicleStatus(BookingStatuses bookingStatus)
+	public void ReturnVehicleStatus(BookingStatuses bookingStatus, double kmReturned = 0)
 	{
 		if (bookingStatus.Equals(BookingStatuses.Closed))
-		{			
+		{
+			OdoMeter = kmReturned;
 			VehicleStatus = VehicleStatuses.Available;
 		}
 		else if (bookingStatus.Equals(BookingStatuses.Open))

@@ -39,9 +39,11 @@ public class Booking : IBooking
 			 argument för att ändra VehicleStatus till Available. */
 			if (km >= 0 && days >= 1)
 			{
+
 				Cost = days * vehicle.CostPerDay + km * vehicle.CostPerKm;
 				BookingStatus = BookingStatuses.Closed;
-				vehicle.ReturnVehicleStatus(BookingStatus);
+				var kmReturned = vehicle.OdoMeter + km;
+				vehicle.ReturnVehicleStatus(BookingStatus, (double)kmReturned);
 			}
 			/* ANNARS OM KmReturned är null OCH Returned har defaultvärde så			
 			   tilldelas BookingStatus värdet Open.
@@ -97,7 +99,7 @@ public class Booking : IBooking
 			Message = ex.Message;
 		}
 	}
-    public Booking(int id, string regNo, Customer customer, double kmReneted,
+	public Booking(int id, string regNo, Customer customer, double kmReneted,
 		DateTime reneted, DateTime returned = default, double? kmReturned = null) =>
 		(Id, RegNo, Customer, KmReneted, KmReturned, Reneted, Returned) =
 		(id, regNo, customer, kmReneted, kmReturned, reneted, returned);

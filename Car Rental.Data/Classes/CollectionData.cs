@@ -5,7 +5,6 @@ using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 using System.Linq.Expressions;
 using System.Reflection;
-
 namespace Car_Rental.Data.Classes;
 public class CollectionData : IData
 {
@@ -92,8 +91,8 @@ public class CollectionData : IData
 	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
 	{
 		var bookingId = NextBookingId;
-		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
-		var customer = _persons.FirstOrDefault(c => c.Id == customerId);
+		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
+		var customer = _persons.FirstOrDefault(c => c.Id.Equals(customerId));
 		DateTime date = DateTime.Now;
 		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, date);
 		await Task.Delay(5000);
@@ -102,17 +101,18 @@ public class CollectionData : IData
 		_bookings.Add(booking);
 		return _bookings;
 	}
-	public IBooking ReturnVehicle(int vehicleId, string vehicleRegNo, double distance)
+	public IBooking ReturnVehicle(int vehicleId, double distance)
 	{
-		var vehicle = _vehicles.FirstOrDefault(v => v.Id == vehicleId);
-		var booking = _bookings.FirstOrDefault(b => b.RegNo == vehicleRegNo);
+		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
+		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(vehicle.RegNo)
+		&& b.KmReneted.Equals(vehicle.OdoMeter));
 		var kmReturned = vehicle.OdoMeter + distance;
 		DateTime returned = DateTime.Now;
 		var duration = booking.Reneted.Duration(returned);
 		var km = kmReturned - booking.KmReneted;
 		double? cost = duration * vehicle.CostPerDay + km * vehicle.CostPerKm;
 		booking.SetBookingValues(kmReturned, (double)cost, BookingStatuses.Closed);
-		vehicle.ReturnVehicleStatus(booking.BookingStatus);
+		vehicle.ReturnVehicleStatus(booking.BookingStatus, kmReturned);
 		booking.Returned = returned;
 		return booking;
 	}
