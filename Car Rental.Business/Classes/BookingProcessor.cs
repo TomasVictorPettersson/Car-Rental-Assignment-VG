@@ -97,7 +97,7 @@ public class BookingProcessor
 		VehicleType = default;
 		CostPerDay = default;
 	}
-	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p));
+	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p)).OrderBy(p => p.SSN);
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
 		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);

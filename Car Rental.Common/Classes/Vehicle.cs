@@ -6,11 +6,11 @@ public class Vehicle : IVehicle
 	public int Id { get; init; }
 	public string RegNo { get; init; }
 	public string Make { get; init; }
-	public double OdoMeter { get; private set; }
+	public double OdoMeter { get; set; }
 	public double CostPerKm { get; init; }
 	public VehicleTypes VehicleType { get; init; }
 	public double CostPerDay { get; init; }
-	public VehicleStatuses VehicleStatus { get; private set; }
+	public VehicleStatuses VehicleStatus { get; set; }
 	public void ReturnVehicleStatus(BookingStatuses bookingStatus, double kmReturned = 0)
 	{
 		if (bookingStatus.Equals(BookingStatuses.Closed))
