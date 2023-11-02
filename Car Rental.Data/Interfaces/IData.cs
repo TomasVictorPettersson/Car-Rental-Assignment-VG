@@ -13,8 +13,7 @@ public interface IData
 	int NextBookingId { get; }
 	string[] VehicleTypeNames => (string[])Enum.GetValues(typeof(VehicleTypes));
 	public Task<List<IBooking>> RentVehicle(int vehicleId, int customerId);
-	public IBooking ReturnVehicle(int vehicleId,double distance);
-	// Default Interface Methods
+	public IBooking ReturnVehicle(int vehicleId,double distance, int days);
 	string[] VehicleStatusNames => (string[])Enum.GetValues(typeof(VehicleStatuses));
 	/*
 	public VehicleTypes GetVehicleType(string name) => 

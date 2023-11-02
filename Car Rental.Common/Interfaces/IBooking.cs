@@ -8,10 +8,9 @@ public interface IBooking
 	Customer Customer { get; }
 	double KmReneted { get; }
 	double? KmReturned { get; set; }
-	DateTime Reneted { get; }
+	DateTime Reneted { get; set; }
 	DateTime Returned { get; set; }
 	double? Cost { get; set; }
 	BookingStatuses BookingStatus { get; set; }
-	string Message { get; }
-	void ReturnVehicle(IVehicle vehicle);
+	string Message { get; set; }
 }

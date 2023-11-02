@@ -1,7 +1,10 @@
 ﻿using Car_Rental.Common.Classes;
 using Car_Rental.Common.Enums;
+using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
+using System.Text.RegularExpressions;
+
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -27,17 +30,10 @@ public class BookingProcessor
 	public string Message { get; set; } = string.Empty;
 	public int? CustomerId { get; set; }
 	public double? Distance { get; set; } = null;
+	public int? Days { get; set; } = null;
 	public bool IsProcessing { get; set; }
 	IEnumerable<IVehicle> VehicleList => _db.Get<IVehicle>(v => v.Equals(v));
 	IEnumerable<IPerson> PersonList => _db.Get<IPerson>(p => p.Equals(p));
-	string FirstCharSubstring(string input)
-	{
-		if (string.IsNullOrEmpty(input))
-		{
-			return string.Empty;
-		}
-		return $"{input[0].ToString().ToUpper()}{input.Substring(1).ToLower()}";
-	}
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
 
@@ -53,9 +49,13 @@ public class BookingProcessor
 			{
 				throw new ArgumentException($"A customer with SSN {sSN} already exists.");
 			}
+			if (sSN.ToString().Length < 5)
+			{
+				throw new ArgumentException("SSN to a customer must be 6 numbers long");
+			}
 			var customerId = _db.NextPersonId;
-			var customer = new Customer(customerId, (int)sSN, FirstCharSubstring(lastName),
-				FirstCharSubstring(firstName));
+			var customer = new Customer(customerId, (int)sSN, lastName.FirstCharSubstring(),
+				firstName.FirstCharSubstring());
 			_db.Add<IPerson>(customer);
 		}
 		catch (ArgumentException ex)
@@ -81,8 +81,12 @@ public class BookingProcessor
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
 			}
+			if (regNo.Length < 6)
+			{
+				throw new ArgumentException("RegNo to a vehicle must be 6 characters long");
+			}
 			var vehicleId = _db.NextVehicleId;
-			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), FirstCharSubstring(make),
+			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
 				odoMeter, costPerKm, vehicleType, costPerDay);
 			_db.Add<IVehicle>(vehicle);
 		}
@@ -109,7 +113,7 @@ public class BookingProcessor
 		{
 			if (customerId is null)
 			{
-				throw new ArgumentException("You must select a customer to be able to rent a car.");
+				throw new ArgumentException("Must select a customer to be able to rent a car.");
 			}
 			IsProcessing = true;
 			booking = await _db.RentVehicle(vehicleId, (int)customerId);
@@ -121,21 +125,22 @@ public class BookingProcessor
 		}
 		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
-	public IBooking? ReturnVehicle(int vehicleId, double? distance)
+	public IBooking? ReturnVehicle(int vehicleId, double? distance, int? days)
 	{
 		Message = string.Empty;
 		try
 		{
-			if (distance is null)
+			if (distance is null || days is null)
 			{
-				throw new ArgumentException("Distance cannot have an empty value.");
+				throw new ArgumentException("Distance or Days cannot have an empty value.");
 			}
-			else if (distance < 0)
+			else if (distance < 0 || days < 0)
 			{
-				throw new ArgumentException("Distance cannot have a value less than zero.");
+				throw new ArgumentException("Distance or Days cannot have a value less than zero.");
 			}
-			var booking = _db.ReturnVehicle(vehicleId, (double)distance);
+			var booking = _db.ReturnVehicle(vehicleId, (double)distance, (int)days);
 			Distance = null;
+			Days = null;
 			return booking;
 		}
 		catch (ArgumentException ex)
@@ -145,14 +150,7 @@ public class BookingProcessor
 		}
 	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }
-	public IVehicle? GetVehicle(string regNo) { }
-	public lägg till asynkron returdata typ RentVehicle(int vehicleId, int
-	customerId)
-	{
-	// Använd Task.Delay för att simulera tiden det tar
-	// att hämta data från ett API.
-	}
-	public IBooking ReturnVehicle(int vehicleId, double ditance) { }	
+	public IVehicle? GetVehicle(string regNo) { }		
 	// Calling Default Interface Methods
 	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name) */
 }

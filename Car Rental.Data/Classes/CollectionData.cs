@@ -50,13 +50,13 @@ public class CollectionData : IData
 		_vehicles.Add(vehicleFive);
 		var bookingOneId = NextBookingId;
 		var bookingOne = new Booking(bookingOneId, vehicleThree.RegNo, customerOne, vehicleThree.OdoMeter,
-			new DateTime(2023, 9, 20));
-		bookingOne.ReturnVehicle(vehicleThree);
+			new DateTime(2023, 11, 2));
+		bookingOne.ReturnVehicle(vehicleThree).ReturnVehicleStatus(vehicleThree);
 		_bookings.Add(bookingOne);
 		var bookingTwoId = NextBookingId;
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
-			new DateTime(2023, 9, 20), new DateTime(2023, 9, 20), 5000);
-		bookingTwo.ReturnVehicle(vehicleFour);
+			new DateTime(2023, 11, 2), new DateTime(2023, 11, 2), 5000);
+		bookingTwo.ReturnVehicle(vehicleFour).ReturnVehicleStatus(vehicleFour, (double)bookingTwo.KmReturned);
 		_bookings.Add(bookingTwo);
 	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
@@ -100,16 +100,15 @@ public class CollectionData : IData
 		_bookings.Add(booking);
 		return _bookings;
 	}
-	public IBooking ReturnVehicle(int vehicleId, double distance)
+	public IBooking ReturnVehicle(int vehicleId, double distance, int days)
 	{
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
 		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(vehicle.RegNo)
 		&& b.KmReneted.Equals(vehicle.OdoMeter));
 		var kmReturned = vehicle.OdoMeter + distance;
-		DateTime returned = DateTime.Now;
 		var km = kmReturned - booking.KmReneted;
-		booking.Reneted.Duration(returned).CalculateCost(vehicle, km)
-			.SetBookingValues(booking, kmReturned, returned).
+		booking.Reneted.Duration(booking.Returned, days, booking).CalculateCost(vehicle, km)
+			.SetBookingValues(booking, kmReturned).
 			ReturnVehicleStatus(vehicle, kmReturned);
 		return booking;
 	}

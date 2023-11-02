@@ -10,23 +10,7 @@ public class Vehicle : IVehicle
 	public double CostPerKm { get; init; }
 	public VehicleTypes VehicleType { get; init; }
 	public double CostPerDay { get; init; }
-	public VehicleStatuses VehicleStatus { get; set; }
-	public void ReturnVehicleStatus(BookingStatuses bookingStatus, double kmReturned = 0)
-	{
-		if (bookingStatus.Equals(BookingStatuses.Closed))
-		{
-			OdoMeter = kmReturned;
-			VehicleStatus = VehicleStatuses.Available;
-		}
-		else if (bookingStatus.Equals(BookingStatuses.Open))
-		{
-			VehicleStatus = VehicleStatuses.Booked;
-		}
-		else if (bookingStatus.Equals(BookingStatuses.None))
-		{
-			VehicleStatus = VehicleStatuses.Unknown;
-		}
-	}
+	public VehicleStatuses VehicleStatus { get; set; }	
 	public Vehicle(int id, string regNo, string make, double odoMeter, double costPerKm,
 		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, OdoMeter, CostPerKm, VehicleType, CostPerDay) =

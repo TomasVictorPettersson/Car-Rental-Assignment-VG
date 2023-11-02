@@ -133,11 +133,12 @@
 							}
 							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 							{
-								<input size="12.5%" placeholder="Distance" @bind="bp.Distance">
+								<input size="4%" placeholder="Distance" @bind="bp.Distance">
+								<input size="1.5%" maxlength="4" placeholder="Days" @bind="bp.Days">
 								<button type="button" class="btn btn-light" @onclick="(()
 									=>
 									bp.ReturnVehicle(v.Id,
-									bp.Distance))">
+									bp.Distance, bp.Days))">
 									Return
 								</button>
 							}
@@ -162,7 +163,8 @@
 							}
 							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 							{
-								<input size="12.5%" placeholder="Distance" @bind="bp.Distance" disabled>
+								<input size="4%" placeholder="Distance" @bind="bp.Distance" disabled>
+								<input size="1.5%" placeholder="Days" @bind="bp.Days" disabled>
 								<button type="button" class="btn btn-light" disabled>
 									Return
 								</button>
