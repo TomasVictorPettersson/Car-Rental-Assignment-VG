@@ -7,6 +7,6 @@ public static class FirstCharSubStringExtensions
 		{
 			return string.Empty;
 		}
-		return $"{input[0].ToString().ToUpper()}{input.Substring(1).ToLower()}";
+		return $"{input[0].ToString().ToUpper()}{input[1..].ToLower()}";
 	}
 }

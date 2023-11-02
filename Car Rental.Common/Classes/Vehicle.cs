@@ -11,6 +11,7 @@ public class Vehicle : IVehicle
 	public VehicleTypes VehicleType { get; init; }
 	public double CostPerDay { get; init; }
 	public VehicleStatuses VehicleStatus { get; set; }	
+	public DateTime VehicleLastReneted { get; set; } = DateTime.Now;
 	public Vehicle(int id, string regNo, string make, double odoMeter, double costPerKm,
 		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, OdoMeter, CostPerKm, VehicleType, CostPerDay) =

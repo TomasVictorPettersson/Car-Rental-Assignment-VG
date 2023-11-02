@@ -10,4 +10,5 @@ public interface IVehicle
 	VehicleTypes VehicleType { get;}
 	double CostPerDay { get; }
 	VehicleStatuses VehicleStatus { get; set; }
+	DateTime VehicleLastReneted { get; set; }
 }

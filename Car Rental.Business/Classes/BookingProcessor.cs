@@ -3,8 +3,6 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
-using System.Text.RegularExpressions;
-
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -16,6 +14,10 @@ public class BookingProcessor
 	public BookingProcessor(IData db) => _db = db;
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
+	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p)).OrderBy(p => p.SSN);
+	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
+	public IEnumerable<IVehicle> GetVehicles()
+		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
 	public string? RegNo { get; set; }
 	public string? Make { get; set; }
 	public double OdoMeter { get; set; }
@@ -32,11 +34,8 @@ public class BookingProcessor
 	public double? Distance { get; set; } = null;
 	public int? Days { get; set; } = null;
 	public bool IsProcessing { get; set; }
-	IEnumerable<IVehicle> VehicleList => _db.Get<IVehicle>(v => v.Equals(v));
-	IEnumerable<IPerson> PersonList => _db.Get<IPerson>(p => p.Equals(p));
 	public void AddCustomer(int? sSN, string lastName, string firstName)
 	{
-
 		Message = string.Empty;
 		try
 		{
@@ -45,16 +44,16 @@ public class BookingProcessor
 				throw new ArgumentException("Could not add customer.");
 			}
 			bool isSSNTaken = default;
-			if (isSSNTaken = PersonList.Any(i => i.SSN == sSN))
+			if (isSSNTaken = GetPersons().Any(p => p.SSN == sSN))
 			{
 				throw new ArgumentException($"A customer with SSN {sSN} already exists.");
 			}
-			if (sSN.ToString().Length < 5)
+			if (sSN?.ToString().Length < 5)
 			{
-				throw new ArgumentException("SSN to a customer must be 6 numbers long");
+				throw new ArgumentException("SSN must contain 5 numbers.");
 			}
 			var customerId = _db.NextPersonId;
-			var customer = new Customer(customerId, (int)sSN, lastName.FirstCharSubstring(),
+			var customer = new Customer(customerId, (int)sSN!, lastName.FirstCharSubstring(),
 				firstName.FirstCharSubstring());
 			_db.Add<IPerson>(customer);
 		}
@@ -77,13 +76,13 @@ public class BookingProcessor
 				throw new ArgumentException("Could not add vehicle.");
 			}
 			bool isRegNoTaken = default;
-			if (isRegNoTaken = VehicleList.Any(i => i.RegNo.ToLower() == regNo.ToLower()))
+			if (isRegNoTaken = GetVehicles().Any(v => v.RegNo.ToLower() == regNo.ToLower()))
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
 			}
 			if (regNo.Length < 6)
 			{
-				throw new ArgumentException("RegNo to a vehicle must be 6 characters long");
+				throw new ArgumentException("RegNo must be 6 characters long.");
 			}
 			var vehicleId = _db.NextVehicleId;
 			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
@@ -94,6 +93,10 @@ public class BookingProcessor
 		{
 			Message = ex.Message;
 		}
+		catch (Exception ex)
+		{
+			Message = ex.Message;
+		}
 		RegNo = null;
 		Make = null;
 		OdoMeter = default;
@@ -101,10 +104,6 @@ public class BookingProcessor
 		VehicleType = default;
 		CostPerDay = default;
 	}
-	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p)).OrderBy(p => p.SSN);
-	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
-	public IEnumerable<IVehicle> GetVehicles(VehicleStatuses status = default)
-		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
 	public async Task<List<IBooking>> RentVehicle(int vehicleId, int? customerId)
 	{
 		List<IBooking> booking = new();
@@ -120,6 +119,10 @@ public class BookingProcessor
 			IsProcessing = false;
 		}
 		catch (ArgumentException ex)
+		{
+			Message = ex.Message;
+		}
+		catch (Exception ex)
 		{
 			Message = ex.Message;
 		}
@@ -148,6 +151,12 @@ public class BookingProcessor
 			Message = ex.Message;
 			return null;
 		}
+		catch (Exception ex)
+		{
+			Message = ex.Message;
+			return null;
+		}
+
 	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }		

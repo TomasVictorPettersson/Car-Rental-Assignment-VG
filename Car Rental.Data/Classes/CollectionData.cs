@@ -93,8 +93,8 @@ public class CollectionData : IData
 		var bookingId = NextBookingId;
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
 		var customer = _persons.FirstOrDefault(c => c.Id.Equals(customerId));
-		DateTime date = DateTime.Now;
-		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, date);
+		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter,
+			vehicle.VehicleLastReneted);		
 		await Task.Delay(5000);
 		booking.SetBookingStatus().ReturnVehicleStatus(vehicle);
 		_bookings.Add(booking);
@@ -102,12 +102,14 @@ public class CollectionData : IData
 	}
 	public IBooking ReturnVehicle(int vehicleId, double distance, int days)
 	{
+
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
 		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(vehicle.RegNo)
-		&& b.KmReneted.Equals(vehicle.OdoMeter));
+		&& b.KmReneted.Equals(vehicle.OdoMeter));		
 		var kmReturned = vehicle.OdoMeter + distance;
 		var km = kmReturned - booking.KmReneted;
-		booking.Reneted.Duration(booking.Returned, days, booking).CalculateCost(vehicle, km)
+		booking.Reneted.Duration(days, booking, vehicle)
+			.CalculateCost(vehicle, km)
 			.SetBookingValues(booking, kmReturned).
 			ReturnVehicleStatus(vehicle, kmReturned);
 		return booking;

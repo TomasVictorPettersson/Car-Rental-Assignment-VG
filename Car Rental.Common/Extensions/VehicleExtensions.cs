@@ -8,9 +8,10 @@ public static class VehicleExtensions
 		booking.BookingStatus = BookingStatuses.Open;
 		return booking.BookingStatus;
 	}
-	public static int Duration(this DateTime startDate, DateTime endDate, int days, IBooking booking)
+	public static int Duration(this DateTime startDate, int days, 
+		IBooking booking, IVehicle vehicle)
 	{
-		endDate = DateTime.Now;
+		DateTime endDate = vehicle.VehicleLastReneted;
 		int duration = default;
 		if (days == 0)
 		{
@@ -21,6 +22,7 @@ public static class VehicleExtensions
 			duration = (int)(endDate - startDate).TotalDays + 1 + days;
 		}
 		booking.Returned = endDate.AddDays(duration - 1);
+		vehicle.VehicleLastReneted = booking.Returned;
 		return duration;
 	}
 	public static double CalculateCost(this int duration, IVehicle vehicle, double km)
