@@ -50,12 +50,12 @@ public class CollectionData : IData
 		_vehicles.Add(vehicleFive);
 		var bookingOneId = NextBookingId;
 		var bookingOne = new Booking(bookingOneId, vehicleThree.RegNo, customerOne, vehicleThree.OdoMeter,
-			new DateTime(2023, 11, 2));
+			new DateTime(2023, 11, 3));
 		bookingOne.ReturnVehicle(vehicleThree).ReturnVehicleStatus(vehicleThree);
 		_bookings.Add(bookingOne);
 		var bookingTwoId = NextBookingId;
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
-			new DateTime(2023, 11, 2), new DateTime(2023, 11, 2), 5000);
+			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 5000);
 		bookingTwo.ReturnVehicle(vehicleFour).ReturnVehicleStatus(vehicleFour, (double)bookingTwo.KmReturned);
 		_bookings.Add(bookingTwo);
 	}
@@ -90,11 +90,11 @@ public class CollectionData : IData
 	}
 	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
 	{
-		var bookingId = NextBookingId;
+		var bookingId = NextBookingId;				
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
 		var customer = _persons.FirstOrDefault(c => c.Id.Equals(customerId));
 		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter,
-			vehicle.VehicleLastReneted);		
+			vehicle.VehicleLastReneted);
 		await Task.Delay(5000);
 		booking.SetBookingStatus().ReturnVehicleStatus(vehicle);
 		_bookings.Add(booking);
@@ -102,10 +102,9 @@ public class CollectionData : IData
 	}
 	public IBooking ReturnVehicle(int vehicleId, double distance, int days)
 	{
-
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId));
 		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(vehicle.RegNo)
-		&& b.KmReneted.Equals(vehicle.OdoMeter));		
+		&& b.KmReneted.Equals(vehicle.OdoMeter));
 		var kmReturned = vehicle.OdoMeter + distance;
 		var km = kmReturned - booking.KmReneted;
 		booking.Reneted.Duration(days, booking, vehicle)

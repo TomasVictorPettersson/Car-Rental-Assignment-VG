@@ -18,11 +18,11 @@ public static class BookingExtensions
 			 Anropar sedan metoden ReturnVehicleStatus med BookingStatus som
 			 argument för att ändra VehicleStatus till Available. */
 			if (km >= 0 && days >= 1)
-			{
+			{			
 				booking.Cost = days * vehicle.CostPerDay + km * vehicle.CostPerKm;
 				booking.BookingStatus = BookingStatuses.Closed;
-				booking.KmReturned = vehicle.OdoMeter + km;				
-				return booking.BookingStatus;	
+				booking.KmReturned = vehicle.OdoMeter + km;
+				return booking.BookingStatus;
 			}
 			/* ANNARS OM KmReturned är null OCH Returned har defaultvärde så			
 			   tilldelas BookingStatus värdet Open.
@@ -58,11 +58,11 @@ public static class BookingExtensions
 				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
 					$"Km Returned has no value.");
 			}
-			else 
+			else
 			{
 				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
-					$"Km Returned cannot be less than Km Reneted.");			
-			}		
+					$"Km Returned cannot be less than Km Reneted.");
+			}
 		}
 		/* Kastas ett nytt BookingException hamnar man i catch-blocket.
 		   Här tilldelas BookingStatus värdet None.
@@ -72,10 +72,10 @@ public static class BookingExtensions
 		   det felmeddelande från if-blocket där
 		   BookingException kastades. */
 		catch (BookingException ex)
-		{	
-			booking.BookingStatus = BookingStatuses.None;			
+		{
+			booking.BookingStatus = BookingStatuses.None;
 			booking.Message = ex.Message;
 			return booking.BookingStatus;
-		}	
+		}
 	}
 }

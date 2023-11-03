@@ -43,10 +43,10 @@
 			@if (bp.IsProcessing.Equals(false))
 			{
 				<tr>
-					<td><input maxlength="6" size="20%" @bind=bp.RegNo placeholder="RegNo" /> </td>
-					<td><input size="20%" @bind=bp.Make placeholder="Make" /> </td>
-					<td><input size="20%" @bind=bp.OdoMeter /></td>
-					<td><input size="20%" @bind=bp.CostPerKm /></td>
+					<td><input size="17.5%" maxlength="6" @bind=bp.RegNo placeholder="RegNo" /> </td>
+					<td><input size="17.5%" maxlength="20" @bind=bp.Make placeholder="Make" /> </td>
+					<td><input size="17.5%" maxlength="6" @bind=bp.OdoMeter /></td>
+					<td><input size="17.5%" maxlength="3" @bind=bp.CostPerKm /></td>
 					<td>
 						<select class="form-control-sm" @bind="bp.VehicleType">
 							@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
@@ -55,7 +55,7 @@
 							}
 						</select>
 					</td>
-					<td><input size="3%" maxlength="6" @bind=bp.CostPerDay> </td>
+					<td><input size="1%" maxlength="3" @bind=bp.CostPerDay> </td>
 					<td>
 						<button type="button" class="btn btn-light" @onclick="(()
 						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,bp.CostPerKm,bp.VehicleType, bp.CostPerDay))">
@@ -69,10 +69,10 @@
 			@if (bp.IsProcessing.Equals(true))
 			{
 				<tr>
-					<td><input size="20%" @bind=bp.RegNo disabled placeholder="RegNo" /> </td>
-					<td><input size="20%" @bind=bp.Make disabled placeholder="Make" /> </td>
-					<td><input size="20%" @bind=bp.OdoMeter disabled /></td>
-					<td><input size="20%" @bind=bp.CostPerKm disabled /></td>
+					<td><input size="17.5%" @bind=bp.RegNo disabled placeholder="RegNo" /> </td>
+					<td><input size="17.5%" @bind=bp.Make disabled placeholder="Make" /> </td>
+					<td><input size="17.5%" @bind=bp.OdoMeter disabled /></td>
+					<td><input size="17.5%" @bind=bp.CostPerKm disabled /></td>
 					<td>
 						<select class="form-control-sm" @bind="bp.VehicleType" disabled>
 							@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
@@ -81,7 +81,7 @@
 							}
 						</select>
 					</td>
-					<td><input size="3%" @bind=bp.CostPerDay disabled> </td>
+					<td><input size="1%" @bind=bp.CostPerDay disabled> </td>
 					<td>
 						<button type="button" class="btn btn-light" disabled>
 							Add
@@ -131,8 +131,8 @@
 							}
 							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
 							{
-								<input size="4%" placeholder="Distance" @bind="bp.Distance">
-								<input size="1.5%" maxlength="4" placeholder="Days" @bind="bp.Days">
+								<input size="4%" maxlength="4" placeholder="Distance" @bind="bp.Distance">
+								<input size="1.5%" maxlength="3" placeholder="Days" @bind="bp.Days">
 								<button type="button" class="btn btn-light" @onclick="(()
 									=>
 									bp.ReturnVehicle(v.Id,
@@ -255,9 +255,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input maxlength="5" size="25%" @bind="bp.SSN" placeholder="SSN" /></td>
-				<td><input size="25%" @bind="bp.LastName" placeholder="Last Name" /></td>
-				<td><input size="25%" @bind="bp.FirstName" placeholder="First Name" /></td>
+				<td><input size="17.5%" maxlength="5" @bind="bp.SSN" placeholder="SSN" /></td>
+				<td><input size="17.5%" maxlength="14" @bind="bp.LastName" placeholder="Last Name" /></td>
+				<td><input size="17.5%" maxlength="10" @bind="bp.FirstName" placeholder="First Name" /></td>
 				<td>
 					<button type="button" class="btn btn-light" @onclick="(() => bp.AddCustomer(bp.SSN,
 				 bp.LastName,bp.FirstName))">

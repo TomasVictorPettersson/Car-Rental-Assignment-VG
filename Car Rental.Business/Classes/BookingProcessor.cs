@@ -110,6 +110,7 @@ public class BookingProcessor
 		Message = string.Empty;
 		try
 		{
+
 			if (customerId is null)
 			{
 				throw new ArgumentException("Must select a customer to be able to rent a car.");
@@ -156,7 +157,6 @@ public class BookingProcessor
 			Message = ex.Message;
 			return null;
 		}
-
 	}
 	/* public IVehicle? GetVehicle(int vehicleId) { }
 	public IVehicle? GetVehicle(string regNo) { }		
