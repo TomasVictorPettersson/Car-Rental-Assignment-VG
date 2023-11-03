@@ -49,8 +49,9 @@
 					<td><input size="17.5%" maxlength="3" @bind=bp.CostPerKm /></td>
 					<td>
 						<select class="form-control-sm" @bind="bp.VehicleType">
-							@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
+							@foreach (var vt in bp.VehicleTypeNames)
 							{
+								<option value="none" selected disabled hidden></option>
 								<option> @vt</option>
 							}
 						</select>
@@ -58,7 +59,8 @@
 					<td><input size="1%" maxlength="3" @bind=bp.CostPerDay> </td>
 					<td>
 						<button type="button" class="btn btn-light" @onclick="(()
-						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,bp.CostPerKm,bp.VehicleType, bp.CostPerDay))">
+						=> bp.AddVehicle(bp.RegNo,bp.Make, bp.OdoMeter,
+						bp.CostPerKm,bp.VehicleType, bp.CostPerDay))">
 							Add
 						</button>
 					</td>
@@ -75,7 +77,7 @@
 					<td><input size="17.5%" @bind=bp.CostPerKm disabled /></td>
 					<td>
 						<select class="form-control-sm" @bind="bp.VehicleType" disabled>
-							@foreach (var vt in Enum.GetValues(typeof(VehicleTypes)))
+							@foreach (var vt in bp.VehicleTypeNames)
 							{
 								<option> @vt</option>
 							}
@@ -108,7 +110,7 @@
 					@if (bp.IsProcessing.Equals(false))
 					{
 						<td>
-							@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
+							@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[0]))
 							{
 								<select class="form-control-sm" @bind="bp.CustomerId">
 									@foreach (var p in bp.GetPersons())
@@ -129,7 +131,7 @@
 									Rent
 								</button>
 							}
-							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
+							@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[1]))
 							{
 								<input size="4%" maxlength="4" placeholder="Distance" @bind="bp.Distance">
 								<input size="1.5%" maxlength="3" placeholder="Days" @bind="bp.Days">
@@ -145,7 +147,7 @@
 					@if (bp.IsProcessing.Equals(true))
 					{
 						<td>
-							@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
+							@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[0]))
 							{
 								<select class="form-control-sm" @bind="bp.CustomerId" disabled>
 									@foreach (var p in bp.GetPersons())
@@ -159,7 +161,7 @@
 									Rent
 								</button>
 							}
-							@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
+							@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[1]))
 							{
 								<input size="4%" placeholder="Distance" @bind="bp.Distance" disabled>
 								<input size="1.5%" placeholder="Days" @bind="bp.Days" disabled>
@@ -170,15 +172,15 @@
 						</td>
 					}
 					<td>
-						@if (v.VehicleStatus.Equals(VehicleStatuses.Available))
+						@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[0]))
 						{
 							<span class="badge bg-dark">Available</span>
 						}
-						@if (v.VehicleStatus.Equals(VehicleStatuses.Booked))
+						@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[1]))
 						{
 							<span class="badge bg-danger">Booked</span>
 						}
-						@if (v.VehicleStatus.Equals(VehicleStatuses.Unknown))
+						@if (v.VehicleStatus.Equals(bp.VehicleStatusNames[2]))
 						{
 							<span class="badge bg-warning">Unknown</span>
 						}
@@ -222,18 +224,19 @@
 					</td>
 					<td>@b.Cost</td>
 					<td>
-						@if (b.BookingStatus.Equals(BookingStatuses.Closed))
+						@if (b.BookingStatus!.Equals(bp.BookingStatusNames[0]))
 						{
 							<span class="badge bg-pill bg-success">Closed</span>
 						}
-						@if (b.BookingStatus.Equals(BookingStatuses.None))
+						@if (b.BookingStatus.Equals(bp.BookingStatusNames[1]))
 						{
 							<span class="badge bg-pill bg-warning">None</span>
 						}
-						@if (b.BookingStatus.Equals(BookingStatuses.Open))
+						@if (b.BookingStatus.Equals(bp.BookingStatusNames[2]))
 						{
 							<span class="badge bg-pill bg-danger">Open</span>
 						}
+
 					</td>
 				</tr>
 			}

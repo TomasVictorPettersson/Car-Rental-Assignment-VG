@@ -1,10 +1,9 @@
-﻿using Car_Rental.Common.Enums;
-using Car_Rental.Common.Exceptions;
-using Car_Rental.Common.Interfaces;
+﻿using Car_Rental.Common.Interfaces;
 namespace Car_Rental.Common.Extensions;
 public static class BookingExtensions
 {
-	public static BookingStatuses ReturnVehicle(this IBooking booking, IVehicle vehicle)
+	public static string ReturnVehicle(this IBooking booking, 
+		IVehicle vehicle, string[] bookingStatusNames)
 	{
 		/* Variablerna days och km nyttjas för beräkna bokningskostnad.
 		   Bokningskostnad tilldelas till propertyn Cost. */
@@ -20,7 +19,7 @@ public static class BookingExtensions
 			if (km >= 0 && days >= 1)
 			{			
 				booking.Cost = days * vehicle.CostPerDay + km * vehicle.CostPerKm;
-				booking.BookingStatus = BookingStatuses.Closed;
+				booking.BookingStatus = bookingStatusNames[0];
 				booking.KmReturned = vehicle.OdoMeter + km;
 				return booking.BookingStatus;
 			}
@@ -30,7 +29,7 @@ public static class BookingExtensions
 			   argument för att ändra VehicleStatus till Booked. */
 			else if (booking.KmReturned is null && booking.Returned.Equals(default))
 			{
-				booking.BookingStatus = BookingStatuses.Open;
+				booking.BookingStatus = bookingStatusNames[2];
 				return booking.BookingStatus;
 			}
 			/* Uppfylls inte någon av ovanstående if-satserna så hamnar
@@ -40,27 +39,27 @@ public static class BookingExtensions
 			   felmeddelande för just den if-satsen. */
 			else if (booking.Returned != default && days <= 0 && booking.KmReturned < booking.KmReneted)
 			{
-				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
+				throw new ArgumentException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
 					$"Km Returned and Returned cannot be less than Km Reneted and Reneted.");
 			}
 			else if (booking.Returned != default && days <= 0 && booking.KmReturned >= booking.KmReneted)
 			{
-				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
+				throw new ArgumentException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
 					$"Returned cannot be less than Reneted.");
 			}
 			else if (booking.Returned != default && days <= 0 && booking.KmReturned is null)
 			{
-				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
+				throw new ArgumentException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
 					$"Returned cannot be less than Reneted and Km Returned has no value.");
 			}
 			else if (booking.Returned != default && days >= 1 && booking.KmReturned is null)
 			{
-				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
+				throw new ArgumentException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
 					$"Km Returned has no value.");
 			}
 			else
 			{
-				throw new BookingException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
+				throw new ArgumentException($"For booking with vehicle RegNo {vehicle.RegNo}. " +
 					$"Km Returned cannot be less than Km Reneted.");
 			}
 		}
@@ -71,9 +70,9 @@ public static class BookingExtensions
 		   Och slutligen tilldela Message propertyn
 		   det felmeddelande från if-blocket där
 		   BookingException kastades. */
-		catch (BookingException ex)
+		catch (ArgumentException ex)
 		{
-			booking.BookingStatus = BookingStatuses.None;
+			booking.BookingStatus = bookingStatusNames[1];
 			booking.Message = ex.Message;
 			return booking.BookingStatus;
 		}

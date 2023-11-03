@@ -1,5 +1,4 @@
 ﻿using Car_Rental.Common.Classes;
-using Car_Rental.Common.Enums;
 using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
@@ -18,12 +17,18 @@ public class BookingProcessor
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles()
 		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
+	/*
+	public IPerson? GetPerson(string ssn) => _db.Single<IPerson>(p => p.SSN.ToString().Equals(ssn));
+	public IVehicle? GetVehicle(int vehicleId) => _db.Single<IVehicle>(v => v.Id.Equals(vehicleId));
+	public IVehicle? GetVehicle(string regNo) => _db.Single<IVehicle>(v => v.RegNo.Equals(regNo));
+	*/
 	public string? RegNo { get; set; }
 	public string? Make { get; set; }
 	public double OdoMeter { get; set; }
 	public double CostPerKm { get; set; }
-	public VehicleTypes VehicleType { get; set; }
+	public string? VehicleType { get; set; }
 	public double CostPerDay { get; set; }
+	public string[] BookingStatusNames => _db.BookingStatusNames;
 	public string[] VehicleStatusNames => _db.VehicleStatusNames;
 	public string[] VehicleTypeNames => _db.VehicleTypeNames;
 	public int? SSN { get; set; }
@@ -34,26 +39,26 @@ public class BookingProcessor
 	public double? Distance { get; set; } = null;
 	public int? Days { get; set; } = null;
 	public bool IsProcessing { get; set; }
-	public void AddCustomer(int? sSN, string lastName, string firstName)
+	public void AddCustomer(int? ssn, string lastName, string firstName)
 	{
 		Message = string.Empty;
 		try
 		{
-			if (sSN is null || lastName is null || firstName is null)
+			if (ssn is null || lastName is null || firstName is null)
 			{
 				throw new ArgumentException("Could not add customer.");
 			}
 			bool isSSNTaken = default;
-			if (isSSNTaken = GetPersons().Any(p => p.SSN == sSN))
+			if (isSSNTaken = GetPersons().Any(p => p.SSN == ssn))
 			{
-				throw new ArgumentException($"A customer with SSN {sSN} already exists.");
+				throw new ArgumentException($"A customer with SSN {ssn} already exists.");
 			}
-			if (sSN?.ToString().Length < 5)
+			if (ssn?.ToString().Length < 5)
 			{
 				throw new ArgumentException("SSN must contain 5 numbers.");
 			}
 			var customerId = _db.NextPersonId;
-			var customer = new Customer(customerId, (int)sSN!, lastName.FirstCharSubstring(),
+			var customer = new Customer(customerId, (int)ssn!, lastName.FirstCharSubstring(),
 				firstName.FirstCharSubstring());
 			_db.Add<IPerson>(customer);
 		}
@@ -66,12 +71,13 @@ public class BookingProcessor
 		FirstName = null;
 	}
 	public void AddVehicle(string regNo, string make, double odoMeter,
-		double costPerKm, VehicleTypes vehicleType, double costPerDay)
+		double costPerKm, string vehicleType, double costPerDay)
 	{
 		Message = string.Empty;
 		try
 		{
-			if (regNo is null || make is null || odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
+			if (regNo is null || make is null || vehicleType is null ||
+				odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
 			{
 				throw new ArgumentException("Could not add vehicle.");
 			}
@@ -163,3 +169,5 @@ public class BookingProcessor
 	// Calling Default Interface Methods
 	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name) */
 }
+/// TODO: ordna följande: fixa single metoden, GetVehicleType i Idata, GetVehicle, GetPerson i bp fungerar
+/// kolla design i program, felsök program, kolla efter ytterligare förbättring, se video och komplement för iu etc.

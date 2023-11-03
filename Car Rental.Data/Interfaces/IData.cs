@@ -1,5 +1,4 @@
-﻿using Car_Rental.Common.Classes;
-using Car_Rental.Common.Enums;
+﻿using Car_Rental.Common.Enums;
 using Car_Rental.Common.Interfaces;
 using System.Linq.Expressions;
 namespace Car_Rental.Data.Interfaces;
@@ -11,10 +10,11 @@ public interface IData
 	int NextVehicleId { get; }
 	int NextPersonId { get; }
 	int NextBookingId { get; }
-	string[] VehicleTypeNames => (string[])Enum.GetValues(typeof(VehicleTypes));
-	public Task<List<IBooking>> RentVehicle(int vehicleId, int customerId);
-	public IBooking ReturnVehicle(int vehicleId,double distance, int days);
-	string[] VehicleStatusNames => (string[])Enum.GetValues(typeof(VehicleStatuses));
+	string[] BookingStatusNames => Enum.GetNames(typeof(BookingStatuses));
+	string[] VehicleTypeNames => Enum.GetNames(typeof(VehicleTypes));
+	string[] VehicleStatusNames => Enum.GetNames(typeof(VehicleStatuses));
+	Task<List<IBooking>> RentVehicle(int vehicleId, int customerId);
+	IBooking ReturnVehicle(int vehicleId,double distance, int days);
 	/*
 	public VehicleTypes GetVehicleType(string name) => 
 	*/
