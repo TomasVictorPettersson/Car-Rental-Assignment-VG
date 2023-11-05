@@ -1,10 +1,11 @@
-﻿using Car_Rental.Common.Interfaces;
+﻿using Car_Rental.Common.Enums;
+using Car_Rental.Common.Interfaces;
 namespace Car_Rental.Common.Extensions;
 public static class VehicleExtensions
 {
-	public static string SetBookingStatus(this IBooking booking, string[] bookingStatusNames)
+	public static BookingStatuses SetBookingStatus(this IBooking booking)
 	{
-		booking.BookingStatus = bookingStatusNames[2];
+		booking.BookingStatus = BookingStatuses.Open;
 		return booking.BookingStatus;
 	}
 	public static int Duration(this DateTime startDate, int days,
@@ -13,7 +14,7 @@ public static class VehicleExtensions
 		var endDate = vehicle.VehicleLastReneted;
 		if (startDate < DateTime.Now || startDate > DateTime.Now)
 		{
-			endDate = startDate;
+			endDate = startDate;			
 		}
 		double duration = default;
 		if (days.Equals(0))
@@ -33,30 +34,29 @@ public static class VehicleExtensions
 		var cost = duration * vehicle.CostPerDay + km * vehicle.CostPerKm;
 		return cost;
 	}
-	public static string SetBookingValues(this double cost, IBooking booking,
-		double kmReturned, string[] bookingStatusNames)
+	public static BookingStatuses SetBookingValues(this double cost, IBooking booking,
+		double kmReturned)
 	{
 		booking.KmReturned = kmReturned;
 		booking.Cost = cost;
-		booking.BookingStatus = bookingStatusNames[0];
+		booking.BookingStatus = BookingStatuses.Closed;
 		return booking.BookingStatus;
 	}
-	public static void ReturnVehicleStatus(this string bookingStatus,
-		IVehicle vehicle, string[] bookingStatusNames, 
-		string[] vehicleStatusNames, double kmReturned = 0)
+	public static void ReturnVehicleStatus(this BookingStatuses bookingStatus,
+		IVehicle vehicle, double kmReturned = 0)
 	{
-		if (bookingStatus.Equals(bookingStatusNames[0]))
+		if (bookingStatus.Equals(BookingStatuses.Closed))
 		{
 			vehicle.OdoMeter = kmReturned;
-			vehicle.VehicleStatus = vehicleStatusNames[0];
+			vehicle.VehicleStatus = VehicleStatuses.Available;
 		}
-		else if (bookingStatus.Equals(bookingStatusNames[1]))
+		else if (bookingStatus.Equals(BookingStatuses.None))
 		{
-			vehicle.VehicleStatus = vehicleStatusNames[2];
+			vehicle.VehicleStatus = VehicleStatuses.Unknown;
 		}
-		else if (bookingStatus.Equals(bookingStatusNames[2]))
+		else if (bookingStatus.Equals(BookingStatuses.Open))
 		{
-			vehicle.VehicleStatus = vehicleStatusNames[1];
+			vehicle.VehicleStatus = VehicleStatuses.Booked;
 		}	
 	}
 }

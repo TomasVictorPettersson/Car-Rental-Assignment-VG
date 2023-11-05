@@ -1,9 +1,10 @@
 ﻿using Car_Rental.Common.Interfaces;
+using Car_Rental.Common.Enums;
 namespace Car_Rental.Common.Extensions;
 public static class BookingExtensions
 {
-	public static string ReturnVehicle(this IBooking booking, 
-		IVehicle vehicle, string[] bookingStatusNames)
+	public static BookingStatuses ReturnVehicle(this IBooking booking, 
+		IVehicle vehicle)
 	{
 		/* Variablerna days och km nyttjas för beräkna bokningskostnad.
 		   Bokningskostnad tilldelas till propertyn Cost. */
@@ -19,7 +20,7 @@ public static class BookingExtensions
 			if (km >= 0 && days >= 1)
 			{			
 				booking.Cost = days * vehicle.CostPerDay + km * vehicle.CostPerKm;
-				booking.BookingStatus = bookingStatusNames[0];
+				booking.BookingStatus = BookingStatuses.Closed;
 				booking.KmReturned = vehicle.OdoMeter + km;
 				return booking.BookingStatus;
 			}
@@ -29,7 +30,7 @@ public static class BookingExtensions
 			   argument för att ändra VehicleStatus till Booked. */
 			else if (booking.KmReturned is null && booking.Returned.Equals(default))
 			{
-				booking.BookingStatus = bookingStatusNames[2];
+				booking.BookingStatus = BookingStatuses.Open;
 				return booking.BookingStatus;
 			}
 			/* Uppfylls inte någon av ovanstående if-satserna så hamnar
@@ -72,7 +73,7 @@ public static class BookingExtensions
 		   BookingException kastades. */
 		catch (ArgumentException ex)
 		{
-			booking.BookingStatus = bookingStatusNames[1];
+			booking.BookingStatus = BookingStatuses.None;
 			booking.Message = ex.Message;
 			return booking.BookingStatus;
 		}

@@ -1,4 +1,5 @@
-﻿using Car_Rental.Common.Interfaces;
+﻿using Car_Rental.Common.Enums;
+using Car_Rental.Common.Interfaces;
 namespace Car_Rental.Common.Classes;
 public class Vehicle : IVehicle
 {
@@ -7,12 +8,12 @@ public class Vehicle : IVehicle
 	public string Make { get; init; }
 	public double OdoMeter { get; set; }
 	public double CostPerKm { get; init; }
-	public string VehicleType { get; init; }
+	public VehicleTypes VehicleType { get; init; }
 	public double CostPerDay { get; init; }
-	public string VehicleStatus { get; set; } = "Available";
+	public VehicleStatuses VehicleStatus { get; set; } 
 	public DateTime VehicleLastReneted { get; set; } = DateTime.Now; 
 	public Vehicle(int id, string regNo, string make, double odoMeter, double costPerKm,
-		string vehicleType, double costPerDay) =>
+		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, OdoMeter, CostPerKm, VehicleType, CostPerDay) =
 		(id, regNo, make, odoMeter, costPerKm, vehicleType, costPerDay);
 }

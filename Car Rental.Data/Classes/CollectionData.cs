@@ -12,9 +12,6 @@ public class CollectionData : IData
 	readonly List<IPerson> _persons = new();
 	readonly List<IVehicle> _vehicles = new();
 	readonly List<IBooking> _bookings = new();
-	static string[] BookingStatusNames => Enum.GetNames(typeof(BookingStatuses));
-	static string[] VehicleTypeNames => Enum.GetNames(typeof(VehicleTypes));
-	static string[] VehicleStatusNames => Enum.GetNames(typeof(VehicleStatuses));
 	/* Skapar man en instans av CollectionData
 	 anropas metoden SeedData. */
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
@@ -32,36 +29,35 @@ public class CollectionData : IData
 		var customerTwo = new Customer(customerTwoId, 98765, "Doe", "Jane");
 		_persons.Add(customerTwo);
 		var vehicleOneId = NextVehicleId;
-		var vehicleOne = new Car(vehicleOneId, "ABC123", "Volvo", 10000, 1, VehicleTypeNames[0],
+		var vehicleOne = new Car(vehicleOneId, "ABC123", "Volvo", 10000, 1, VehicleTypes.Combi,
 			200); ;
 		_vehicles.Add(vehicleOne);
 		var vehicleTwoId = NextVehicleId;
-		var vehicleTwo = new Car(vehicleTwoId, "DEF456", "Saab", 20000, 1, VehicleTypeNames[2], 100);
+		var vehicleTwo = new Car(vehicleTwoId, "DEF456", "Saab", 20000, 1, VehicleTypes.Sedan, 100);
 		_vehicles.Add(vehicleTwo);
 		var vehicleThreeId = NextVehicleId;
-		var vehicleThree = new Car(vehicleThreeId, "GHI789", "Tesla", 1000, 3, VehicleTypeNames[2],
+		var vehicleThree = new Car(vehicleThreeId, "GHI789", "Tesla", 1000, 3, VehicleTypes.Sedan,
 			100);
 		_vehicles.Add(vehicleThree);
 		var vehicleFourId = NextVehicleId;
-		var vehicleFour = new Car(vehicleFourId, "JKL012", "Jeep", 5000, 1.5, VehicleTypeNames[3],
+		var vehicleFour = new Car(vehicleFourId, "JKL012", "Jeep", 5000, 1.5, VehicleTypes.Van,
 			300);
 		_vehicles.Add(vehicleFour);
 		var vehicleFiveId = NextVehicleId;
 		var vehicleFive = new Motorcycle(vehicleFiveId, "MNO234", "Yamaha",
-			30000, 0.5, VehicleTypeNames[1], 50);
+			30000, 0.5, VehicleTypes.Motorcycle, 50);
 		_vehicles.Add(vehicleFive);
 		var bookingOneId = NextBookingId;
 		var bookingOne = new Booking(bookingOneId, vehicleThree.RegNo, customerOne, vehicleThree.OdoMeter,
 			new DateTime(2023, 11, 3));
-		bookingOne.ReturnVehicle(vehicleThree, BookingStatusNames)
-			.ReturnVehicleStatus(vehicleThree, BookingStatusNames, VehicleStatusNames);
+		bookingOne.ReturnVehicle(vehicleThree)
+			.ReturnVehicleStatus(vehicleThree);
 		_bookings.Add(bookingOne);
 		var bookingTwoId = NextBookingId;
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
 			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 5000);
-		bookingTwo.ReturnVehicle(vehicleFour, BookingStatusNames)
-			.ReturnVehicleStatus(vehicleFour, BookingStatusNames, VehicleStatusNames,
-			(double)bookingTwo.KmReturned!);
+		bookingTwo.ReturnVehicle(vehicleFour)
+			.ReturnVehicleStatus(vehicleFour, (double)bookingTwo.KmReturned!);
 		_bookings.Add(bookingTwo);
 	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
@@ -106,8 +102,8 @@ public class CollectionData : IData
 		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter,
 			vehicle.VehicleLastReneted);
 		await Task.Delay(5000);
-		booking.SetBookingStatus(BookingStatusNames).
-			ReturnVehicleStatus(vehicle, BookingStatusNames, VehicleStatusNames);
+		booking.SetBookingStatus().
+			ReturnVehicleStatus(vehicle);
 		_bookings.Add(booking);
 		return _bookings;
 	}
@@ -120,8 +116,8 @@ public class CollectionData : IData
 		var km = kmReturned - booking.KmReneted;
 		booking.Reneted.Duration(days, booking, vehicle)
 			.CalculateCost(vehicle, km)
-			.SetBookingValues(booking, kmReturned, BookingStatusNames).
-			ReturnVehicleStatus(vehicle, BookingStatusNames, VehicleStatusNames, kmReturned);
+			.SetBookingValues(booking, kmReturned).
+			ReturnVehicleStatus(vehicle, kmReturned);
 		return booking;
 	}
 }

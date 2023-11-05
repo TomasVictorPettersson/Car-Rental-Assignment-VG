@@ -1,4 +1,5 @@
 ﻿using Car_Rental.Common.Classes;
+using Car_Rental.Common.Enums;
 using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
@@ -13,6 +14,26 @@ public class BookingProcessor
 	public BookingProcessor(IData db) => _db = db;
 	/* Anropar sedan metoder som ligger i 
 	   CollectionData klassen i Data projektet. */
+	public string? RegNo { get; set; }
+	public string? Make { get; set; }
+	public double OdoMeter { get; set; }
+	public double CostPerKm { get; set; }
+	public double CostPerDay { get; set; }
+	public int? SSN { get; set; }
+	public string? LastName { get; set; }
+	public string? FirstName { get; set; }
+	public string Message { get; set; } = string.Empty;
+	public int? CustomerId { get; set; }
+	public double? Distance { get; set; } = null;
+	public int? Days { get; set; } = null;
+	public bool IsProcessing { get; set; }
+	public string? VehicleType { get; set; }
+	public string[] BookingStatusNames => _db.BookingStatusNames();
+	public string[] VehicleStatusNames => _db.VehicleStatusNames();
+	public string[] VehicleTypeNames => _db.VehicleTypeNames();
+	public BookingStatuses GetBookingStatus(string name) => _db.GetBookingStatus(name);
+	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name);
+	public VehicleStatuses GetVehicleStatus(string name) => _db.GetVehicleStatus(name);
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p)).OrderBy(p => p.SSN);
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles()
@@ -22,23 +43,6 @@ public class BookingProcessor
 	public IVehicle? GetVehicle(int vehicleId) => _db.Single<IVehicle>(v => v.Id.Equals(vehicleId));
 	public IVehicle? GetVehicle(string regNo) => _db.Single<IVehicle>(v => v.RegNo.Equals(regNo));
 	*/
-	public string? RegNo { get; set; }
-	public string? Make { get; set; }
-	public double OdoMeter { get; set; }
-	public double CostPerKm { get; set; }
-	public string? VehicleType { get; set; }
-	public double CostPerDay { get; set; }
-	public string[] BookingStatusNames => _db.BookingStatusNames;
-	public string[] VehicleStatusNames => _db.VehicleStatusNames;
-	public string[] VehicleTypeNames => _db.VehicleTypeNames;
-	public int? SSN { get; set; }
-	public string? LastName { get; set; }
-	public string? FirstName { get; set; }
-	public string Message { get; set; } = string.Empty;
-	public int? CustomerId { get; set; }
-	public double? Distance { get; set; } = null;
-	public int? Days { get; set; } = null;
-	public bool IsProcessing { get; set; }
 	public void AddCustomer(int? ssn, string lastName, string firstName)
 	{
 		Message = string.Empty;
@@ -71,12 +75,12 @@ public class BookingProcessor
 		FirstName = null;
 	}
 	public void AddVehicle(string regNo, string make, double odoMeter,
-		double costPerKm, string vehicleType, double costPerDay)
+		double costPerKm, VehicleTypes vehicleType, double costPerDay)
 	{
 		Message = string.Empty;
 		try
 		{
-			if (regNo is null || make is null || vehicleType is null ||
+			if (regNo is null || make is null ||
 				odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
 			{
 				throw new ArgumentException("Could not add vehicle.");
@@ -169,5 +173,3 @@ public class BookingProcessor
 	// Calling Default Interface Methods
 	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name) */
 }
-/// TODO: ordna följande: fixa single metoden, GetVehicleType i Idata, GetVehicle, GetPerson i bp fungerar
-/// kolla design i program, felsök program, kolla efter ytterligare förbättring, se video och komplement för iu etc.

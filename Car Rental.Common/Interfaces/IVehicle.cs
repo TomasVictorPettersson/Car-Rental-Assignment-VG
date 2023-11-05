@@ -1,4 +1,6 @@
-﻿namespace Car_Rental.Common.Interfaces;
+﻿using Car_Rental.Common.Enums;
+
+namespace Car_Rental.Common.Interfaces;
 public interface IVehicle
 {
 	int Id { get; }
@@ -6,8 +8,8 @@ public interface IVehicle
 	public string Make { get;}
 	public double OdoMeter { get; set; }
 	public double CostPerKm { get; }
-	string VehicleType { get;}
+	VehicleTypes VehicleType { get;}
 	double CostPerDay { get; }
-	string VehicleStatus { get; set; }
+	VehicleStatuses VehicleStatus { get; set; }
 	DateTime VehicleLastReneted { get; set; }
 }

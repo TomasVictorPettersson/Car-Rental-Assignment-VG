@@ -1,4 +1,6 @@
 ﻿using Car_Rental.Common.Classes;
+using Car_Rental.Common.Enums;
+
 namespace Car_Rental.Common.Interfaces;
 public interface IBooking
 {
@@ -10,6 +12,6 @@ public interface IBooking
 	DateTime Reneted { get; set; }
 	DateTime Returned { get; set; }
 	double? Cost { get; set; }
-	string? BookingStatus { get; set; }
+	BookingStatuses BookingStatus { get; set; }
 	string Message { get; set; }
 }
