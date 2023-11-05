@@ -38,11 +38,10 @@ public class BookingProcessor
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles()
 		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
-	/*
+	/// TODO: Fixa och kolla om de tre metoderna nedtill funkar
 	public IPerson? GetPerson(string ssn) => _db.Single<IPerson>(p => p.SSN.ToString().Equals(ssn));
 	public IVehicle? GetVehicle(int vehicleId) => _db.Single<IVehicle>(v => v.Id.Equals(vehicleId));
 	public IVehicle? GetVehicle(string regNo) => _db.Single<IVehicle>(v => v.RegNo.Equals(regNo));
-	*/
 	public void AddCustomer(int? ssn, string lastName, string firstName)
 	{
 		Message = string.Empty;
@@ -137,6 +136,7 @@ public class BookingProcessor
 		{
 			Message = ex.Message;
 		}
+		CustomerId = null;
 		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
 	public IBooking? ReturnVehicle(int vehicleId, double? distance, int? days)
@@ -168,8 +168,4 @@ public class BookingProcessor
 			return null;
 		}
 	}
-	/* public IVehicle? GetVehicle(int vehicleId) { }
-	public IVehicle? GetVehicle(string regNo) { }		
-	// Calling Default Interface Methods
-	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name) */
 }

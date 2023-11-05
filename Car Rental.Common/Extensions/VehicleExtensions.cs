@@ -10,21 +10,13 @@ public static class VehicleExtensions
 	}
 	public static int Duration(this DateTime startDate, int days,
 		IBooking booking, IVehicle vehicle)
-	{
+	{					
 		var endDate = vehicle.VehicleLastReneted;
 		if (startDate < DateTime.Now || startDate > DateTime.Now)
 		{
 			endDate = startDate;
-		}
-		double duration = default;
-		if (days.Equals(0))
-		{
-			duration = (endDate - startDate).TotalDays + 1;
-		}
-		else if (days > 0)
-		{
-			duration = (endDate - startDate).TotalDays + 1 + days;
-		}
+		}		
+		var duration = (endDate - startDate).TotalDays + 1 + days;
 		booking.Returned = endDate.AddDays(duration - 1);
 		return (int)duration;
 	}

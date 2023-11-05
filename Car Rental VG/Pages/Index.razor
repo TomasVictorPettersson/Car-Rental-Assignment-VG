@@ -163,7 +163,7 @@
 								</button>
 							}
 							@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[1])))
-							{
+							{								
 								<input size="4%" placeholder="Distance" @bind="bp.Distance" disabled>
 								<input size="1.5%" placeholder="Days" @bind="bp.Days" disabled>
 								<button type="button" class="btn btn-light" disabled>
@@ -225,7 +225,6 @@
 					</td>
 					<td>@b.Cost</td>
 					<td>
-
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[0])))
 						{
 							<span class="badge bg-pill bg-success">Closed</span>
@@ -238,7 +237,6 @@
 						{
 							<span class="badge bg-pill bg-danger">Open</span>
 						}
-
 					</td>
 				</tr>
 			}
