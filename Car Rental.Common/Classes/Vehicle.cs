@@ -7,11 +7,11 @@ public class Vehicle : IVehicle
 	public string RegNo { get; init; }
 	public string Make { get; init; }
 	public double OdoMeter { get; set; }
-	public double CostPerKm { get; init; }
-	public VehicleTypes VehicleType { get; init; }
+	public double CostPerKm { get; init; }	
 	public double CostPerDay { get; init; }
-	public VehicleStatuses VehicleStatus { get; set; } 
-	public DateTime VehicleLastReneted { get; set; } = DateTime.Now; 
+	public DateTime VehicleLastReneted { get; set; } = DateTime.Now;
+	public VehicleTypes VehicleType { get; init; }
+	public VehicleStatuses VehicleStatus { get; set; }
 	public Vehicle(int id, string regNo, string make, double odoMeter, double costPerKm,
 		VehicleTypes vehicleType, double costPerDay) =>
 		(Id, RegNo, Make, OdoMeter, CostPerKm, VehicleType, CostPerDay) =

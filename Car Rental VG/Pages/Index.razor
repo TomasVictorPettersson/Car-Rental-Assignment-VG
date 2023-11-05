@@ -79,6 +79,7 @@
 						<select class="form-control-sm" @bind="bp.VehicleType" disabled>
 							@foreach (var vt in bp.VehicleTypeNames)
 							{
+								<option value="none" selected disabled hidden></option>
 								<option> @vt</option>
 							}
 						</select>

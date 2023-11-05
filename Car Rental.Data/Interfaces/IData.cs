@@ -10,7 +10,7 @@ public interface IData
 	string[] BookingStatusNames() => Enum.GetNames(typeof(BookingStatuses));
 	string[] VehicleTypeNames() => Enum.GetNames(typeof(VehicleTypes));
 	string[] VehicleStatusNames() => Enum.GetNames(typeof(VehicleStatuses));
-	BookingStatuses GetBookingStatus(string status) => (BookingStatuses)Enum.Parse(typeof(BookingStatuses), status);
+	BookingStatuses GetBookingStatus(string name) => (BookingStatuses)Enum.Parse(typeof(BookingStatuses), name);
 	VehicleTypes GetVehicleType(string name) => (VehicleTypes)Enum.Parse(typeof(VehicleTypes), name);
 	VehicleStatuses GetVehicleStatus(string name) => (VehicleStatuses)Enum.Parse(typeof(VehicleStatuses), name);
 	List<T> Get<T>(Expression<Func<T, bool>>? expression);

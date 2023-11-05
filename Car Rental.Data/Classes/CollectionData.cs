@@ -57,7 +57,7 @@ public class CollectionData : IData
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
 			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 5000);
 		bookingTwo.ReturnVehicle(vehicleFour)
-			.ReturnVehicleStatus(vehicleFour, (double)bookingTwo.KmReturned!);
+			.ReturnVehicleStatus(vehicleFour, bookingTwo ,(double)bookingTwo.KmReturned!);
 		_bookings.Add(bookingTwo);
 	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
@@ -99,8 +99,7 @@ public class CollectionData : IData
 		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId))
 			?? throw new ArgumentNullException();
 		var customer = _persons.FirstOrDefault(c => c.Id.Equals(customerId)) ?? throw new ArgumentNullException();
-		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter,
-			vehicle.VehicleLastReneted);
+		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, vehicle.VehicleLastReneted);
 		await Task.Delay(5000);
 		booking.SetBookingStatus().
 			ReturnVehicleStatus(vehicle);
@@ -117,7 +116,7 @@ public class CollectionData : IData
 		booking.Reneted.Duration(days, booking, vehicle)
 			.CalculateCost(vehicle, km)
 			.SetBookingValues(booking, kmReturned).
-			ReturnVehicleStatus(vehicle, kmReturned);
+			ReturnVehicleStatus(vehicle, booking ,kmReturned);
 		return booking;
 	}
 }

@@ -7,9 +7,9 @@ public interface IVehicle
 	public string RegNo { get;}
 	public string Make { get;}
 	public double OdoMeter { get; set; }
-	public double CostPerKm { get; }
-	VehicleTypes VehicleType { get;}
+	public double CostPerKm { get; }	
 	double CostPerDay { get; }
+	VehicleTypes VehicleType { get; }
 	VehicleStatuses VehicleStatus { get; set; }
 	DateTime VehicleLastReneted { get; set; }
 }

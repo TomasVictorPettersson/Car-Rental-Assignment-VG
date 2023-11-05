@@ -14,7 +14,7 @@ public static class VehicleExtensions
 		var endDate = vehicle.VehicleLastReneted;
 		if (startDate < DateTime.Now || startDate > DateTime.Now)
 		{
-			endDate = startDate;			
+			endDate = startDate;
 		}
 		double duration = default;
 		if (days.Equals(0))
@@ -26,7 +26,6 @@ public static class VehicleExtensions
 			duration = (endDate - startDate).TotalDays + 1 + days;
 		}
 		booking.Returned = endDate.AddDays(duration - 1);
-		vehicle.VehicleLastReneted = booking.Returned;
 		return (int)duration;
 	}
 	public static double CalculateCost(this int duration, IVehicle vehicle, double km)
@@ -43,10 +42,11 @@ public static class VehicleExtensions
 		return booking.BookingStatus;
 	}
 	public static void ReturnVehicleStatus(this BookingStatuses bookingStatus,
-		IVehicle vehicle, double kmReturned = 0)
+		IVehicle vehicle, IBooking? booking = null, double kmReturned = 0)
 	{
 		if (bookingStatus.Equals(BookingStatuses.Closed))
 		{
+			vehicle.VehicleLastReneted = booking!.Returned;
 			vehicle.OdoMeter = kmReturned;
 			vehicle.VehicleStatus = VehicleStatuses.Available;
 		}
@@ -57,6 +57,6 @@ public static class VehicleExtensions
 		else if (bookingStatus.Equals(BookingStatuses.Open))
 		{
 			vehicle.VehicleStatus = VehicleStatuses.Booked;
-		}	
+		}
 	}
 }
