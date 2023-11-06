@@ -23,7 +23,7 @@ public class BookingProcessor
 	public string? LastName { get; set; }
 	public string? FirstName { get; set; }
 	public string Message { get; set; } = string.Empty;
-	public int? CustomerId { get; set; }
+	public string? CustomerSSN { get; set; }
 	public double? Distance { get; set; } = null;
 	public int? Days { get; set; } = null;
 	public bool IsProcessing { get; set; }
@@ -38,7 +38,7 @@ public class BookingProcessor
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles()
 		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
-	/// TODO: Fixa och kolla om de tre metoderna nedtill funkar
+	public IBooking? GetBooking(int bookingId) => _db.Single<IBooking>(b => b.Id.Equals(bookingId));
 	public IPerson? GetPerson(string ssn) => _db.Single<IPerson>(p => p.SSN.ToString().Equals(ssn));
 	public IVehicle? GetVehicle(int vehicleId) => _db.Single<IVehicle>(v => v.Id.Equals(vehicleId));
 	public IVehicle? GetVehicle(string regNo) => _db.Single<IVehicle>(v => v.RegNo.Equals(regNo));
@@ -52,11 +52,11 @@ public class BookingProcessor
 				throw new ArgumentException("Could not add customer.");
 			}
 			bool isSSNTaken = default;
-			if (isSSNTaken = GetPersons().Any(p => p.SSN == ssn))
+			if (isSSNTaken = GetPersons().Any(p => p.SSN.Equals(ssn)))
 			{
 				throw new ArgumentException($"A customer with SSN {ssn} already exists.");
 			}
-			if (ssn?.ToString().Length < 5)
+			else if (ssn?.ToString().Length < 5)
 			{
 				throw new ArgumentException("SSN must contain 5 numbers.");
 			}
@@ -84,12 +84,16 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("Could not add vehicle.");
 			}
-			bool isRegNoTaken = default;
-			if (isRegNoTaken = GetVehicles().Any(v => v.RegNo.ToLower() == regNo.ToLower()))
+			bool isRegNoTaken = default;			
+			if (isRegNoTaken = GetVehicles().Any(v => v.RegNo.ToLower().Equals(regNo.ToLower())))
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
 			}
-			if (regNo.Length < 6)
+			else if (isRegNoTaken = GetBookings().Any(b => b.RegNo.ToLower().Equals(regNo.ToLower())))
+			{
+				throw new ArgumentException($"A booking with vehicle RegNo {regNo.ToUpper()} already exists.");
+			}							
+			else if (regNo.Length < 6)
 			{
 				throw new ArgumentException("RegNo must be 6 characters long.");
 			}
@@ -113,19 +117,37 @@ public class BookingProcessor
 		VehicleType = default;
 		CostPerDay = default;
 	}
-	public async Task<List<IBooking>> RentVehicle(int vehicleId, int? customerId)
+	public void RemoveBooking(IBooking booking)
+	{
+		Message = string.Empty;
+		try
+		{
+			var vehicle = GetVehicles().SingleOrDefault(v => v.RegNo.Equals(booking.RegNo)) 
+				?? throw new ArgumentNullException();
+			vehicle.VehicleStatus = VehicleStatuses.Available;
+			_db.Remove(booking);
+		}
+		catch (ArgumentNullException ex)
+		{
+			Message = ex.Message;
+		}
+		catch (Exception ex)
+		{
+			Message = ex.Message;
+		}
+	}
+	public async Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person)
 	{
 		List<IBooking> booking = new();
 		Message = string.Empty;
 		try
 		{
-
-			if (customerId is null)
+			if (person is null)
 			{
 				throw new ArgumentException("Must select a customer to be able to rent a car.");
 			}
 			IsProcessing = true;
-			booking = await _db.RentVehicle(vehicleId, (int)customerId);
+			booking = await _db.RentVehicle(vehicle, person);
 			IsProcessing = false;
 		}
 		catch (ArgumentException ex)
@@ -136,10 +158,10 @@ public class BookingProcessor
 		{
 			Message = ex.Message;
 		}
-		CustomerId = null;
+		CustomerSSN = null;
 		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
-	public IBooking? ReturnVehicle(int vehicleId, double? distance, int? days)
+	public IBooking? ReturnVehicle(IVehicle vehicle, double? distance, int? days)
 	{
 		Message = string.Empty;
 		try
@@ -152,7 +174,7 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("Distance or Days cannot have a value less than zero.");
 			}
-			var booking = _db.ReturnVehicle(vehicleId, (double)distance, (int)days);
+			var booking = _db.ReturnVehicle(vehicle, (double)distance, (int)days);
 			Distance = null;
 			Days = null;
 			return booking;

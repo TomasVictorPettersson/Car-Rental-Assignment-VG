@@ -13,9 +13,10 @@ public interface IData
 	BookingStatuses GetBookingStatus(string name) => (BookingStatuses)Enum.Parse(typeof(BookingStatuses), name);
 	VehicleTypes GetVehicleType(string name) => (VehicleTypes)Enum.Parse(typeof(VehicleTypes), name);
 	VehicleStatuses GetVehicleStatus(string name) => (VehicleStatuses)Enum.Parse(typeof(VehicleStatuses), name);
-	List<T> Get<T>(Expression<Func<T, bool>>? expression);
-	T? Single<T>(Expression<Func<T, bool>>? expression);
-	void Add<T>(T item);
-	Task<List<IBooking>> RentVehicle(int vehicleId, int customerId);
-	IBooking ReturnVehicle(int vehicleId, double distance, int days);
+	List<T> Get<T>(Expression<Func<T, bool>>? expression) where T : class;
+	T? Single<T>(Expression<Func<T, bool>>? expression) where T : class;
+	void Add<T>(T item) where T : class;
+	void Remove<T>(T item) where T : class;
+	Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person);
+	IBooking ReturnVehicle(IVehicle vehicle, double distance, int days);
 }

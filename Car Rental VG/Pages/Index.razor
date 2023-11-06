@@ -110,25 +110,25 @@
 
 					@if (bp.IsProcessing.Equals(false))
 					{
-						<td>						
+						<td>
 							@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[0])))
 							{
-								<select class="form-control-sm" @bind="bp.CustomerId">
+								<select class="form-control-sm" @bind="bp.CustomerSSN">
 									@foreach (var p in bp.GetPersons())
 									{
-										@if (bp.CustomerId is null)
+										@if (bp.CustomerSSN is null)
 										{
 											<option value="none" selected disabled hidden></option>
-											<option value="@p.Id"> @p</option>
+											<option value="@p.SSN"> @p</option>
 										}
-										@if (bp.CustomerId is not null)
+										@if (bp.CustomerSSN is not null)
 										{
-											<option value="@p.Id"> @p</option>
+											<option value="@p.SSN"> @p</option>
 										}
 									}
 								</select>
 								<button class="rent-btn" @onclick="async ()
-								=> await bp.RentVehicle(v.Id, bp.CustomerId)">
+								=> await bp.RentVehicle(bp.GetVehicle(v.RegNo)!, bp.GetPerson(bp.CustomerSSN)!)">
 									Rent
 								</button>
 							}
@@ -138,7 +138,7 @@
 								<input size="1.5%" maxlength="3" placeholder="Days" @bind="bp.Days">
 								<button type="button" class="btn btn-light" @onclick="(()
 									=>
-									bp.ReturnVehicle(v.Id,
+									bp.ReturnVehicle(bp.GetVehicle(v.Id)!,
 									bp.Distance, bp.Days))">
 									Return
 								</button>
@@ -150,11 +150,11 @@
 						<td>
 							@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[0])))
 							{
-								<select class="form-control-sm" @bind="bp.CustomerId" disabled>
+								<select class="form-control-sm" @bind="bp.CustomerSSN" disabled>
 									@foreach (var p in bp.GetPersons())
 									{
 										{
-											<option value="@p.Id"> @p</option>
+											<option value="@p.SSN"> @p</option>
 										}
 									}
 								</select>
@@ -163,7 +163,7 @@
 								</button>
 							}
 							@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[1])))
-							{								
+							{
 								<input size="4%" placeholder="Distance" @bind="bp.Distance" disabled>
 								<input size="1.5%" placeholder="Days" @bind="bp.Days" disabled>
 								<button type="button" class="btn btn-light" disabled>
@@ -172,7 +172,7 @@
 							}
 						</td>
 					}
-					<td>	
+					<td>
 						@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[0])))
 						{
 							<span class="badge bg-dark">Available</span>
@@ -206,6 +206,14 @@
 				<th>Returned</th>
 				<th>Cost</th>
 				<th>Status</th>
+				@foreach (var b in bp.GetBookings())
+				{
+					@if (b.Message.Length > 0)
+					{
+						<th>Action</th>
+					}
+				}
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -231,11 +239,21 @@
 						}
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[1])))
 						{
+
 							<span class="badge bg-pill bg-warning">None</span>
 						}
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[2])))
 						{
 							<span class="badge bg-pill bg-danger">Open</span>
+						}
+					</td>
+					<td>
+						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[1])))
+						{
+							<button type="button" style="margin-left: -5%" class="btn btn-light" @onclick="(()
+							=> bp.RemoveBooking(bp.GetBooking(b.Id)!))">
+								Remove
+							</button>
 						}
 					</td>
 				</tr>
@@ -253,7 +271,6 @@
 				<th>SSN</th>
 				<th>Last Name</th>
 				<th>First Name</th>
-				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -274,7 +291,6 @@
 					<td><strong>@p.SSN</strong></td>
 					<td>@p.LastName</td>
 					<td>@p.FirstName</td>
-					<td></td>
 				</tr>
 			}
 		</tbody>

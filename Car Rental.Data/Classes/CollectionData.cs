@@ -55,12 +55,12 @@ public class CollectionData : IData
 		_bookings.Add(bookingOne);
 		var bookingTwoId = NextBookingId;
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
-			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 5000);
+			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 500);
 		bookingTwo.ReturnVehicle(vehicleFour)
 			.ReturnVehicleStatus(vehicleFour, bookingTwo ,(double)bookingTwo.KmReturned!);
 		_bookings.Add(bookingTwo);
 	}
-	public List<T> Get<T>(Expression<Func<T, bool>>? expression)
+	public List<T> Get<T>(Expression<Func<T, bool>>? expression) where T : class
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
 	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
@@ -70,7 +70,7 @@ public class CollectionData : IData
 		if (expression is null) return collection.ToList();
 		return collection.Where(expression).ToList();
 	}
-	public T? Single<T>(Expression<Func<T, bool>>? expression)
+	public T? Single<T>(Expression<Func<T, bool>>? expression) where T : class
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
 	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
@@ -84,7 +84,7 @@ public class CollectionData : IData
 		var item = collection.SingleOrDefault(expression);
 		return item ?? throw new InvalidOperationException();
 	}
-	public void Add<T>(T item)
+	public void Add<T>(T item) where T : class
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
 	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
@@ -93,30 +93,39 @@ public class CollectionData : IData
 		var collection = (List<T>)value;
 		collection.Add(item);
 	}
-	public async Task<List<IBooking>> RentVehicle(int vehicleId, int customerId)
+	public void Remove<T>(T item) where T : class
+	{
+		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
+	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
+		?? throw new InvalidOperationException("Unsupported type");
+		var value = collections.GetValue(this) ?? throw new InvalidDataException();
+		var collection = (List<T>)value;
+		collection.Remove(item);
+	}
+	public async Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person)
 	{
 		var bookingId = NextBookingId;
-		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId))
-			?? throw new ArgumentNullException();
-		var customer = _persons.FirstOrDefault(c => c.Id.Equals(customerId)) ?? throw new ArgumentNullException();
-		var booking = new Booking(bookingId, vehicle.RegNo, (Customer)customer, vehicle.OdoMeter, vehicle.VehicleLastReneted);
+		var _vehicle = _vehicles.FirstOrDefault(v => v.Equals(vehicle)) ?? throw new ArgumentNullException();
+		var _person = _persons.FirstOrDefault(p => p.Equals(person)) ?? throw new ArgumentNullException();
+		var booking = new Booking(bookingId, _vehicle.RegNo, (Customer)_person, 
+			_vehicle.OdoMeter, _vehicle.VehicleLastReneted);
 		await Task.Delay(5000);
 		booking.SetBookingStatus().
-			ReturnVehicleStatus(vehicle);
+			ReturnVehicleStatus(_vehicle);
 		_bookings.Add(booking);
 		return _bookings;
 	}
-	public IBooking ReturnVehicle(int vehicleId, double distance, int days)
+	public IBooking ReturnVehicle(IVehicle vehicle, double distance, int days)
 	{
-		var vehicle = _vehicles.FirstOrDefault(v => v.Id.Equals(vehicleId)) ?? throw new ArgumentNullException();
-		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(vehicle.RegNo)
+		var _vehicle = _vehicles.FirstOrDefault(v => v.Equals(vehicle)) ?? throw new ArgumentNullException();
+		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(_vehicle.RegNo)
 		&& b.KmReneted.Equals(vehicle.OdoMeter)) ?? throw new ArgumentNullException();
-		var kmReturned = vehicle.OdoMeter + distance;
+		var kmReturned = _vehicle.OdoMeter + distance;
 		var km = kmReturned - booking.KmReneted;
-		booking.Reneted.Duration(days, booking, vehicle)
-			.CalculateCost(vehicle, km)
+		booking.Reneted.Duration(days, booking, _vehicle)
+			.CalculateCost(_vehicle, km)
 			.SetBookingValues(booking, kmReturned).
-			ReturnVehicleStatus(vehicle, booking ,kmReturned);
+			ReturnVehicleStatus(_vehicle, booking ,kmReturned);
 		return booking;
 	}
 }
