@@ -84,7 +84,7 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("Could not add vehicle.");
 			}
-			bool isRegNoTaken = default;			
+			bool isRegNoTaken = default;
 			if (isRegNoTaken = GetVehicles().Any(v => v.RegNo.ToLower().Equals(regNo.ToLower())))
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
@@ -92,7 +92,7 @@ public class BookingProcessor
 			else if (isRegNoTaken = GetBookings().Any(b => b.RegNo.ToLower().Equals(regNo.ToLower())))
 			{
 				throw new ArgumentException($"A booking with vehicle RegNo {regNo.ToUpper()} already exists.");
-			}							
+			}
 			else if (regNo.Length < 6)
 			{
 				throw new ArgumentException("RegNo must be 6 characters long.");
@@ -122,9 +122,10 @@ public class BookingProcessor
 		Message = string.Empty;
 		try
 		{
-			var vehicle = GetVehicles().SingleOrDefault(v => v.RegNo.Equals(booking.RegNo)) 
+			var vehicle = GetVehicles().SingleOrDefault(v => v.RegNo.Equals(booking.RegNo))
 				?? throw new ArgumentNullException();
 			vehicle.VehicleStatus = VehicleStatuses.Available;
+			vehicle.VehicleLastReneted = booking.Reneted;
 			_db.Remove(booking);
 		}
 		catch (ArgumentNullException ex)

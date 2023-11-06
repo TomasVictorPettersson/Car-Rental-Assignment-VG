@@ -55,7 +55,7 @@ public class CollectionData : IData
 		_bookings.Add(bookingOne);
 		var bookingTwoId = NextBookingId;
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
-			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 500);
+			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 5000);
 		bookingTwo.ReturnVehicle(vehicleFour)
 			.ReturnVehicleStatus(vehicleFour, bookingTwo ,(double)bookingTwo.KmReturned!);
 		_bookings.Add(bookingTwo);
