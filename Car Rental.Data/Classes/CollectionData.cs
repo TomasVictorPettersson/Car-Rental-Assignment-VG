@@ -28,6 +28,11 @@ public class CollectionData : IData
 		var customerTwoId = NextPersonId;
 		var customerTwo = new Customer(customerTwoId, 98765, "Doe", "Jane");
 		_persons.Add(customerTwo);
+		var customerTweo = new Customer(customerTwoId, 98765, "Doe", "Jane");
+		_persons.Add(customerTweo);
+		var _personsCopy = _persons.DistinctBy(p => p.SSN).ToList();
+		_persons.Clear();
+		_persons.AddRange(_personsCopy);
 		var vehicleOneId = NextVehicleId;
 		var vehicleOne = new Car(vehicleOneId, "ABC123", "Volvo", 10000, 1, VehicleTypes.Combi,
 			200); ;
@@ -47,6 +52,9 @@ public class CollectionData : IData
 		var vehicleFive = new Motorcycle(vehicleFiveId, "MNO234", "Yamaha",
 			30000, 0.5, VehicleTypes.Motorcycle, 50);
 		_vehicles.Add(vehicleFive);
+		var _vehiclesCopy = _vehicles.DistinctBy(v => v.RegNo).ToList();
+		_vehicles.Clear();
+		_vehicles.AddRange(_vehiclesCopy);
 		var bookingOneId = NextBookingId;
 		var bookingOne = new Booking(bookingOneId, vehicleThree.RegNo, customerOne, vehicleThree.OdoMeter,
 			new DateTime(2023, 11, 3));
@@ -57,8 +65,11 @@ public class CollectionData : IData
 		var bookingTwo = new Booking(bookingTwoId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
 			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 5000);
 		bookingTwo.ReturnVehicle(vehicleFour)
-			.ReturnVehicleStatus(vehicleFour, bookingTwo ,(double)bookingTwo.KmReturned!);
+			.ReturnVehicleStatus(vehicleFour, bookingTwo, (double)bookingTwo.KmReturned!);
 		_bookings.Add(bookingTwo);
+		var bookingsCopy = _bookings.DistinctBy(b => b.RegNo).ToList();
+		_bookings.Clear();
+		_bookings.AddRange(bookingsCopy);
 	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression) where T : class
 	{
@@ -107,7 +118,7 @@ public class CollectionData : IData
 		var bookingId = NextBookingId;
 		var _vehicle = _vehicles.FirstOrDefault(v => v.Equals(vehicle)) ?? throw new ArgumentNullException();
 		var _person = _persons.FirstOrDefault(p => p.Equals(person)) ?? throw new ArgumentNullException();
-		var booking = new Booking(bookingId, _vehicle.RegNo, (Customer)_person, 
+		var booking = new Booking(bookingId, _vehicle.RegNo, (Customer)_person,
 			_vehicle.OdoMeter, _vehicle.VehicleLastReneted);
 		await Task.Delay(5000);
 		booking.SetBookingStatus().
@@ -125,7 +136,7 @@ public class CollectionData : IData
 		booking.Reneted.Duration(days, booking, _vehicle)
 			.CalculateCost(_vehicle, km)
 			.SetBookingValues(booking, kmReturned).
-			ReturnVehicleStatus(_vehicle, booking ,kmReturned);
+			ReturnVehicleStatus(_vehicle, booking, kmReturned);
 		return booking;
 	}
 }

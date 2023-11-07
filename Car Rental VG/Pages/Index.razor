@@ -115,9 +115,9 @@
 							{
 								<select class="form-control-sm" @bind="bp.CustomerSSN">
 									@foreach (var p in bp.GetPersons())
-									{										
+									{
 										@if (bp.CustomerSSN is null)
-										{											
+										{
 											<option value="none" selected disabled hidden></option>
 											<option value="@p.SSN"> @p</option>
 										}
@@ -255,7 +255,7 @@
 								Remove
 							</button>
 						}
-					</td>				
+					</td>
 				</tr>
 			}
 		</tbody>

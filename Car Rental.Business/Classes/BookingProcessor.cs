@@ -32,14 +32,15 @@ public class BookingProcessor
 	public string[] VehicleStatusNames => _db.VehicleStatusNames();
 	public string[] VehicleTypeNames => _db.VehicleTypeNames();
 	public BookingStatuses GetBookingStatus(string name) => _db.GetBookingStatus(name);
-	public VehicleTypes GetVehicleType(string name) => _db.GetVehicleType(name);
+	public VehicleTypes? GetVehicleType(string name) => name is null ? null : _db.GetVehicleType(name);
 	public VehicleStatuses GetVehicleStatus(string name) => _db.GetVehicleStatus(name);
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p)).OrderBy(p => p.SSN);
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
 	public IEnumerable<IVehicle> GetVehicles()
 		=> _db.Get<IVehicle>(v => v.Equals(v)).OrderBy(v => v.RegNo);
 	public IBooking? GetBooking(int bookingId) => _db.Single<IBooking>(b => b.Id.Equals(bookingId));
-	public IPerson? GetPerson(string ssn) => _db.Single<IPerson>(p => p.SSN.ToString().Equals(ssn));
+	public IPerson? GetPerson(string ssn)
+	=> ssn is null ? null : _db.Single<IPerson>(p => p.SSN.ToString().Equals(ssn));
 	public IVehicle? GetVehicle(int vehicleId) => _db.Single<IVehicle>(v => v.Id.Equals(vehicleId));
 	public IVehicle? GetVehicle(string regNo) => _db.Single<IVehicle>(v => v.RegNo.Equals(regNo));
 	public void AddCustomer(int? ssn, string lastName, string firstName)
@@ -74,12 +75,12 @@ public class BookingProcessor
 		FirstName = null;
 	}
 	public void AddVehicle(string regNo, string make, double odoMeter,
-		double costPerKm, VehicleTypes vehicleType, double costPerDay)
+		double costPerKm, VehicleTypes? vehicleType, double costPerDay)
 	{
 		Message = string.Empty;
 		try
 		{
-			if (regNo is null || make is null ||
+			if (regNo is null || make is null || vehicleType is null ||
 				odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
 			{
 				throw new ArgumentException("Could not add vehicle.");
@@ -99,7 +100,7 @@ public class BookingProcessor
 			}
 			var vehicleId = _db.NextVehicleId;
 			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
-				odoMeter, costPerKm, vehicleType, costPerDay);
+				odoMeter, costPerKm, (VehicleTypes)vehicleType, costPerDay);
 			_db.Add<IVehicle>(vehicle);
 		}
 		catch (ArgumentException ex)
@@ -112,9 +113,9 @@ public class BookingProcessor
 		}
 		RegNo = null;
 		Make = null;
+		VehicleType = null;
 		OdoMeter = default;
 		CostPerKm = default;
-		VehicleType = default;
 		CostPerDay = default;
 	}
 	public void RemoveBooking(IBooking booking)
