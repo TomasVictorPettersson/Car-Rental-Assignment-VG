@@ -88,7 +88,7 @@ anropas metoden SeedData. */
 		var collection = ((List<T>)value).AsQueryable();
 		if (expression is null) return null;
 		var item = collection.SingleOrDefault(expression);
-		return item ?? throw new InvalidOperationException();
+		return item ?? throw new ArgumentNullException();
 	}
 	public void Add<T>(T item) where T : class
 	{
