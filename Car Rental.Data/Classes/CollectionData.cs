@@ -13,7 +13,7 @@ public class CollectionData : IData
 	readonly List<IVehicle> _vehicles = new();
 	readonly List<IBooking> _bookings = new();
 	/* Skapar man en instans av CollectionData
-	 anropas metoden SeedData. */
+anropas metoden SeedData. */
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
 	public int NextVehicleId => _vehicles.Count.Equals(0) ? 1 : _vehicles.Max(x => x.Id) + 1;
 	public int NextBookingId => _bookings.Count.Equals(0) ? 1 : _bookings.Max(x => x.Id) + 1;
@@ -27,9 +27,7 @@ public class CollectionData : IData
 		_persons.Add(customerOne);
 		var customerTwoId = NextPersonId;
 		var customerTwo = new Customer(customerTwoId, 98765, "Doe", "Jane");
-		_persons.Add(customerTwo);
-		var customerTweo = new Customer(customerTwoId, 98765, "Doe", "Jane");
-		_persons.Add(customerTweo);
+		_persons.Add(customerTwo);		
 		var _personsCopy = _persons.DistinctBy(p => p.SSN).ToList();
 		_persons.Clear();
 		_persons.AddRange(_personsCopy);
@@ -88,10 +86,7 @@ public class CollectionData : IData
 		?? throw new InvalidOperationException("Unsupported type");
 		var value = collections.GetValue(this) ?? throw new InvalidDataException();
 		var collection = ((List<T>)value).AsQueryable();
-		if (expression is null)
-		{
-			throw new ArgumentNullException();
-		}
+		if (expression is null) return null;
 		var item = collection.SingleOrDefault(expression);
 		return item ?? throw new InvalidOperationException();
 	}

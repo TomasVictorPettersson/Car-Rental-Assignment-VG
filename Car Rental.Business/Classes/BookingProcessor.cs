@@ -3,6 +3,8 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
+using System.Runtime.Intrinsics.X86;
+
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental G. */
@@ -32,7 +34,7 @@ public class BookingProcessor
 	public string[] VehicleStatusNames => _db.VehicleStatusNames();
 	public string[] VehicleTypeNames => _db.VehicleTypeNames();
 	public BookingStatuses GetBookingStatus(string name) => _db.GetBookingStatus(name);
-	public VehicleTypes? GetVehicleType(string name) => name is null ? null : _db.GetVehicleType(name);
+	public VehicleTypes? GetVehicleType(string name) => name is not null ? _db.GetVehicleType(name) : null;
 	public VehicleStatuses GetVehicleStatus(string name) => _db.GetVehicleStatus(name);
 	public IEnumerable<IPerson> GetPersons() => _db.Get<IPerson>(p => p.Equals(p)).OrderBy(p => p.SSN);
 	public IEnumerable<IBooking> GetBookings() => _db.Get<IBooking>(b => b.Equals(b));
@@ -70,6 +72,10 @@ public class BookingProcessor
 		{
 			Message = ex.Message;
 		}
+		catch (Exception ex)
+		{
+			Message = ex.Message;
+		}
 		SSN = null;
 		LastName = null;
 		FirstName = null;
@@ -89,10 +95,6 @@ public class BookingProcessor
 			if (isRegNoTaken = GetVehicles().Any(v => v.RegNo.ToLower().Equals(regNo.ToLower())))
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
-			}
-			else if (isRegNoTaken = GetBookings().Any(b => b.RegNo.ToLower().Equals(regNo.ToLower())))
-			{
-				throw new ArgumentException($"A booking with vehicle RegNo {regNo.ToUpper()} already exists.");
 			}
 			else if (regNo.Length < 6)
 			{
@@ -165,31 +167,31 @@ public class BookingProcessor
 	}
 	public IBooking? ReturnVehicle(IVehicle vehicle, double? distance, int? days)
 	{
+		bool isInputValid = true;
 		Message = string.Empty;
 		try
 		{
 			if (distance is null || days is null)
-			{
+			{				
 				throw new ArgumentException("Distance or Days cannot have an empty value.");
 			}
 			else if (distance < 0 || days < 0)
-			{
+			{				
 				throw new ArgumentException("Distance or Days cannot have a value less than zero.");
-			}
-			var booking = _db.ReturnVehicle(vehicle, (double)distance, (int)days);
-			Distance = null;
-			Days = null;
-			return booking;
-		}
+			}		
+		}		
 		catch (ArgumentException ex)
 		{
-			Message = ex.Message;
-			return null;
+			isInputValid = false;
+			Message = ex.Message;	
 		}
 		catch (Exception ex)
 		{
-			Message = ex.Message;
-			return null;
+			isInputValid = false;
+			Message = ex.Message;			
 		}
+		Distance = null;
+		Days = null;
+		return isInputValid is true ? _db.ReturnVehicle(vehicle, (double)distance!, (int)days!) : null;		
 	}
 }

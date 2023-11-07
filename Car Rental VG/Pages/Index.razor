@@ -79,7 +79,6 @@
 						<select class="form-control-sm" @bind="bp.VehicleType" disabled>
 							@foreach (var vt in bp.VehicleTypeNames)
 							{
-								<option value="none" selected disabled hidden></option>
 								<option> @vt</option>
 							}
 						</select>
@@ -116,15 +115,8 @@
 								<select class="form-control-sm" @bind="bp.CustomerSSN">
 									@foreach (var p in bp.GetPersons())
 									{
-										@if (bp.CustomerSSN is null)
-										{
-											<option value="none" selected disabled hidden></option>
-											<option value="@p.SSN"> @p</option>
-										}
-										@if (bp.CustomerSSN is not null)
-										{
-											<option value="@p.SSN"> @p</option>
-										}
+										<option value="none" selected disabled hidden></option>
+										<option value="@p.SSN"> @p</option>
 									}
 								</select>
 								<button class="rent-btn" @onclick="async ()
@@ -153,9 +145,7 @@
 								<select class="form-control-sm" @bind="bp.CustomerSSN" disabled>
 									@foreach (var p in bp.GetPersons())
 									{
-										{
-											<option value="@p.SSN"> @p</option>
-										}
+										<option value="@p.SSN"> @p</option>
 									}
 								</select>
 								<button class="rent-btn" disabled>
@@ -250,7 +240,8 @@
 					<td>
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[1])))
 						{
-							<button type="button" style="margin-left: -5%" class="btn btn-light" @onclick="(()
+							<button type="button" style="margin-left: -5%" class="btn btn-warning"
+							@onclick="(()
 							=> bp.RemoveBooking(bp.GetBooking(b.Id)!))">
 								Remove
 							</button>
