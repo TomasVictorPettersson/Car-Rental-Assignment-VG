@@ -2,7 +2,7 @@
 public static class FirstCharSubStringExtensions
 {
 	/* Extensionmetod som omvandlar en sträng så att den första
-	   bokstaven blir en versal och resten av bokstäverna 
+	   bokstaven i den blir en versal. Resterande bokstäver 
 	   i strängen blir gemener. */
 	public static string FirstCharSubstring(this string input)
 	{

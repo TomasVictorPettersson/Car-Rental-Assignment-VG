@@ -12,6 +12,8 @@ public class CollectionData : IData
 	readonly List<IPerson> _persons = new();
 	readonly List<IVehicle> _vehicles = new();
 	readonly List<IBooking> _bookings = new();
+	// Properties vars syfte är att ge unika idn till objektet
+	// man lägger till någon av listorna.
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
 	public int NextVehicleId => _vehicles.Count.Equals(0) ? 1 : _vehicles.Max(x => x.Id) + 1;
 	public int NextBookingId => _bookings.Count.Equals(0) ? 1 : _bookings.Max(x => x.Id) + 1;
@@ -22,34 +24,21 @@ public class CollectionData : IData
 	 tidigare nämnda listor. */
 	void SeedData()
 	{
-		var customerOne = new Customer(NextPersonId, 12345, "Doe", "John");
-		_persons.Add(customerOne);
-		var customerTwo = new Customer(NextPersonId, 98765, "Doe", "Jane");
-		_persons.Add(customerTwo);
-		var vehicleOne = new Car(NextVehicleId, "ABC123", "Volvo", 10000, 1, VehicleTypes.Combi,
-			200); ;
-		_vehicles.Add(vehicleOne);
-		var vehicleTwo = new Car(NextVehicleId, "DEF456", "Saab", 20000, 1, VehicleTypes.Sedan, 100);
-		_vehicles.Add(vehicleTwo);
-		var vehicleThree = new Car(NextVehicleId, "GHI789", "Tesla", 1000, 3, VehicleTypes.Sedan,
-			100);
-		_vehicles.Add(vehicleThree);
-		var vehicleFour = new Car(NextVehicleId, "JKL012", "Jeep", 5000, 1.5, VehicleTypes.Van,
-			300);
-		_vehicles.Add(vehicleFour);
-		var vehicleFive = new Motorcycle(NextVehicleId, "MNO234", "Yamaha",
-			30000, 0.5, VehicleTypes.Motorcycle, 50);
-		_vehicles.Add(vehicleFive);
-		var bookingOne = new Booking(NextBookingId, vehicleThree.RegNo, customerOne, vehicleThree.OdoMeter,
-			new DateTime(2023, 11, 3));
-		bookingOne.ReturnVehicle(vehicleThree)
-			.ReturnVehicleStatus(vehicleThree);
-		_bookings.Add(bookingOne);
-		var bookingTwo = new Booking(NextBookingId, vehicleFour.RegNo, customerTwo, vehicleFour.OdoMeter,
-			new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 500);
-		bookingTwo.ReturnVehicle(vehicleFour)
-			.ReturnVehicleStatus(vehicleFour, bookingTwo, (double)bookingTwo.KmReturned!);
-		_bookings.Add(bookingTwo);
+		_persons.Add(new Customer(NextPersonId, 12345, "Doe", "John"));
+		_persons.Add(new Customer(NextPersonId, 98765, "Doe", "Jane"));
+		_vehicles.Add(new Car(NextVehicleId, "ABC123", "Volvo", 10000, 1, VehicleTypes.Combi, 200));
+		_vehicles.Add(new Car(NextVehicleId, "DEF456", "Saab", 20000, 1, VehicleTypes.Sedan, 100));
+		_vehicles.Add(new Car(NextVehicleId, "GHI789", "Tesla", 1000, 3, VehicleTypes.Sedan, 100));
+		_vehicles.Add(new Car(NextVehicleId, "JKL012", "Jeep", 5000, 1.5, VehicleTypes.Van, 300));
+		_vehicles.Add(new Motorcycle(NextVehicleId, "MNO234", "Yamaha", 30000, 0.5, VehicleTypes.Motorcycle, 50));
+		_bookings.Add(new Booking(NextBookingId, _vehicles[2].RegNo, (Customer)_persons[0],
+		_vehicles[2].OdoMeter, new DateTime(2023, 11, 3)));
+		_bookings[0].ReturnVehicle(_vehicles[2]).ReturnVehicleStatus(_vehicles[2]);
+		_bookings.Add(new Booking(NextBookingId, _vehicles[3].RegNo,
+		(Customer)_persons[1], _vehicles[3].OdoMeter,
+		new DateTime(2023, 11, 3), new DateTime(2023, 11, 3), 500));
+		_bookings[1].ReturnVehicle(_vehicles[3])
+	   .ReturnVehicleStatus(_vehicles[3], _bookings[1], (double)_bookings[1].KmReturned!);
 	}
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression) where T : class
 	{

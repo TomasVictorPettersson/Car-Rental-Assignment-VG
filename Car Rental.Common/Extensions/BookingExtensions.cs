@@ -63,7 +63,7 @@ public static class BookingExtensions
 		/* Kastas ett nytt ArgumentException hamnar man i catch-blocket.
 		   Här tilldelas BookingStatus värdet None.	       		   		   
 		   Och slutligen tilldela Message propertyn
-		   det felmeddelande från if-blocket där
+		   det felmeddelande från det else eller else if-block där
 		   ArgumentException kastades. */
 		catch (ArgumentException ex)
 		{

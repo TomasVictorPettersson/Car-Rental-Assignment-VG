@@ -52,19 +52,17 @@ public class BookingProcessor
 			if (ssn is null || lastName is null || firstName is null)
 			{
 				throw new ArgumentException("Could not add customer.");
-			}
-			bool isSSNTaken = default;
-			if (isSSNTaken = GetPersons().Any(p => p.SSN.Equals(ssn)))
+			}			
+			else if (GetPersons().Any(p => p.SSN.Equals(ssn)))
 			{
 				throw new ArgumentException($"A customer with SSN {ssn} already exists.");
 			}
 			else if (ssn?.ToString().Length < 5)
 			{
 				throw new ArgumentException("SSN must contain 5 numbers.");
-			}
-			var customer = new Customer(_db.NextPersonId, (int)ssn!, lastName.FirstCharSubstring(),
-				firstName.FirstCharSubstring());
-			_db.Add<IPerson>(customer);
+			}	
+			_db.Add<IPerson>(new Customer(_db.NextPersonId, (int)ssn!, lastName.FirstCharSubstring(),
+				firstName.FirstCharSubstring()));
 		}
 		catch (ArgumentException ex)
 		{
@@ -88,19 +86,17 @@ public class BookingProcessor
 				odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
 			{
 				throw new ArgumentException("Could not add vehicle.");
-			}
-			bool isRegNoTaken = default;
-			if (isRegNoTaken = GetVehicles().Any(v => v.RegNo.ToLower().Equals(regNo.ToLower())))
+			}			
+			else if (GetVehicles().Any(v => v.RegNo.ToLower().Equals(regNo.ToLower())))
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
 			}
 			else if (regNo.Length < 6)
 			{
 				throw new ArgumentException("RegNo must be 6 characters long.");
-			}
-			var vehicle = new Vehicle(_db.NextVehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
-				odoMeter, costPerKm, (VehicleTypes)vehicleType, costPerDay);
-			_db.Add<IVehicle>(vehicle);
+			}		
+			_db.Add<IVehicle>(new Vehicle(_db.NextVehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
+				odoMeter, costPerKm, (VehicleTypes)vehicleType, costPerDay));
 		}
 		catch (ArgumentException ex)
 		{
