@@ -3,19 +3,16 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
-using System.Runtime.Intrinsics.X86;
 
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
-   skickas vidare till gränsnittet i Car Rental G. */
+   skickas vidare till gränsnittet i Car Rental VG. */
 public class BookingProcessor
 {
 	/* För att göra det möjligt krävs först en injektion av IData
 	i BookingProcessors konstruktor. */
 	private readonly IData _db;
 	public BookingProcessor(IData db) => _db = db;
-	/* Anropar sedan metoder som ligger i 
-	   CollectionData klassen i Data projektet. */
 	public string? RegNo { get; set; }
 	public string? Make { get; set; }
 	public double OdoMeter { get; set; }
@@ -33,6 +30,8 @@ public class BookingProcessor
 	public string[] BookingStatusNames => _db.BookingStatusNames();
 	public string[] VehicleStatusNames => _db.VehicleStatusNames();
 	public string[] VehicleTypeNames => _db.VehicleTypeNames();
+	/* Anropar sedan metoder som ligger i 
+	   CollectionData klassen i Data projektet. */
 	public BookingStatuses GetBookingStatus(string name) => _db.GetBookingStatus(name);
 	public VehicleTypes? GetVehicleType(string name) => name is not null ? _db.GetVehicleType(name) : null;
 	public VehicleStatuses GetVehicleStatus(string name) => _db.GetVehicleStatus(name);
@@ -63,8 +62,7 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("SSN must contain 5 numbers.");
 			}
-			var customerId = _db.NextPersonId;
-			var customer = new Customer(customerId, (int)ssn!, lastName.FirstCharSubstring(),
+			var customer = new Customer(_db.NextPersonId, (int)ssn!, lastName.FirstCharSubstring(),
 				firstName.FirstCharSubstring());
 			_db.Add<IPerson>(customer);
 		}
@@ -100,8 +98,7 @@ public class BookingProcessor
 			{
 				throw new ArgumentException("RegNo must be 6 characters long.");
 			}
-			var vehicleId = _db.NextVehicleId;
-			var vehicle = new Vehicle(vehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
+			var vehicle = new Vehicle(_db.NextVehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
 				odoMeter, costPerKm, (VehicleTypes)vehicleType, costPerDay);
 			_db.Add<IVehicle>(vehicle);
 		}
@@ -148,7 +145,7 @@ public class BookingProcessor
 		{
 			if (person is null)
 			{
-				throw new ArgumentException("Must select a customer to be able to rent a car.");
+				throw new ArgumentException("Must select a customer to be able to rent a vehicle.");
 			}
 			IsProcessing = true;
 			booking = await _db.RentVehicle(vehicle, person);
@@ -172,26 +169,26 @@ public class BookingProcessor
 		try
 		{
 			if (distance is null || days is null)
-			{				
+			{
 				throw new ArgumentException("Distance or Days cannot have an empty value.");
 			}
 			else if (distance < 0 || days < 0)
-			{				
+			{
 				throw new ArgumentException("Distance or Days cannot have a value less than zero.");
-			}		
-		}		
+			}
+		}
 		catch (ArgumentException ex)
 		{
 			isInputValid = false;
-			Message = ex.Message;	
+			Message = ex.Message;
 		}
 		catch (Exception ex)
 		{
 			isInputValid = false;
-			Message = ex.Message;			
+			Message = ex.Message;
 		}
 		Distance = null;
 		Days = null;
-		return isInputValid is true ? _db.ReturnVehicle(vehicle, (double)distance!, (int)days!) : null;		
+		return isInputValid is true ? _db.ReturnVehicle(vehicle, (double)distance!, (int)days!) : null;
 	}
 }

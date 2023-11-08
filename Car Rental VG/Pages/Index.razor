@@ -7,7 +7,7 @@
 <PageTitle>Car Rental Assignment - VG</PageTitle>
 <h1 style="margin-left : -1%">Car Rental Assignment - VG</h1>
 @*OM b.Message INTE är tomt så visas ett felmeddelande i gränsnittet
-  som är bundet till en specifik bokning. *@
+  som är bundet till en specifikt inläst bokning från SeedData metoden. *@
 @foreach (var b in bp.GetBookings())
 {
 	@if (b.Message.Length > 0)
@@ -17,14 +17,16 @@
 		</div>
 	}
 }
+@*OM bp.Message INTE är tomt så visas ett felmeddelande i gränsnittet
+  som är bundet till en specifik bokning, fordon eller kund.. *@
 @if (bp.Message.Length > 0)
 {
 	<div class="alert alert-danger" role="alert" style="width : 40% ;margin-left : -1%">
 		<strong>Error!</strong> @bp.Message
 	</div>
 }
-<div class="row" style="width : 100%; margin-left : -1%">
-	@*Tabell för fordon*@
+@*Tabell för fordon*@
+<div class="row" style="width : 100%; margin-left : -1%">	
 	<h6 style="margin-left:-0.75%">Vehicles</h6>
 	<table class="table table-borderless table-hover">
 		<thead>

@@ -14,9 +14,7 @@ public static class BookingExtensions
 		{
 			/* OM km är större eller lika med 0 OCH days är större eller
 			 lika med ett så tilldelas Cost ett värde.
-			 BookingStatus tilldelas värdet Closed.
-			 Anropar sedan metoden ReturnVehicleStatus med BookingStatus som
-			 argument för att ändra VehicleStatus till Available. */
+			 BookingStatus tilldelas värdet Closed. */
 			if (km >= 0 && days >= 1)
 			{			
 				booking.Cost = days * vehicle.CostPerDay + km * vehicle.CostPerKm;
@@ -25,9 +23,7 @@ public static class BookingExtensions
 				return booking.BookingStatus;
 			}
 			/* ANNARS OM KmReturned är null OCH Returned har defaultvärde så			
-			   tilldelas BookingStatus värdet Open.
-			   Anropar sedan metoden ReturnVehicleStatus med BookingStatus som
-			   argument för att ändra VehicleStatus till Booked. */
+			   tilldelas BookingStatus värdet Open.  */
 			else if (booking.KmReturned is null && booking.Returned.Equals(default))
 			{
 				booking.BookingStatus = BookingStatuses.Open;
@@ -36,7 +32,7 @@ public static class BookingExtensions
 			/* Uppfylls inte någon av ovanstående if-satserna så hamnar
 			   man i andra if-satser. Beroende på värdena på variablerna och properties.
 			   Gemensamt för dessa if-satser är att om man hamnar i ett av dem
-			   så kastas ett nytt BookingException med ett specifikt
+			   så kastas ett nytt ArgumentException med ett specifikt
 			   felmeddelande för just den if-satsen. */
 			else if (booking.Returned != default && days <= 0 && booking.KmReturned < booking.KmReneted)
 			{
@@ -64,13 +60,11 @@ public static class BookingExtensions
 					$"Km Returned cannot be less than Km Reneted.");
 			}
 		}
-		/* Kastas ett nytt BookingException hamnar man i catch-blocket.
-		   Här tilldelas BookingStatus värdet None.
-	       Anropar sedan metoden ReturnVehicleStatus med BookingStatus som
-		   argument för att ändra VehicleStatus till Unknown. 		   		   
+		/* Kastas ett nytt ArgumentException hamnar man i catch-blocket.
+		   Här tilldelas BookingStatus värdet None.	       		   		   
 		   Och slutligen tilldela Message propertyn
 		   det felmeddelande från if-blocket där
-		   BookingException kastades. */
+		   ArgumentException kastades. */
 		catch (ArgumentException ex)
 		{
 			booking.BookingStatus = BookingStatuses.None;
