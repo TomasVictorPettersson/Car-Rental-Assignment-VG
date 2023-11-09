@@ -7,7 +7,7 @@
 <PageTitle>Car Rental Assignment - VG</PageTitle>
 <h1 style="margin-left : -1%">Car Rental Assignment - VG</h1>
 @*OM b.Message INTE är tomt så visas ett felmeddelande i gränsnittet
-  som är bundet till en specifikt inläst bokning från SeedData metoden. *@
+  som är bunden till en specifik inläst bokning från SeedData metoden i CollectionData. *@
 @foreach (var b in bp.GetBookings())
 {
 	@if (b.Message.Length > 0)
@@ -18,7 +18,7 @@
 	}
 }
 @*OM bp.Message INTE är tomt så visas ett felmeddelande i gränsnittet
-  som är bundet till en specifik bokning, fordon eller kund.. *@
+  som är bunden till en specifik bokning, fordon eller kund. *@
 @if (bp.Message.Length > 0)
 {
 	<div class="alert alert-danger" role="alert" style="width : 40% ;margin-left : -1%">
@@ -66,8 +66,7 @@
 							Add
 						</button>
 					</td>
-					<td>
-					</td>
+					<td></td>
 				</tr>
 			}
 			@if (bp.IsProcessing.Equals(true))
@@ -92,10 +91,7 @@
 						</button>
 					</td>
 					<td>
-						@if (bp.IsProcessing.Equals(true))
-						{
-							<span class="badge bg-warning"> Processing</span>
-						}
+						<span class="badge bg-warning"> Processing</span>
 					</td>
 				</tr>
 			}
@@ -198,7 +194,7 @@
 				<th>Cost</th>
 				<th>Status</th>
 				<th>
-					@if (bp.GetBookings().Any(b => (b.Message.Length > 0)))
+					@if (bp.GetBookings().Any(b => b.Message.Length > 0))
 					{
 						<span>Action</span>
 					}
@@ -239,9 +235,7 @@
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[1])))
 						{
 							<button type="button" style="margin-left: -5%" class="btn btn-warning"
-							@onclick="(()
-							=> bp.RemoveBooking(bp.GetBooking(b.Id)!))">
-								Remove
+							@onclick="(() => bp.RemoveBooking(bp.GetBooking(b.Id)!))">Remove														
 							</button>
 						}
 					</td>

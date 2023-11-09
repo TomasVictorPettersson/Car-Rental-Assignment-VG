@@ -12,6 +12,8 @@ public class BookingProcessor
 	i BookingProcessors konstruktor. */
 	private readonly IData _db;
 	public BookingProcessor(IData db) => _db = db;
+	/* Properties som nyttjas i indexsidan för att möjliggöra
+	   att man kan skapa samt lägga till bokningar, fordon och kunder. */
 	public string? RegNo { get; set; }
 	public string? Make { get; set; }
 	public double OdoMeter { get; set; }
@@ -30,7 +32,8 @@ public class BookingProcessor
 	public string[] VehicleStatusNames => _db.VehicleStatusNames();
 	public string[] VehicleTypeNames => _db.VehicleTypeNames();
 	/* Anropar sedan metoder som ligger i 
-	   CollectionData klassen i Data projektet. */
+	   CollectionData klassen i Data projektet
+	   Som fyller olika funktioner. */
 	public BookingStatuses GetBookingStatus(string name) => _db.GetBookingStatus(name);
 	public VehicleTypes? GetVehicleType(string name) => name is not null ? _db.GetVehicleType(name) : null;
 	public VehicleStatuses GetVehicleStatus(string name) => _db.GetVehicleStatus(name);
@@ -43,6 +46,7 @@ public class BookingProcessor
 	=> ssn is null ? null : _db.Single<IPerson>(p => p.SSN.ToString().Equals(ssn));
 	public IVehicle? GetVehicle(int vehicleId) => _db.Single<IVehicle>(v => v.Id.Equals(vehicleId));
 	public IVehicle? GetVehicle(string regNo) => _db.Single<IVehicle>(v => v.RegNo.Equals(regNo));
+	// Metod som används för att lägga till en kund.
 	public void AddCustomer(int? ssn, string lastName, string firstName)
 	{
 		Message = string.Empty;
@@ -51,7 +55,7 @@ public class BookingProcessor
 			if (ssn is null || lastName is null || firstName is null)
 			{
 				throw new ArgumentException("Could not add customer.");
-			}			
+			}
 			else if (GetPersons().Any(p => p.SSN.Equals(ssn)))
 			{
 				throw new ArgumentException($"A customer with SSN {ssn} already exists.");
@@ -59,7 +63,7 @@ public class BookingProcessor
 			else if (ssn?.ToString().Length < 5)
 			{
 				throw new ArgumentException("SSN must contain 5 numbers.");
-			}	
+			}
 			_db.Add<IPerson>(new Customer(_db.NextPersonId, (int)ssn!, lastName.FirstCharSubstring(),
 				firstName.FirstCharSubstring()));
 		}
@@ -75,6 +79,7 @@ public class BookingProcessor
 		LastName = null;
 		FirstName = null;
 	}
+	// Metod som används för att lägga till ett fordon.
 	public void AddVehicle(string regNo, string make, double odoMeter,
 		double costPerKm, VehicleTypes? vehicleType, double costPerDay)
 	{
@@ -85,7 +90,7 @@ public class BookingProcessor
 				odoMeter < 0 || costPerKm < 0 || costPerDay < 0)
 			{
 				throw new ArgumentException("Could not add vehicle.");
-			}			
+			}
 			else if (GetVehicles().Any(v => v.RegNo.ToLower().Equals(regNo.ToLower())))
 			{
 				throw new ArgumentException($"A vehicle with RegNo {regNo.ToUpper()} already exists.");
@@ -93,7 +98,7 @@ public class BookingProcessor
 			else if (regNo.Length < 6)
 			{
 				throw new ArgumentException("RegNo must be 6 characters long.");
-			}		
+			}
 			_db.Add<IVehicle>(new Vehicle(_db.NextVehicleId, regNo.ToUpper(), make.FirstCharSubstring(),
 				odoMeter, costPerKm, (VehicleTypes)vehicleType, costPerDay));
 		}
@@ -112,6 +117,7 @@ public class BookingProcessor
 		CostPerKm = default;
 		CostPerDay = default;
 	}
+	// Metod som används för att ta bort en bokning.
 	public void RemoveBooking(IBooking booking)
 	{
 		Message = string.Empty;
@@ -132,6 +138,7 @@ public class BookingProcessor
 			Message = ex.Message;
 		}
 	}
+	// En asynkron metod som används för att hyra ett fordon.
 	public async Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person)
 	{
 		List<IBooking> booking = new();
@@ -157,6 +164,7 @@ public class BookingProcessor
 		CustomerSSN = null;
 		return (List<IBooking>)(booking.ToList() ?? Enumerable.Empty<IBooking>());
 	}
+	// Metod som används för att återlämna ett fordon.
 	public IBooking? ReturnVehicle(IVehicle vehicle, double? distance, int? days)
 	{
 		bool isInputValid = true;
@@ -169,7 +177,7 @@ public class BookingProcessor
 			}
 			else if (distance < 0 || days < 0)
 			{
-				throw new ArgumentException("Distance or Days cannot have a value less than zero.");
+				throw new ArgumentException("Distance or Days cannot have a value less than 0.");
 			}
 		}
 		catch (ArgumentException ex)

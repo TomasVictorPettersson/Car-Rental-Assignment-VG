@@ -12,7 +12,7 @@ public static class VehicleExtensions
 		return booking.BookingStatus;
 	}
 	/* Extensionmetod som används till att räkna ut varaktigheten
-	   mellan när man hyr ett fordon och sedan återlämnar det. */
+	   emellan när man hyr ett fordon och sedan återlämnar det. */
 	public static int Duration(this DateTime startDate, int days,
 		IBooking booking, IVehicle vehicle)
 	{
@@ -41,11 +41,13 @@ public static class VehicleExtensions
 		booking.BookingStatus = BookingStatuses.Closed;
 		return booking.BookingStatus;
 	}
+	/* Extensionmetod som används till att sätta värden på olika properties 
+	   på ett objekt av en klass som implementerar interfacet iVehicle. */
 	public static void ReturnVehicleStatus(this BookingStatuses bookingStatus,
 		IVehicle vehicle, IBooking? booking = null, double kmReturned = 0)
 	{
 		if (bookingStatus.Equals(BookingStatuses.Closed))
-		{			
+		{
 			vehicle.VehicleLastReneted = booking!.Returned;
 			vehicle.OdoMeter = kmReturned;
 			vehicle.VehicleStatus = VehicleStatuses.Available;
