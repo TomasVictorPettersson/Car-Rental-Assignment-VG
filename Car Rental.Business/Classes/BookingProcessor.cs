@@ -3,7 +3,6 @@ using Car_Rental.Common.Enums;
 using Car_Rental.Common.Extensions;
 using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
-
 namespace Car_Rental.Business.Classes;
 /* BookingProcessor klassens syfte är att hämta data som 
    skickas vidare till gränsnittet i Car Rental VG. */

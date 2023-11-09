@@ -108,7 +108,6 @@
 					<td>@v.CostPerKm</td>
 					<td>@v.VehicleType</td>
 					<td>@v.CostPerDay</td>
-
 					@if (bp.IsProcessing.Equals(false))
 					{
 						<td>
@@ -198,10 +197,12 @@
 				<th>Returned</th>
 				<th>Cost</th>
 				<th>Status</th>
-				@if (bp.GetBookings().Any(b => (b.Message.Length > 0)))
-				{
-					<th>Action</th>
-				}
+				<th>
+					@if (bp.GetBookings().Any(b => (b.Message.Length > 0)))
+					{
+						<span>Action</span>
+					}
+				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -227,7 +228,6 @@
 						}
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[1])))
 						{
-
 							<span class="badge bg-pill bg-warning">None</span>
 						}
 						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[2])))
@@ -260,7 +260,7 @@
 				<th>SSN</th>
 				<th>Last Name</th>
 				<th>First Name</th>
-				<th></th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
