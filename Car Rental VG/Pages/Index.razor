@@ -198,14 +198,10 @@
 				<th>Returned</th>
 				<th>Cost</th>
 				<th>Status</th>
-				@foreach (var b in bp.GetBookings())
+				@if (bp.GetBookings().Any(b => (b.Message.Length > 0)))
 				{
-					@if (b.Message.Length > 0)
-					{
-						<th>Action</th>
-					}
+					<th>Action</th>
 				}
-				<th></th>
 			</tr>
 		</thead>
 		<tbody>
