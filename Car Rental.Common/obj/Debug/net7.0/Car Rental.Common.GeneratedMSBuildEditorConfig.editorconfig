@@ -9,3 +9,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Car_Rental.Common
 build_property.ProjectDir = C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Common\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
