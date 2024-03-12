@@ -15,8 +15,7 @@ public interface IData
 	VehicleStatuses GetVehicleStatus(string name) => (VehicleStatuses)Enum.Parse(typeof(VehicleStatuses), name);
 	List<T> Get<T>(Expression<Func<T, bool>>? expression) where T : class;
 	T? Single<T>(Expression<Func<T, bool>>? expression) where T : class;
-	void Add<T>(T item) where T : class;
-	void Remove<T>(T item) where T : class;
+	void Add<T>(T item) where T : class;	
 	Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person);
 	IBooking ReturnVehicle(IVehicle vehicle, double distance, int days);
 }

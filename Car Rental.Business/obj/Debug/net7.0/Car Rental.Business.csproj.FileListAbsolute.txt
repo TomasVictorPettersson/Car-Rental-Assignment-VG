@@ -27,8 +27,9 @@ C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.AssemblyInfoInputs.cache
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.AssemblyInfo.cs
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.csproj.CoreCompileInputs.cache
-C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.csproj.CopyComplete
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.dll
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\refint\Car Rental.Business.dll
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.pdb
 C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\ref\Car Rental.Business.dll
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rental.Business.sourcelink.json
+C:\Users\Tomas\Documents\GitHub\Car Rental Assignment-VG\Car Rental.Business\obj\Debug\net7.0\Car Rent.769F0C29.Up2Date

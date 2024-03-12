@@ -116,28 +116,7 @@ public class BookingProcessor
 		OdoMeter = default;
 		CostPerKm = default;
 		CostPerDay = default;
-	}
-	// Metod som används för att ta bort en bokning.
-	public void RemoveBooking(IBooking booking)
-	{
-		Message = string.Empty;
-		try
-		{
-			var vehicle = GetVehicles().SingleOrDefault(v => v.RegNo.Equals(booking.RegNo))
-				?? throw new ArgumentNullException();
-			vehicle.VehicleStatus = VehicleStatuses.Available;
-			vehicle.VehicleLastReneted = booking.Reneted;
-			_db.Remove(booking);
-		}
-		catch (ArgumentNullException ex)
-		{
-			Message = ex.Message;
-		}
-		catch (Exception ex)
-		{
-			Message = ex.Message;
-		}
-	}
+	}	
 	// En asynkron metod som används för att hyra ett fordon.
 	public async Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person)
 	{

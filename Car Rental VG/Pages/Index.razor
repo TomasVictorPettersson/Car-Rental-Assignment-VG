@@ -123,8 +123,8 @@
 							}
 							@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[1])))
 							{
-								<input size="4%" maxlength="4" placeholder="Distance" @bind="bp.Distance">
-								<input size="1.5%" maxlength="3" placeholder="Days" @bind="bp.Days">
+								<input size="6%" maxlength="4" placeholder="Distance" @bind="bp.Distance">
+								<input size="3%" maxlength="3" placeholder="Days" @bind="bp.Days">
 								<button type="button" class="btn btn-light" @onclick="(()
 									=>
 									bp.ReturnVehicle(bp.GetVehicle(v.Id)!,
@@ -151,8 +151,8 @@
 							}
 							@if (v.VehicleStatus.Equals(bp.GetVehicleStatus(bp.VehicleStatusNames[1])))
 							{
-								<input size="4%" placeholder="Distance" @bind="bp.Distance" disabled>
-								<input size="1.5%" placeholder="Days" @bind="bp.Days" disabled>
+								<input size="6%" placeholder="Distance" @bind="bp.Distance" disabled>
+								<input size="3%" placeholder="Days" @bind="bp.Days" disabled>
 								<button type="button" class="btn btn-light" disabled>
 									Return
 								</button>
@@ -192,13 +192,7 @@
 				<th>Reneted</th>
 				<th>Returned</th>
 				<th>Cost</th>
-				<th>Status</th>
-				<th>
-					@if (bp.GetBookings().Any(b => b.Message.Length > 0))
-					{
-						<span>Action</span>
-					}
-				</th>
+				<th>Status</th>			
 			</tr>
 		</thead>
 		<tbody>
@@ -230,15 +224,7 @@
 						{
 							<span class="badge bg-pill bg-danger">Open</span>
 						}
-					</td>
-					<td>
-						@if (b.BookingStatus.Equals(bp.GetBookingStatus(bp.BookingStatusNames[1])))
-						{
-							<button type="button" style="margin-left: -5%" class="btn btn-warning"
-							@onclick="(() => bp.RemoveBooking(bp.GetBooking(b.Id)!))">Remove														
-							</button>
-						}
-					</td>
+					</td>					
 				</tr>
 			}
 		</tbody>

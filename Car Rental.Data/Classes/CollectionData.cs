@@ -77,18 +77,7 @@ public class CollectionData : IData
 		var value = collections.GetValue(this) ?? throw new InvalidDataException();
 		var collection = (List<T>)value;
 		collection.Add(item);
-	}
-	/* En generisk metod som använder refelections för att
-	   ta bort ett objekt ifrån en lista som överenstämmer med datatypen. */
-	public void Remove<T>(T item) where T : class
-	{
-		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
-	   .FirstOrDefault(f => f.FieldType == typeof(List<T>) && f.IsInitOnly)
-		?? throw new InvalidOperationException("Unsupported type");
-		var value = collections.GetValue(this) ?? throw new InvalidDataException();
-		var collection = (List<T>)value;
-		collection.Remove(item);
-	}
+	}	
 	/* En asynkron metod som används för att hyra ett fordon.
 	   För att därmed kunna lägga till en ny bokning. */
 	public async Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person)

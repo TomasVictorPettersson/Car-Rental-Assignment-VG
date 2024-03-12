@@ -3,34 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.business\\classes\\bookingprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|solutionrelative:car rental.business\\classes\\bookingprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.data\\classes\\collectiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|solutionrelative:car rental.data\\classes\\collectiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\car rental vg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\car rental vg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.data\\interfaces\\idata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|solutionrelative:car rental.data\\interfaces\\idata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.business\\car rental.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|solutionrelative:car rental.business\\car rental.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\car rental.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\car rental.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.data\\car rental.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|solutionrelative:car rental.data\\car rental.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\extensions\\bookingextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\extensions\\bookingextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -41,6 +13,50 @@
     {
       "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\extensions\\vehicleextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\extensions\\vehicleextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\interfaces\\ibooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\interfaces\\ibooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\interfaces\\iperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\interfaces\\iperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.data\\interfaces\\idata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|solutionrelative:car rental.data\\interfaces\\idata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.data\\classes\\collectiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|solutionrelative:car rental.data\\classes\\collectiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.business\\classes\\bookingprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|solutionrelative:car rental.business\\classes\\bookingprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.business\\car rental.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D74D640B-38AE-4832-9E13-954267139B9A}|Car Rental.Business\\Car Rental.Business.csproj|solutionrelative:car rental.business\\car rental.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\car rental vg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\car rental vg.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\car rental.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\car rental.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.data\\car rental.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A983647F-900E-4036-BE59-E87FA82F1DC4}|Car Rental.Data\\Car Rental.Data.csproj|solutionrelative:car rental.data\\car rental.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\classes\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,14 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\enums\\vehicletypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\enums\\vehicletypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\pages\\index.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\classes\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,14 +103,6 @@
       "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\interfaces\\ivehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\interfaces\\iperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\interfaces\\iperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental.common\\interfaces\\ibooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8EA6BE9D-AAB7-4634-AC05-EC3DB8C620C4}|Car Rental.Common\\Car Rental.Common.csproj|solutionrelative:car rental.common\\interfaces\\ibooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|c:\\users\\tomas\\documents\\github\\car rental assignment-vg\\car rental vg\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5350D6A5-A81C-43B9-9FC3-4245630B2398}|Car Rental VG\\Car Rental VG.csproj|solutionrelative:car rental vg\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -130,289 +130,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Car Rental.Business.csproj",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
-              "RelativeDocumentMoniker": "Car Rental.Business\\Car Rental.Business.csproj",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
-              "RelativeToolTip": "Car Rental.Business\\Car Rental.Business.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-02-21T07:53:18.007Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "CollectionData.cs",
               "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Classes\\CollectionData.cs",
               "RelativeDocumentMoniker": "Car Rental.Data\\Classes\\CollectionData.cs",
               "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Classes\\CollectionData.cs",
               "RelativeToolTip": "Car Rental.Data\\Classes\\CollectionData.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAIAwwEMAAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-10-18T16:24:05.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookingProcessor.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Classes\\BookingProcessor.cs",
-              "RelativeDocumentMoniker": "Car Rental.Business\\Classes\\BookingProcessor.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Classes\\BookingProcessor.cs",
-              "RelativeToolTip": "Car Rental.Business\\Classes\\BookingProcessor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Car Rental.Data.csproj",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
-              "RelativeDocumentMoniker": "Car Rental.Data\\Car Rental.Data.csproj",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
-              "RelativeToolTip": "Car Rental.Data\\Car Rental.Data.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2023-10-18T16:24:06.516Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IData.cs",
               "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Interfaces\\IData.cs",
               "RelativeDocumentMoniker": "Car Rental.Data\\Interfaces\\IData.cs",
               "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Interfaces\\IData.cs",
               "RelativeToolTip": "Car Rental.Data\\Interfaces\\IData.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAAAYAAAABAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAABEAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.506Z"
+              "WhenOpened": "2023-10-18T16:24:06.506Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Car Rental VG.csproj",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Car Rental VG.csproj",
-              "RelativeDocumentMoniker": "Car Rental VG\\Car Rental VG.csproj",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Car Rental VG.csproj",
-              "RelativeToolTip": "Car Rental VG\\Car Rental VG.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2023-10-18T16:24:06.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VehicleExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\VehicleExtensions.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Extensions\\VehicleExtensions.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\VehicleExtensions.cs",
-              "RelativeToolTip": "Car Rental.Common\\Extensions\\VehicleExtensions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-26T16:32:34.187Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BookingExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\BookingExtensions.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Extensions\\BookingExtensions.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\BookingExtensions.cs",
-              "RelativeToolTip": "Car Rental.Common\\Extensions\\BookingExtensions.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADsAAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-02T16:25:58.304Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Car Rental.Common.csproj",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Car Rental.Common.csproj",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
-              "RelativeToolTip": "Car Rental.Common\\Car Rental.Common.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2023-10-22T08:15:12.585Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FirstCharSubStringExtensions..cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
-              "RelativeToolTip": "Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-02T16:03:30.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Vehicle.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Vehicle.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Vehicle.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Vehicle.cs",
-              "RelativeToolTip": "Car Rental.Common\\Classes\\Vehicle.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAAAAwAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BookingStatuses.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\BookingStatuses.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Enums\\BookingStatuses.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\BookingStatuses.cs",
-              "RelativeToolTip": "Car Rental.Common\\Enums\\BookingStatuses.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T19:13:33.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "VehicleStatuses.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleStatuses.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Enums\\VehicleStatuses.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleStatuses.cs",
-              "RelativeToolTip": "Car Rental.Common\\Enums\\VehicleStatuses.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T19:15:51.702Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VehicleTypes.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleTypes.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Enums\\VehicleTypes.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleTypes.cs",
-              "RelativeToolTip": "Car Rental.Common\\Enums\\VehicleTypes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T19:15:50.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.razor",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor",
-              "RelativeDocumentMoniker": "Car Rental VG\\Pages\\Index.razor",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor",
-              "RelativeToolTip": "Car Rental VG\\Pages\\Index.razor",
-              "ViewState": "AQIAANoAAAAAAAAAAAAewAMAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-10-18T16:24:06.504Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.razor.css",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor.css",
-              "RelativeDocumentMoniker": "Car Rental VG\\Pages\\Index.razor.css",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor.css",
-              "RelativeToolTip": "Car Rental VG\\Pages\\Index.razor.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2023-10-18T16:24:06.502Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Booking.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Booking.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Booking.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Booking.cs",
-              "RelativeToolTip": "Car Rental.Common\\Classes\\Booking.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAqwBMAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Customer.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Customer.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Customer.cs",
-              "RelativeToolTip": "Car Rental.Common\\Classes\\Customer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Motorcycle.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Motorcycle.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Motorcycle.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Motorcycle.cs",
-              "RelativeToolTip": "Car Rental.Common\\Classes\\Motorcycle.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.512Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Car.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Car.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Car.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Car.cs",
-              "RelativeToolTip": "Car Rental.Common\\Classes\\Car.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "Car Rental VG\\wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\index.html",
-              "RelativeToolTip": "Car Rental VG\\wwwroot\\index.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2023-10-29T09:55:32.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Program.cs",
-              "RelativeDocumentMoniker": "Car Rental VG\\Program.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Program.cs",
-              "RelativeToolTip": "Car Rental VG\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.518Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IVehicle.cs",
-              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Interfaces\\IVehicle.cs",
-              "RelativeDocumentMoniker": "Car Rental.Common\\Interfaces\\IVehicle.cs",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Interfaces\\IVehicle.cs",
-              "RelativeToolTip": "Car Rental.Common\\Interfaces\\IVehicle.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 4,
               "Title": "IPerson.cs",
               "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Interfaces\\IPerson.cs",
               "RelativeDocumentMoniker": "Car Rental.Common\\Interfaces\\IPerson.cs",
@@ -420,11 +168,12 @@
               "RelativeToolTip": "Car Rental.Common\\Interfaces\\IPerson.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.498Z"
+              "WhenOpened": "2023-10-18T16:24:06.498Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 3,
               "Title": "IBooking.cs",
               "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Interfaces\\IBooking.cs",
               "RelativeDocumentMoniker": "Car Rental.Common\\Interfaces\\IBooking.cs",
@@ -432,7 +181,281 @@
               "RelativeToolTip": "Car Rental.Common\\Interfaces\\IBooking.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-18T16:24:06.508Z"
+              "WhenOpened": "2023-10-18T16:24:06.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VehicleExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\VehicleExtensions.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Extensions\\VehicleExtensions.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\VehicleExtensions.cs",
+              "RelativeToolTip": "Car Rental.Common\\Extensions\\VehicleExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-26T16:32:34.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FirstCharSubStringExtensions..cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
+              "RelativeToolTip": "Car Rental.Common\\Extensions\\FirstCharSubStringExtensions..cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-02T16:03:30.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookingExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\BookingExtensions.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Extensions\\BookingExtensions.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Extensions\\BookingExtensions.cs",
+              "RelativeToolTip": "Car Rental.Common\\Extensions\\BookingExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-02T16:25:58.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Car Rental VG\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor",
+              "RelativeToolTip": "Car Rental VG\\Pages\\Index.razor",
+              "ViewState": "AQIAAL0AAAAAAAAAAAD4v8kAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2023-10-18T16:24:06.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BookingProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Classes\\BookingProcessor.cs",
+              "RelativeDocumentMoniker": "Car Rental.Business\\Classes\\BookingProcessor.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Classes\\BookingProcessor.cs",
+              "RelativeToolTip": "Car Rental.Business\\Classes\\BookingProcessor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHYAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Car Rental.Business.csproj",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
+              "RelativeDocumentMoniker": "Car Rental.Business\\Car Rental.Business.csproj",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
+              "RelativeToolTip": "Car Rental.Business\\Car Rental.Business.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-02-21T07:53:18.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.razor.css",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor.css",
+              "RelativeDocumentMoniker": "Car Rental VG\\Pages\\Index.razor.css",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Pages\\Index.razor.css",
+              "RelativeToolTip": "Car Rental VG\\Pages\\Index.razor.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2023-10-18T16:24:06.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Car Rental.Data.csproj",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
+              "RelativeDocumentMoniker": "Car Rental.Data\\Car Rental.Data.csproj",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
+              "RelativeToolTip": "Car Rental.Data\\Car Rental.Data.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-10-18T16:24:06.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Car Rental VG.csproj",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Car Rental VG.csproj",
+              "RelativeDocumentMoniker": "Car Rental VG\\Car Rental VG.csproj",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Car Rental VG.csproj",
+              "RelativeToolTip": "Car Rental VG\\Car Rental VG.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-10-18T16:24:06.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Car Rental.Common.csproj",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Car Rental.Common.csproj",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
+              "RelativeToolTip": "Car Rental.Common\\Car Rental.Common.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2023-10-22T08:15:12.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Vehicle.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Vehicle.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Vehicle.cs",
+              "RelativeToolTip": "Car Rental.Common\\Classes\\Vehicle.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAIBQwAwAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BookingStatuses.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\BookingStatuses.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Enums\\BookingStatuses.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\BookingStatuses.cs",
+              "RelativeToolTip": "Car Rental.Common\\Enums\\BookingStatuses.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T19:13:33.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "VehicleStatuses.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleStatuses.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Enums\\VehicleStatuses.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleStatuses.cs",
+              "RelativeToolTip": "Car Rental.Common\\Enums\\VehicleStatuses.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T19:15:51.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "VehicleTypes.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleTypes.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Enums\\VehicleTypes.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Enums\\VehicleTypes.cs",
+              "RelativeToolTip": "Car Rental.Common\\Enums\\VehicleTypes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T19:15:50.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Booking.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Booking.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Booking.cs",
+              "RelativeToolTip": "Car Rental.Common\\Classes\\Booking.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAqwBMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Customer.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Customer.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Customer.cs",
+              "RelativeToolTip": "Car Rental.Common\\Classes\\Customer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Motorcycle.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Motorcycle.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Motorcycle.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Motorcycle.cs",
+              "RelativeToolTip": "Car Rental.Common\\Classes\\Motorcycle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Car.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Classes\\Car.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Classes\\Car.cs",
+              "RelativeToolTip": "Car Rental.Common\\Classes\\Car.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "Car Rental VG\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\index.html",
+              "RelativeToolTip": "Car Rental VG\\wwwroot\\index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2023-10-29T09:55:32.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Program.cs",
+              "RelativeDocumentMoniker": "Car Rental VG\\Program.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Program.cs",
+              "RelativeToolTip": "Car Rental VG\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IVehicle.cs",
+              "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Interfaces\\IVehicle.cs",
+              "RelativeDocumentMoniker": "Car Rental.Common\\Interfaces\\IVehicle.cs",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Interfaces\\IVehicle.cs",
+              "RelativeToolTip": "Car Rental.Common\\Interfaces\\IVehicle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T16:24:06.505Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -444,7 +467,8 @@
               "RelativeToolTip": "Car Rental VG\\Shared\\MainLayout.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-10-29T09:38:16.811Z"
+              "WhenOpened": "2023-10-29T09:38:16.811Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -454,20 +478,22 @@
               "RelativeDocumentMoniker": "Car Rental VG\\Shared\\MainLayout.razor.css",
               "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\Shared\\MainLayout.razor.css",
               "RelativeToolTip": "Car Rental VG\\Shared\\MainLayout.razor.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2023-11-07T21:06:01.662Z"
+              "WhenOpened": "2023-11-07T21:06:01.662Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
-              "Title": "favicon.png",
+              "Title": "favicon.png - PNG [32x32, 32 bit, PNG]",
               "DocumentMoniker": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\favicon.png",
               "RelativeDocumentMoniker": "Car Rental VG\\wwwroot\\favicon.png",
-              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\favicon.png",
-              "RelativeToolTip": "Car Rental VG\\wwwroot\\favicon.png",
+              "ToolTip": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental VG\\wwwroot\\favicon.png - PNG [32x32, 32 bit, PNG]",
+              "RelativeToolTip": "Car Rental VG\\wwwroot\\favicon.png - PNG [32x32, 32 bit, PNG]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2023-11-03T22:12:42.72Z"
+              "WhenOpened": "2023-11-03T22:12:42.72Z",
+              "EditorCaption": " - PNG [32x32, 32 bit, PNG]"
             },
             {
               "$type": "Document",
@@ -479,7 +505,8 @@
               "RelativeToolTip": "Car Rental VG\\App.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-10-29T09:59:52.724Z"
+              "WhenOpened": "2023-10-29T09:59:52.724Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -491,7 +518,8 @@
               "RelativeToolTip": "Car Rental VG\\_Imports.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2023-10-29T09:59:48.83Z"
+              "WhenOpened": "2023-10-29T09:59:48.83Z",
+              "EditorCaption": ""
             }
           ]
         }
