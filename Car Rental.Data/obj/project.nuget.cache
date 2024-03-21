@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TKLDDf4khvfMcNgpMMouy8SSRdJX6Y2TNgNLHbycTuLtRv9Ciqf4lLB92SibuvmgvgITknsZeucNrDWH+XxbJA==",
+  "dgSpecHash": "UJE5U8QG6KWmS6Hwet6mQ+X5hQZ0q0b/lgywiZ7lKX+R79tYcxsmZZiAHGjBAiddOb7WnoY51s4sfqiT3AYP5Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Tomas\\.nuget\\packages\\publishspaforgithubpages.build\\2.1.1\\publishspaforgithubpages.build.2.1.1.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

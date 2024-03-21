@@ -51,12 +51,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "PublishSPAforGitHubPages.Build": {
-              "target": "Package",
-              "version": "[2.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -117,12 +111,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "PublishSPAforGitHubPages.Build": {
-              "target": "Package",
-              "version": "[2.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -187,12 +175,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "PublishSPAforGitHubPages.Build": {
-              "target": "Package",
-              "version": "[2.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

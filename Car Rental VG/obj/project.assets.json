@@ -438,12 +438,6 @@
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
         }
       },
-      "PublishSPAforGitHubPages.Build/2.1.1": {
-        "type": "package",
-        "build": {
-          "build/PublishSPAforGitHubPages.Build.targets": {}
-        }
-      },
       "System.IO.Pipelines/7.0.0": {
         "type": "package",
         "compile": {
@@ -506,8 +500,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Car Rental.Common": "1.0.0",
-          "Car Rental.Data": "1.0.0",
-          "PublishSPAforGitHubPages.Build": "2.1.1"
+          "Car Rental.Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Car Rental.Business.dll": {}
@@ -519,9 +512,6 @@
       "Car Rental.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "PublishSPAforGitHubPages.Build": "2.1.1"
-        },
         "compile": {
           "bin/placeholder/Car Rental.Common.dll": {}
         },
@@ -533,8 +523,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Car Rental.Common": "1.0.0",
-          "PublishSPAforGitHubPages.Build": "2.1.1"
+          "Car Rental.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Car Rental.Data.dll": {}
@@ -981,12 +970,6 @@
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
         }
       },
-      "PublishSPAforGitHubPages.Build/2.1.1": {
-        "type": "package",
-        "build": {
-          "build/PublishSPAforGitHubPages.Build.targets": {}
-        }
-      },
       "System.IO.Pipelines/7.0.0": {
         "type": "package",
         "compile": {
@@ -1043,8 +1026,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Car Rental.Common": "1.0.0",
-          "Car Rental.Data": "1.0.0",
-          "PublishSPAforGitHubPages.Build": "2.1.1"
+          "Car Rental.Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Car Rental.Business.dll": {}
@@ -1056,9 +1038,6 @@
       "Car Rental.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "PublishSPAforGitHubPages.Build": "2.1.1"
-        },
         "compile": {
           "bin/placeholder/Car Rental.Common.dll": {}
         },
@@ -1070,8 +1049,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Car Rental.Common": "1.0.0",
-          "PublishSPAforGitHubPages.Build": "2.1.1"
+          "Car Rental.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Car Rental.Data.dll": {}
@@ -1913,32 +1891,6 @@
         "tools/net8.0/System.Windows.Extensions.dll"
       ]
     },
-    "PublishSPAforGitHubPages.Build/2.1.1": {
-      "sha512": "qqRh3kJTKz6B1RWPNqrhZk+CkEwHXENR6RxlIngwc/DWA36A9FuAHB/egiVnWSnYi4h+LdaUpkZaDpx7Uiv6XQ==",
-      "type": "package",
-      "path": "publishspaforgithubpages.build/2.1.1",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "build/PublishSPAforGitHubPages.Build.targets",
-        "bundle/scripts/brotliloader.js",
-        "bundle/scripts/brotliloader.min.js",
-        "bundle/scripts/decode.js",
-        "bundle/scripts/decode.min.js",
-        "nupkg-icon.png",
-        "publishspaforgithubpages.build.2.1.1.nupkg.sha512",
-        "publishspaforgithubpages.build.nuspec",
-        "tools/Brotli.Core.dll",
-        "tools/PublishSPAforGitHubPages.Build.dll",
-        "tools/runtimes/linux/native/brolib_x64.so",
-        "tools/runtimes/linux/native/brolib_x86.so",
-        "tools/runtimes/osx/native/brolib_x64.dylib",
-        "tools/runtimes/win/native/brolib_x64.dll",
-        "tools/runtimes/win/native/brolib_x86.dll"
-      ]
-    },
     "System.IO.Pipelines/7.0.0": {
       "sha512": "jRn6JYnNPW6xgQazROBLSfpdoczRw694vO5kKvMcNnpXuolEixUyw6IBuBs2Y2mlSX/LdLvyyWmfXhaI3ND1Yg==",
       "type": "package",
@@ -2091,8 +2043,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 7.0.12",
       "Microsoft.NET.ILLink.Analyzers >= 7.0.100-1.23211.1",
       "Microsoft.NET.ILLink.Tasks >= 7.0.100-1.23211.1",
-      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.3",
-      "PublishSPAforGitHubPages.Build >= 2.1.1"
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.3"
     ]
   },
   "packageFolders": {
@@ -2169,10 +2120,6 @@
             "target": "Package",
             "version": "[8.0.3, )",
             "autoReferenced": true
-          },
-          "PublishSPAforGitHubPages.Build": {
-            "target": "Package",
-            "version": "[2.1.1, )"
           }
         },
         "imports": [

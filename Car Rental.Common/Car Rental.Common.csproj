@@ -5,7 +5,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.1.1" />
-  </ItemGroup>
 </Project>
