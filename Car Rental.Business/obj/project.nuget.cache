@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tb/YnkJCHc80fnCVLVapyNKPfDFy9+ojd93x3qIOqXknZ76rRLPEHI03QIqD72P6LhKBBiZ8HJFNuiu8x00vuA==",
+  "dgSpecHash": "POuJxiBOMFNC2+eDIUpEtFUiDcbaP26XPvwxbvbRpRZbNXATZWyC2eKVAhBRcriRW3rrR2mgVfNk0bntO62h0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Business\\Car Rental.Business.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tomas\\.nuget\\packages\\publishspaforgithubpages.build\\2.1.1\\publishspaforgithubpages.build.2.1.1.nupkg.sha512"
+  ],
   "logs": []
 }

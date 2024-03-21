@@ -2,9 +2,18 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "PublishSPAforGitHubPages.Build/2.1.1": {
+        "type": "package",
+        "build": {
+          "build/PublishSPAforGitHubPages.Build.targets": {}
+        }
+      },
       "Car Rental.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "PublishSPAforGitHubPages.Build": "2.1.1"
+        },
         "compile": {
           "bin/placeholder/Car Rental.Common.dll": {}
         },
@@ -16,7 +25,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Car Rental.Common": "1.0.0"
+          "Car Rental.Common": "1.0.0",
+          "PublishSPAforGitHubPages.Build": "2.1.1"
         },
         "compile": {
           "bin/placeholder/Car Rental.Data.dll": {}
@@ -28,6 +38,32 @@
     }
   },
   "libraries": {
+    "PublishSPAforGitHubPages.Build/2.1.1": {
+      "sha512": "qqRh3kJTKz6B1RWPNqrhZk+CkEwHXENR6RxlIngwc/DWA36A9FuAHB/egiVnWSnYi4h+LdaUpkZaDpx7Uiv6XQ==",
+      "type": "package",
+      "path": "publishspaforgithubpages.build/2.1.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/PublishSPAforGitHubPages.Build.targets",
+        "bundle/scripts/brotliloader.js",
+        "bundle/scripts/brotliloader.min.js",
+        "bundle/scripts/decode.js",
+        "bundle/scripts/decode.min.js",
+        "nupkg-icon.png",
+        "publishspaforgithubpages.build.2.1.1.nupkg.sha512",
+        "publishspaforgithubpages.build.nuspec",
+        "tools/Brotli.Core.dll",
+        "tools/PublishSPAforGitHubPages.Build.dll",
+        "tools/runtimes/linux/native/brolib_x64.so",
+        "tools/runtimes/linux/native/brolib_x86.so",
+        "tools/runtimes/osx/native/brolib_x64.dylib",
+        "tools/runtimes/win/native/brolib_x64.dll",
+        "tools/runtimes/win/native/brolib_x86.dll"
+      ]
+    },
     "Car Rental.Common/1.0.0": {
       "type": "project",
       "path": "../Car Rental.Common/Car Rental.Common.csproj",
@@ -42,7 +78,8 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Car Rental.Common >= 1.0.0",
-      "Car Rental.Data >= 1.0.0"
+      "Car Rental.Data >= 1.0.0",
+      "PublishSPAforGitHubPages.Build >= 2.1.1"
     ]
   },
   "packageFolders": {
@@ -95,6 +132,12 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
+        "dependencies": {
+          "PublishSPAforGitHubPages.Build": {
+            "target": "Package",
+            "version": "[2.1.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -111,7 +154,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
