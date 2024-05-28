@@ -5,13 +5,16 @@ using Car_Rental.Common.Interfaces;
 using Car_Rental.Data.Interfaces;
 using System.Linq.Expressions;
 using System.Reflection;
+
 namespace Car_Rental.Data.Classes;
+
 public class CollectionData : IData
 {
 	// Listor som man hämtar och skickar data till av de olika interfacen.
-	readonly List<IPerson> _persons = new();
-	readonly List<IVehicle> _vehicles = new();
-	readonly List<IBooking> _bookings = new();
+	private readonly List<IPerson> _persons = new();
+
+	private readonly List<IVehicle> _vehicles = new();
+	private readonly List<IBooking> _bookings = new();
 	/* Properties vars syfte är att ge unika idn till objektet
 	   man lägger till någon av listorna. */
 	public int NextPersonId => _persons.Count.Equals(0) ? 1 : _persons.Max(x => x.Id) + 1;
@@ -19,10 +22,13 @@ public class CollectionData : IData
 	public int NextBookingId => _bookings.Count.Equals(0) ? 1 : _bookings.Max(x => x.Id) + 1;
 	/* Skapar man en instans av CollectionData
 	   anropas metoden SeedData. */
+
 	public CollectionData() => SeedData();
-	/* Metoden SeedData lägger till data till 
+
+	/* Metoden SeedData lägger till data till
 	 tidigare nämnda listor. */
-	void SeedData()
+
+	private void SeedData()
 	{
 		_persons.Add(new Customer(NextPersonId, 12345, "Doe", "John"));
 		_persons.Add(new Customer(NextPersonId, 98765, "Doe", "Jane"));
@@ -40,9 +46,11 @@ public class CollectionData : IData
 		_bookings[1].ReturnVehicle(_vehicles[3])
 	   .ReturnVehicleStatus(_vehicles[3], _bookings[1], (double)_bookings[1].KmReturned!);
 	}
-	/* En generisk metod som använder refelections för att
-	   returnera en lista som överenstämmer med datatypen samt det 
+
+	/* En generisk metod som använder reflections för att
+	   returnera en lista som överensstämmer med data typ samt det
 	   man filtrerar. */
+
 	public List<T> Get<T>(Expression<Func<T, bool>>? expression) where T : class
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
@@ -53,9 +61,11 @@ public class CollectionData : IData
 		if (expression is null) return collection.ToList();
 		return collection.Where(expression).ToList();
 	}
-	/* En generisk metod som använder refelections för att
-	   returnera ett objekt som överenstämmer med datatypen samt det 
+
+	/* En generisk metod som använder reflections för att
+	   returnera ett objekt som överensstämmer med data typ samt det
 	   man filtrerar. */
+
 	public T? Single<T>(Expression<Func<T, bool>>? expression) where T : class
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
@@ -67,8 +77,10 @@ public class CollectionData : IData
 		var item = collection.SingleOrDefault(expression);
 		return item ?? throw new ArgumentNullException();
 	}
-	/* En generisk metod som använder refelections för att
-	   lägga till ett objekt till en lista som överenstämmer med datatypen. */
+
+	/* En generisk metod som använder reflections för att
+	   lägga till ett objekt till en lista som överensstämmer med data typen. */
+
 	public void Add<T>(T item) where T : class
 	{
 		var collections = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
@@ -77,9 +89,11 @@ public class CollectionData : IData
 		var value = collections.GetValue(this) ?? throw new InvalidDataException();
 		var collection = (List<T>)value;
 		collection.Add(item);
-	}	
+	}
+
 	/* En asynkron metod som används för att hyra ett fordon.
 	   För att därmed kunna lägga till en ny bokning. */
+
 	public async Task<List<IBooking>> RentVehicle(IVehicle vehicle, IPerson person)
 	{
 		var _vehicle = _vehicles.FirstOrDefault(v => v.Equals(vehicle)) ?? throw new ArgumentNullException();
@@ -92,15 +106,16 @@ public class CollectionData : IData
 		_bookings.Add(booking);
 		return _bookings;
 	}
+
 	// Metod som används för att återlämna ett fordon.
 	public IBooking ReturnVehicle(IVehicle vehicle, double distance, int days)
 	{
 		var _vehicle = _vehicles.FirstOrDefault(v => v.Equals(vehicle)) ?? throw new ArgumentNullException();
 		var booking = _bookings.LastOrDefault(b => b.RegNo.Equals(_vehicle.RegNo)
-		&& b.KmReneted.Equals(vehicle.OdoMeter)) ?? throw new ArgumentNullException();
+		&& b.KmRented.Equals(vehicle.OdoMeter)) ?? throw new ArgumentNullException();
 		var kmReturned = _vehicle.OdoMeter + distance;
-		var km = kmReturned - booking.KmReneted;
-		booking.Reneted.Duration(days, booking, _vehicle)
+		var km = kmReturned - booking.KmRented;
+		booking.Rented.Duration(days, booking, _vehicle)
 			.CalculateCost(_vehicle, km)
 			.SetBookingValues(booking, kmReturned).
 			ReturnVehicleStatus(_vehicle, booking, kmReturned);

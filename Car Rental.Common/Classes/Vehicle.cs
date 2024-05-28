@@ -7,7 +7,7 @@ public class Vehicle : IVehicle
 	public string RegNo { get; init; }
 	public string Make { get; init; }
 	public double OdoMeter { get; set; }
-	public double CostPerKm { get; init; }	
+	public double CostPerKm { get; init; }
 	public double CostPerDay { get; init; }
 	public DateTime VehicleLastReneted { get; set; } = DateTime.Now;
 	public VehicleTypes VehicleType { get; init; }

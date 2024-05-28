@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UJE5U8QG6KWmS6Hwet6mQ+X5hQZ0q0b/lgywiZ7lKX+R79tYcxsmZZiAHGjBAiddOb7WnoY51s4sfqiT3AYP5Q==",
+  "dgSpecHash": "2j/hEwuZ7uTfjmXK5IQd+w9RMGEK2L3jSIB+R76cSDQYjjlkcQeKFRV20lzHt42jgUx7NIERdtDd09pEhznKpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
+  "projectFilePath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car-Rental Assignment-VG\\Car Rental.Data\\Car Rental.Data.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

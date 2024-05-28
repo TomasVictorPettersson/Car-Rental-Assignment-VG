@@ -6,7 +6,7 @@
 @inject BookingProcessor bp;
 <PageTitle>Car Rental Assignment - VG</PageTitle>
 <h1 style="margin-left : -1%">Car Rental Assignment - VG</h1>
-@*OM b.Message INTE är tomt så visas ett felmeddelande i gränsnittet
+@*OM b.Message INTE är tomt så visas ett felmeddelande i gränssnittet
   som är bunden till en specifik inläst bokning från SeedData metoden i CollectionData. *@
 @foreach (var b in bp.GetBookings())
 {
@@ -17,7 +17,7 @@
 		</div>
 	}
 }
-@*OM bp.Message INTE är tomt så visas ett felmeddelande i gränsnittet
+@*OM bp.Message INTE är tomt så visas ett felmeddelande i gränssnittet
   som är bunden till en specifik bokning, fordon eller kund. *@
 @if (bp.Message.Length > 0)
 {
@@ -187,12 +187,12 @@
 			<tr>
 				<th>RegNo</th>
 				<th>Customer</th>
-				<th>Km Reneted</th>
+				<th>Km Rented</th>
 				<th>Km Returned</th>
-				<th>Reneted</th>
+				<th>Rented</th>
 				<th>Returned</th>
 				<th>Cost</th>
-				<th>Status</th>			
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -201,9 +201,9 @@
 				<tr>
 					<td><strong>@b.RegNo</strong> </td>
 					<td>@b.Customer</td>
-					<td>@b.KmReneted</td>
+					<td>@b.KmRented</td>
 					<td>@b.KmReturned</td>
-					<td>@b.Reneted.ToString("d")</td>
+					<td>@b.Rented.ToString("d")</td>
 					<td>
 						@if (b.Returned != default)
 						{
@@ -224,7 +224,7 @@
 						{
 							<span class="badge bg-pill bg-danger">Open</span>
 						}
-					</td>					
+					</td>
 				</tr>
 			}
 		</tbody>

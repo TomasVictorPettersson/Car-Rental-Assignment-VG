@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
+      "projectUniqueName": "C:\\Users\\Tomas\\Documents\\GitHub\\Car-Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
       "projectName": "Car Rental.Common",
-      "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
+      "projectPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car-Rental Assignment-VG\\Car Rental.Common\\Car Rental.Common.csproj",
       "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car Rental Assignment-VG\\Car Rental.Common\\obj\\",
+      "outputPath": "C:\\Users\\Tomas\\Documents\\GitHub\\Car-Rental Assignment-VG\\Car Rental.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
       }
     }
   }
